@@ -13,6 +13,7 @@
             background-image: url('https://example.com/ww2_texture.jpg'); /* Replace with actual texture */
             background-size: cover;
             color: #333; /* Dark grey text */
+            position: relative;
         }
         h3, h4 {
             margin-bottom: 10px;
@@ -46,40 +47,179 @@
         a:hover {
             text-decoration: underline;
         }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 45%;
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            margin-right: 10px;
+            float: left;
+        }
+        .contact {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+    <!-- Logo Image -->
+    <img src="images/ADLS_Letterhead Flag Logo 2_edited.png.webp" alt="Logo" class="logo">
+
     <h3>Gerfalcon: A 96-Year-Old Hero of Dunkirk and Royal Navy Patrol Vessel</h3>
 
     <h4>Gerfalcon: A Storied Vessel</h4>
 
-    <p>Gerfalcon, built in 1937 by William Osborne of Littlehampton, is a 34-foot motor yacht renowned for its rich history and robust construction. Initially a private leisure craft, Gerfalcon was requisitioned by the Royal Navy in June 1940 for the Dunkirk evacuation. Post-war, it changed hands several times and was meticulously restored by its current owner, participating in significant events like the Queen's Diamond Jubilee Pageant in 2012<span class="source">[25†source]</span>.</p>
+    <p>Gerfalcon, built in 1937 by William Osborne of Littlehampton, is a 34-foot motor yacht renowned for its rich history and robust construction. Initially a private leisure craft, Gerfalcon was requisitioned by the Royal Navy in June 1940 for the Dunkirk evacuation. Post-war, it changed hands several times and has undergone several restorations, participating in significant events like the Queen's Diamond Jubilee Pageant in 2012<span class="source">[25†source]</span>.</p>
+
+    <!-- Gallery for Gerfalcon: A Storied Vessel -->
+    <div class="gallery" id="gerfalcon-vessel-gallery">
+        <img src="images/2233_GERFALCON_3.jpg" alt="Gerfalcon" />
+        <img src="images/Gerfalcon.jpg" alt="Gerfalcon" />
+        <img src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp" alt="Gerfalcon" />
+    </div>
 
     <h4>Operation Dynamo: Gerfalcon's Role as a Little Dunkirk Ship</h4>
 
-    <p>Operation Dynamo, also known as the Miracle of Dunkirk, saw over 338,000 Allied soldiers evacuated from the beaches of Dunkirk, France, between 26 May and 4 June 1940. Among these heroic vessels was Gerfalcon, a motor yacht built in 1937. As a designated Dunkirk Little Ship, Gerfalcon played a crucial role in ferrying soldiers from the beaches to larger ships waiting offshore. This effort epitomised the "Spirit of Dunkirk," symbolising bravery and resilience during one of World War II’s most critical moments<span class="source">[18†source][19†source][20†source]</span>.</p>
+    <p>Operation Dynamo, also known as the Miracle of Dunkirk, saw over 338,000 Allied soldiers evacuated from the beaches of Dunkirk, France, between 26 May and 4 June 1940. Among these heroic vessels was Gerfalcon, a motor yacht built in 1937. As a designated Dunkirk Little Ship, Gerfalcon played a crucial role in ferrying soldiers from the beaches to larger ships waiting offshore. This effort epitomised the "Spirit of Dunkirk," symbolising bravery and resilience during one of World War II’s most critical moments.</p>
 
     <h4>Gerfalcon as a Historic Ship</h4>
 
-    <p>Gerfalcon, a 34-foot motor yacht with a sturdy mahogany on oak hull, has been meticulously maintained to preserve its design and wartime heritage. Recognised on the historic ships register, Gerfalcon continues to capture the imagination of history enthusiasts. Its preservation provides a tangible link to the past, commemorating its significant contribution during the Dunkirk evacuation<span class="source">[21†source][25†source]</span>.</p>
+    <p>Gerfalcon, a 34-foot motor yacht with a mahogany on oak hull, has been meticulously maintained to preserve its design and wartime heritage. Recognised on the historic ships register, Gerfalcon continues to capture the imagination of history enthusiasts. Its preservation provides a tangible link to the past, commemorating its significant contribution during the Dunkirk evacuation<span class="source">[21†source][25†source]</span>.</p>
+
+
 
     <h4>Restoration Needs: Gerfalcon's Current Condition</h4>
 
     <p>In recent years, Gerfalcon has not weathered well and requires significant restoration work to preserve its historic integrity. The vessel, despite meticulous previous efforts, now shows signs of wear and deterioration that necessitate careful attention. This restoration work will ensure that Gerfalcon continues to stand as a testament to its wartime service and maritime heritage, safeguarding its legacy for future generations.</p>
+    
+    <!-- Gallery for Gerfalcon's Current Condition -->
+    <div class="gallery" id="gerfalcon-condition-gallery">
+        <img src="images/gerfalcon_condition_1.jpeg" alt="Gerfalcon Condition" />
+        <img src="images/gerfalcon_condition_2.jpeg" alt="Gerfalcon Condition" />
+        <img src="images/gerfalcon_condition_3.jpeg" alt="Gerfalcon Condition" />
+        <img src="images/gerfalcon_condition_4.jpeg" alt="Gerfalcon Condition" />
+    </div>
 
+
+
+    <h4>Gerfalcon as she is now</h4>
+
+    <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition:</p>
+
+    <!-- Gallery for Gerfalcon as she is now -->
+    <div class="gallery" id="gerfalcon-now-gallery">
+        <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/2-1-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/3-1-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/4-1-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7648-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7649-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7650-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7651-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7652-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7653-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7655-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7656-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7657-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7658-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7659-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7660-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7661-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7662-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7663-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7664-scaled.jpg" alt="Gerfalcon Now" />
+        <img src="images/broker/IMG_7665-2-scaled.jpg" alt="Gerfalcon Now" />
+    </div>
+
+    <h4>The brokerage</h4>
+
+    <p>The ship excahnged hands on 8th July 2024 via the Broke Holland and Dean in Essex. The adverts are shown below:</p>
+    <!-- Gallery for Gerfalcon as she is now -->
+    <div class="gallery" id="gerfalcon-broker-ads">
+        <img src="images/deanandholland.com_product_3750_.png" alt="Gerfalcon Now"  class="profile-img"/>
+        <img src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png" alt="Gerfalcon Now"  class="profile-img"/>
+    </div>
+
+    <h4>Owners of Gerfalcon</h4>
+
+    <p>The boat was ordered for recreational use by Royal Navy Commander Valentine Searles-Wood of Waterlooville, Hampshire. Gerfalcon is now privately owned for recreational use by Lieutenant (VCC) Gary Fletcher RN and is currently laid up in Essex where she will be taken out of the water, surveyed and remedial works undertaken to get her back to her former glory. Lt Fletcher hopes to return the boat to Hampshire, Gosport once seaworthy.</p>
+
+    <!-- Profile Image and Short Biography for Commander Valentine Searles-Wood -->
+    <div>
+        <img src="images/89385_xl.jpg" alt="Commander Valentine Searles-Wood" class="profile-img">
+        <h5>Commander Valentine Searles-Wood Royal Navy</h5>
+        <p>Commander Valentine Searles-Wood Royal Navy was born on 23rd June 1892. He served as an officer in the Royal Navy during WW1, being the commander of HMS Harpy on 5th November 1918. He rose to the rank of Lieutenant Commander on 15th April 1923, placed on the retired list with rank of commander on 20th August 1935. When WW2 broke out, he was called back into service and commanded 25 group of anti-submarine trawlers from 12th to 23rd October 1939, after this he was placed in command of the armed yacht St Modwen. He reverted to the retired list on 13th February 1940. His death was recorded at Blandford Forum in April 1943.</p>
+    </div>
+
+    <!-- Profile Image and Short Biography for Lieutenant Gary Fletcher -->
+    <div>
+        <img src="images/Lt_VCC_Gary_Fletcher_RN.jpg" alt="Lieutenant Gary Fletcher" class="profile-img">
+        <h5>Lieutenant (VCC) Gary Fletcher RN</h5>
+        <p>Gary is deeply committed to volunteering and coaching and has achieved significant milestones many areas but particulalry working in the martime research environment and in Paddlesports, including solo crossings of the English Channel and leading Arctic expeditions. As VCC Deputy Commander, Gary's experience includes a Teaching and Research Fellowship at Imperial College London. His professional background spans technology consultancy roles for central government and global deployments, such as Diego Garcia and Buckingham Palace, showcasing his diverse expertise and dedication.</p>
+    </div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
     <h4>Why We will restore Gerfalcon in Its Royal Navy Patrol Boat Colours</h4>
 
-    <p>After its valiant service at Dunkirk, Gerfalcon was immediately conscripted into the Royal Navy, serving as a patrol auxiliary vessel. Although its tenure with the Royal Navy was brief, lasting only from June to August, this period remains a significant chapter in its storied history. The decision to restore Gerfalcon in its Royal Navy patrol boat colours is grounded in several compelling reasons:</p>
+    <p>After its valiant service at Dunkirk, Gerfalcon was immediately conscripted into the Royal Navy, serving as a patrol auxiliary vessel. Although its tenure with the Royal Navy was brief, lasting only from June to August 1940, this period remains a significant chapter in its storied history. The decision to restore Gerfalcon in its Royal Navy patrol boat colours is grounded in several compelling reasons:</p>
 
     <ol>
         <li><strong>Historical Rarity and Significance:</strong> Despite its short service, there are virtually no remaining vessels that served in this capacity. By preserving Gerfalcon in its Royal Navy colours, we honour a rare and unique aspect of maritime history, offering a glimpse into the less-documented roles that small ships played during the war.</li>
-        <li><strong>Continuation of Legacy:</strong> The previous owners had already shifted Gerfalcon to its Royal Navy colour scheme, recognising its historical value. By maintaining this scheme, we continue their legacy, ensuring that the vessel's full historical narrative is preserved and appreciated by future generations.</li>
-        <li><strong>Commemorative Value:</strong> The Royal Navy colours serve as a tribute to all the vessels and crew members who played vital roles in patrol duties during World War II. It commemorates their service and sacrifices, adding depth to the historical context in which Gerfalcon operated.</li>
+        <li><strong>Continuation of Narrative:</strong> Gerfalcon's journey from a private yacht to a wartime vessel and back to private ownership is a compelling narrative. Restoring it in its wartime livery ensures that the vessel's story is told accurately and respectfully.</li>
+        <li><strong>Symbol of Service and Sacrifice:</strong> The Royal Navy colours serve as a tribute to all the vessels and crew members who played vital roles in patrol duties during World War II. It commemorates their service and sacrifices, adding depth to the historical context in which Gerfalcon operated.</li>
         <li><strong>Educational Purpose:</strong> Restoring Gerfalcon in its patrol boat colours enhances its educational value. It allows us to tell a more comprehensive story of the vessel's service life, from its heroic deeds at Dunkirk to its subsequent role in the Royal Navy, providing a richer experience for those who encounter this historic ship.</li>
     </ol>
 
     <p>By keeping Gerfalcon in its Royal Navy patrol boat colours, we ensure that its complete story is preserved and honoured, celebrating not only its contribution to Operation Dynamo but also its service in the Royal Navy. This decision is a homage to the ship's multifaceted history and a commitment to preserving our maritime heritage for future generations to appreciate.</p>
 
-    <p>For more information on Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a>.</p>
+
+    <!-- Gallery for Royal Navy Auxiliary Patrol Boat Colours -->
+    <div class="gallery" id="patrol-gallery">
+        <img src="images/Royal_NavalAuxillary_Patrol_1.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_2.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_3.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_4.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_5.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_6.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_7.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_8.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_9.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_10.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_11.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_12.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_13.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_14.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_15.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_16.png" alt="Royal Navy Patrol Boat Colours" />
+        <img src="images/Royal_NavalAuxillary_Patrol_17.png" alt="Royal Navy Patrol Boat Colours" />
+    </div>
+
+
+
+    <div class="contact">
+        <h4>Contact and More Information</h4>
+        <p>Welcome to contact for any questions or interest directed to the new Skipper Gary Fletcher <a href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a>. For more information on Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank" rel="noopener noreferrer">National Historic Ships</a>.</p>
+    </div>
+
 </body>
 </html>
