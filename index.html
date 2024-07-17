@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +8,65 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-                font-family: "Baskervville SC", serif;
+            font-family: "Baskervville SC", serif;
             font-weight: 400;
             font-style: normal;
 
             background-image: url('images/thumb-1920-861316.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: cover; /* You can also use contain, or any other value based on your needs */
+            background-size: cover;
+            /* You can also use contain, or any other value based on your needs */
             background-position: center center;
         }
 
         .container-white-alpha {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white */
             padding: 60px 15px;
-            border-radius: 10px; /* Optional: for rounded corners */
-            margin-top: 20px; /* Adjust as needed */
+            border-radius: 10px;
+            /* Optional: for rounded corners */
+            margin-top: 20px;
+            /* Adjust as needed */
         }
 
-        h3, h4 {
-            margin-bottom: 0.625em; /* 10px converted to em */
+        h3,
+        h4 {
+            margin-bottom: 0.625em;
+            /* 10px converted to em */
             color: #333;
         }
 
         h3 {
-            font-size: 1.5em; /* 24px converted to em */
+            font-size: 1.5em;
+            /* 24px converted to em */
             font-weight: bold;
         }
 
         h4 {
-            font-size: 1.25em; /* 20px converted to em */
+            font-size: 1.25em;
+            /* 20px converted to em */
             font-weight: bold;
         }
 
         p {
-            font-size: 1.125em; /* 18px converted to em */
+            font-size: 1.125em;
+            /* 18px converted to em */
         }
 
         .source {
-            font-size: 0.8em; /* This remains the same */
+            font-size: 0.8em;
+            /* This remains the same */
         }
 
         ol {
-            margin-left: 1.25em; /* 20px converted to em */
+            margin-left: 1.25em;
+            /* 20px converted to em */
         }
 
         li {
-            font-size: 1em; /* 16px converted to em */
+            font-size: 1em;
+            /* 16px converted to em */
             line-height: 1.6;
         }
 
@@ -61,18 +74,22 @@
             color: #0066cc;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .logo {
             width: 150px;
         }
+
         .gallery img {
             width: 100%;
             max-width: 300px;
             border: 2px solid #ccc;
             border-radius: 5px;
         }
+
         .profile-img {
             width: 150px;
             border-radius: 50%;
@@ -84,6 +101,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Top Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -117,57 +135,69 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="jumbotron jumbotron-fluid" style="background-image: url('images/dunkirk-evacuation.jpg'); background-size: cover; height: 400px; color: white;">
+    <div class="jumbotron jumbotron-fluid"
+        style="background-image: url('images/dunkirk-evacuation.jpg'); background-size: cover; height: 450px; color: white;">
         <div class="container text-center">
             <h1 class="display-4">Gerfalcon: A 96-Year-Old Hero of Dunkirk and Royal Navy Patrol Vessel</h1>
         </div>
     </div>
 
     <!-- Main Content -->
-<div class="container container-white-alpha">
-    <div class="row">
-        <div class="col-md-8">
-            <h4>Gerfalcon: A Storied Vessel</h4>
-            <p>Gerfalcon, built in <a href="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_Ship_Register.jpeg" target="_blank">1937</a> by William Osborne of Littlehampton, is a 34-foot motor yacht renowned for its rich history and robust construction. Initially a private leisure craft, Gerfalcon was requisitioned by the Royal Navy in June 1940 for the Dunkirk evacuation. Post-war, it changed hands several times and has undergone several restorations, participating in significant events like the Queen's Diamond Jubilee Pageant in 2012.</p>
-        
-            <!-- Gallery -->
-            <div class="row" id="gerfalcon-vessel-gallery">
-                <div class="col-md-6">
-                    <img src="images/Gerfalcon.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/Gerfalcon.jpg">
-                </div>
-                <div class="col-md-6">
-                    <img src="images/2233_GERFALCON_3.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/2233_GERFALCON_3.jpg">
-                </div>
+    <div class="container container-white-alpha">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Gerfalcon: A Storied Vessel</h4>
+                <p>Gerfalcon, built in <a
+                        href="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_Ship_Register.jpeg"
+                        target="_blank">1937</a> by William Osborne of Littlehampton, is a 34-foot motor yacht renowned
+                    for its rich history and robust construction. Initially a private leisure craft, Gerfalcon was
+                    requisitioned by the Royal Navy in June 1940 for the Dunkirk evacuation. Post-war, it changed hands
+                    several times and has undergone several restorations, participating in significant events like the
+                    Queen's Diamond Jubilee Pageant in 2012.</p>
+
+                <!-- Gallery -->
+                <div class="row" id="gerfalcon-vessel-gallery">
+                    <div class="col-md-6">
+                        <img src="images/Gerfalcon.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/Gerfalcon.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/2233_GERFALCON_3.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/2233_GERFALCON_3.jpg">
+                    </div>
 
 
-</div>                                <p>&nbsp;</p>
+                </div>
+                <p>&nbsp;</p>
 
                 <div class="row" id="gerfalcon-vessel-gallery">
-                <div class="col-md-6">
-                    <img src="images/broker/4-1-scaled.jpg" class="img-fluid" alt="Gerfalcon Now" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
-                </div>
+                    <div class="col-md-6">
+                        <img src="images/broker/4-1-scaled.jpg" class="img-fluid" alt="Gerfalcon Now" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
+                    </div>
 
-                <div class="col-md-6">
-                    <img src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp">
+                    <div class="col-md-6">
+                        <img src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp">
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-        <div class="col-md-4 text-center mb-4" id="donate">
-            <p>&nbsp;</p>
-            <div class="gfm-embed" data-url="https://www.gofundme.com/f/help-restore-gerfalcon-a-dunkirk-little-ship/widget/large?sharesheet=dashboard&attribution_id=sl:3614e5b2-1c71-477e-8074-31d2e7e56f29"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+            <div class="col-md-4 text-center mb-4" id="donate">
+                <p>&nbsp;</p>
+                <div class="gfm-embed"
+                    data-url="https://www.gofundme.com/f/help-restore-gerfalcon-a-dunkirk-little-ship/widget/large?sharesheet=dashboard&attribution_id=sl:3614e5b2-1c71-477e-8074-31d2e7e56f29">
+                </div>
+                <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+            </div>
         </div>
     </div>
-</div>
 
 
 
-           <section class="container container-white-alpha mt-5" id="now">
+    <section class="container container-white-alpha mt-5" id="now">
         <h4>Gerfalcon as she is now</h4>
-        <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition (you can view her last survey <a href="images/" target="_blank">here</a>):</p>
-        
+        <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition (you can view
+            her last survey <a href="images/" target="_blank">here</a>):</p>
+
         <div class="gallery row">
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
                 <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/1-1-scaled.jpg">
@@ -187,544 +217,599 @@
 
 
     <!-- Section with Gallery -->
-<section class="container container-white-alpha mt-5">
+    <section class="container container-white-alpha mt-5">
 
 
 
 
-
-    <div class="row">
-        <div class="col-auto">
-            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
-        </div>
-        <div class="col">
-            <h4>Operation Dynamo: Gerfalcon's Role as a <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Little Dunkirk Ship</a></h4>
-            <p>Operation Dynamo, also known as the Miracle of Dunkirk, saw over 338,000 Allied soldiers evacuated from the beaches of Dunkirk, France, between 26 May and 4 June 1940. Among these heroic vessels was Gerfalcon, a motor yacht built in 1937. As a designated Dunkirk Little Ship, Gerfalcon played a crucial role in ferrying soldiers from the beaches to larger ships waiting offshore. This effort epitomised the "Spirit of Dunkirk," symbolising bravery and resilience during one of World War II’s most critical moments.</p>
-         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-auto">
-            <img src="images/National_Historic_Ship_Gerfalcon.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/National_Historic_Ship_Gerfalcon.jpeg">
-        </div>
-        <div class="col">
-            <h4>Gerfalcon as a <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank" rel="noopener noreferrer">Historic Ship</a></h4>
-            <p>Gerfalcon, a 34-foot motor yacht with a mahogany on oak hull, has been meticulously maintained to preserve its design and wartime heritage. Recognised on the <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank" rel="noopener noreferrer">historic ships register</a>, Gerfalcon continues to capture the imagination of history enthusiasts. Its preservation provides a tangible link to the past, commemorating its significant contribution during the Dunkirk evacuation.</p>
-        </div>
-    </div>
-
-
-</section>
-<section class="container container-white-alpha mt-5">
-
-
-    <h4>Restoration Needs: Gerfalcon's Current Condition</h4>
-    <p>In recent years, Gerfalcon has not weathered well and requires significant restoration work to preserve its historic integrity. The vessel, despite meticulous previous efforts, now shows signs of wear and deterioration that necessitate careful attention. This restoration work will ensure that Gerfalcon continues to stand as a testament to its wartime service and maritime heritage, safeguarding its legacy for future generations.</p>
-    
-    <p>Read her last survey <a href="images/Gerfalcon - Survey.pdf" target="_blank">here</a></p>
-
-    <!-- Gallery for Gerfalcon's Current Condition -->
-    <div class="gallery row" id="gerfalcon-condition-gallery">
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/gerfalcon_condition_1.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_1.jpeg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/gerfalcon_condition_2.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_2.jpeg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/gerfalcon_condition_3.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_3.jpeg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/gerfalcon_condition_4.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_4.jpeg">
-        </div>
-    </div>
-</section>
-
-
-<section class="container container-white-alpha mt-5" id="broker_images">
-    <h4>Broker Images</h4>
-    <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition:</p>
-
-    <!-- Gallery for Gerfalcon as she is now -->
-    <div class="gallery row" id="gerfalcon-now-gallery">
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/1-1-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/2-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/2-1-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/3-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/3-1-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/4-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7648-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7648-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7649-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7649-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7650-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7650-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7651-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7651-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7652-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7652-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7653-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7653-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7655-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7655-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7656-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7656-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7657-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7657-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7658-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7658-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7659-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7659-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7660-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7660-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7661-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7661-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7662-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7662-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7663-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7663-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7664-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7664-scaled.jpg">
-        </div>
-        <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/broker/IMG_7665-2-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7665-2-scaled.jpg">
-        </div>
-    </div>
-
-
-    <h4>The brokerage</h4>
-
-    <p>The ship exchanged hands on 8th July 2024 via the Broker Holland and Dean in Essex. The advertisements are shown below:</p>
-
-    <!-- Gallery for Gerfalcon brokerage -->
-    <div class="gallery row" id="gerfalcon-broker-ads">
-        <div class="col-md-6 mb-3">
-            <img src="images/deanandholland.com_product_3750_.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/deanandholland.com_product_3750_.png">
-        </div>
-        <div class="col-md-6 mb-3">
-            <img src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png">
-        </div>
-    </div>
-
-</section>
-
-
-<section class="container container-white-alpha mt-5">
-    <h4>Owners of Gerfalcon</h4>
-
-    <p>The boat was originally ordered for recreational use by Royal Navy Commander Valentine Searles-Wood of Waterlooville, Hampshire. Gerfalcon is now <u><b>privately owned for recreational use</b></u> by Lieutenant (VCC) Gary Fletcher and is currently laid up in Essex where she will be taken out of the water, surveyed and remedial works undertaken to get her back to her former glory. Lt Fletcher hopes to return the boat to Hampshire, Gosport once seaworthy.</p>
-
-    <!-- Profile Image and Short Biography for Commander Valentine Searles-Wood -->
-    <div class="row mb-4">
-        <div class="col-auto">
-            <img src="images/89385_xl.jpg" alt="Commander Valentine Searles-Wood" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/89385_xl.jpg">
-        </div>
-        <div class="col">
-            <h5>Commander Valentine Searles-Wood Royal Navy</h5>
-            <p>Commander Valentine Searles-Wood Royal Navy was born on 23rd June 1892. He served as an officer in the Royal Navy during WW1, being the commander of HMS Harpy on 5th November 1918. He rose to the rank of Lieutenant Commander on 15th April 1923, placed on the retired list with rank of commander on 20th August 1935. When WW2 broke out, he was called back into service and commanded 25 group of anti-submarine trawlers from 12th to 23rd October 1939, after this he was placed in command of the armed yacht St Modwen. He reverted to the retired list on 13th February 1940. His death was recorded at Blandford Forum in April 1943.</p>
-        </div>
-    </div>
-
-    <!-- Profile Image and Short Biography for Lieutenant Gary Fletcher -->
-    <div class="row mb-4">
-        <div class="col-auto">
-            <img src="images/Lt_VCC_Gary_Fletcher_RN.jpg" alt="Lieutenant Gary Fletcher" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Lt_VCC_Gary_Fletcher_RN.jpg">
-        </div>
-        <div class="col">
-            <h5>Lieutenant (VCC) Gary Fletcher</h5>
-            <p>Gary is a dedicated volunteer and coach with notable achievements in maritime research and paddlesports, including solo crossings of the English Channel and leading Arctic expeditions. As VCC Deputy Commander, he brings extensive experience from his Teaching and Research Fellowship at Imperial College London. His professional background includes technology consultancy for central government and global deployments, such as Diego Garcia and Buckingham Palace, highlighting his diverse expertise and commitment.</p>
-        </div>
-    </div>
-
-<p>Ship registration records:</p>
-
-<!-- Gallery for Owners -->
-<div class="gallery row" id="gerfalcon-broker-ads">
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg" alt="Gerfalcon owners" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg">
-    </div>
-</div>
-
-
-</section>
-
-<section class="container container-white-alpha mt-5" id="history">
-
-    <h4>We will restore Gerfalcon in its Royal Navy Patrol Boat Colours</h4>
-
-    <p>After its valiant service at Dunkirk, Gerfalcon was immediately conscripted into the Royal Navy, serving as a patrol auxiliary vessel. Although its tenure with the Royal Navy was brief, lasting only from June to August 1940, this period remains a significant chapter in its storied history. The decision to restore Gerfalcon in its Royal Navy patrol boat colours is grounded in several compelling reasons:</p>
-
-    <ol>
-        <li><strong>Historical Rarity and Significance:</strong> Despite its short service, there are virtually no remaining vessels that served in this capacity. By preserving Gerfalcon in its Royal Navy colours, we honour a rare and unique aspect of maritime history, offering a glimpse into the less-documented roles that small ships played during the war.</li>
-        <li><strong>Continuation of Narrative:</strong> Gerfalcon's journey from a private yacht to a wartime vessel and back to private ownership is a compelling narrative. Restoring it in its wartime livery ensures that the vessel's story is told accurately and respectfully.</li>
-        <li><strong>Symbol of Service and Sacrifice:</strong> The Royal Navy colours serve as a tribute to all the vessels and crew members who played vital roles in patrol duties during World War II. It commemorates their service and sacrifices, adding depth to the historical context in which Gerfalcon operated.</li>
-        <li><strong>Educational Purpose:</strong> Restoring Gerfalcon in its patrol boat colours enhances its educational value. It allows us to tell a more comprehensive story of the vessel's service life, from its heroic deeds at Dunkirk to its subsequent role in the Royal Navy, providing a richer experience for those who encounter this <a href=""https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank">historic ship</a>.</li>
-    </ol>
-
-    <p>By keeping Gerfalcon in its Royal Navy patrol boat colours, we ensure that its complete story is preserved and honoured, celebrating not only its contribution to Operation Dynamo but also its service in the Royal Navy. This decision is a homage to the ship's multifaceted history and a commitment to preserving our maritime heritage for future generations to appreciate.</p>
-
-<!-- Gallery for Royal Navy Auxiliary Patrol Boat Colours -->
-<div class="gallery row" id="patrol-gallery">
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_1.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_1.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_2.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_2.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_3.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_3.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_4.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_4.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_5.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_5.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_6.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_6.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_7.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_7.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_8.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_8.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_9.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_9.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_10.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_10.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_11.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_11.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_12.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_12.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_13.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_13.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_14.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_14.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_15.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_15.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_16.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_16.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/Royal_NavalAuxillary_Patrol_17.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_17.png">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg">
-    </div>
-</div>
-
-</section>
-
-
-<section>
-    <div class="container container-white-alpha">
-        <div class="row">
-            <div class="col">
-                <h4>Registration records</h4>
-                <div class="gallery" id="gerfalcon-registration-records">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat the above structure for other sections -->
-    </div>
-    <div class="container container-white-alpha">
 
         <div class="row">
+            <div class="col-auto">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
+            </div>
             <div class="col">
-                <h4>Historical ship Register and Dunkirk Little Ships</h4>
-                <div class="gallery" id="gerfalcon-historical-ships">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg">
+                <h4>Operation Dynamo: Gerfalcon's Role as a <a href="https://www.adls.org.uk" target="_blank"
+                        rel="noopener noreferrer">Little Dunkirk Ship</a></h4>
+                <p>Operation Dynamo, also known as the Miracle of Dunkirk, saw over 338,000 Allied soldiers evacuated
+                    from the beaches of Dunkirk, France, between 26 May and 4 June 1940. Among these heroic vessels was
+                    Gerfalcon, a motor yacht built in 1937. As a designated Dunkirk Little Ship, Gerfalcon played a
+                    crucial role in ferrying soldiers from the beaches to larger ships waiting offshore. This effort
+                    epitomised the "Spirit of Dunkirk," symbolising bravery and resilience during one of World War II’s
+                    most critical moments.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
+                <img src="images/National_Historic_Ship_Gerfalcon.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/National_Historic_Ship_Gerfalcon.jpeg">
+            </div>
+            <div class="col">
+                <h4>Gerfalcon as a <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon"
+                        target="_blank" rel="noopener noreferrer">Historic Ship</a></h4>
+                <p>Gerfalcon, a 34-foot motor yacht with a mahogany on oak hull, has been meticulously maintained to
+                    preserve its design and wartime heritage. Recognised on the <a
+                        href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank"
+                        rel="noopener noreferrer">historic ships register</a>, Gerfalcon continues to capture the
+                    imagination of history enthusiasts. Its preservation provides a tangible link to the past,
+                    commemorating its significant contribution during the Dunkirk evacuation.</p>
+            </div>
+        </div>
+
+
+    </section>
+    <section class="container container-white-alpha mt-5">
+
+
+        <h4>Restoration Needs: Gerfalcon's Current Condition</h4>
+        <p>In recent years, Gerfalcon has not weathered well and requires significant restoration work to preserve its
+            historic integrity. The vessel, despite meticulous previous efforts, now shows signs of wear and
+            deterioration that necessitate careful attention. This restoration work will ensure that Gerfalcon continues
+            to stand as a testament to its wartime service and maritime heritage, safeguarding its legacy for future
+            generations.</p>
+
+        <p>Read her last survey <a href="images/Gerfalcon - Survey.pdf" target="_blank">here</a></p>
+
+        <!-- Gallery for Gerfalcon's Current Condition -->
+        <div class="gallery row" id="gerfalcon-condition-gallery">
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_condition_1.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_1.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_condition_2.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_2.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_condition_3.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_3.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_condition_4.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_4.jpeg">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container container-white-alpha mt-5" id="broker_images">
+        <h4>Broker Images</h4>
+        <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition:</p>
+
+        <!-- Gallery for Gerfalcon as she is now -->
+        <div class="gallery row" id="gerfalcon-now-gallery">
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/1-1-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/2-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/2-1-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/3-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/3-1-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/4-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7648-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7648-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7649-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7649-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7650-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7650-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7651-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7651-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7652-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7652-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7653-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7653-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7655-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7655-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7656-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7656-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7657-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7657-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7658-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7658-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7659-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7659-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7660-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7660-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7661-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7661-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7662-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7662-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7663-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7663-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7664-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7664-scaled.jpg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/broker/IMG_7665-2-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7665-2-scaled.jpg">
+            </div>
+        </div>
+
+
+        <h4>The brokerage</h4>
+
+        <p>The ship exchanged hands on 8th July 2024 via the Broker Holland and Dean in Essex. The advertisements are
+            shown below:</p>
+
+        <!-- Gallery for Gerfalcon brokerage -->
+        <div class="gallery row" id="gerfalcon-broker-ads">
+            <div class="col-md-6 mb-3">
+                <img src="images/deanandholland.com_product_3750_.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/deanandholland.com_product_3750_.png">
+            </div>
+            <div class="col-md-6 mb-3">
+                <img src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png">
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container container-white-alpha mt-5">
+        <h4>Owners of Gerfalcon</h4>
+
+        <p>The boat was originally ordered for recreational use by Royal Navy Commander Valentine Searles-Wood of
+            Waterlooville, Hampshire. Gerfalcon is now <u><b>privately owned for recreational use</b></u> by Lieutenant
+            (VCC) Gary Fletcher and is currently laid up in Essex where she will be taken out of the water, surveyed and
+            remedial works undertaken to get her back to her former glory. Lt Fletcher hopes to return the boat to
+            Hampshire, Gosport once seaworthy.</p>
+
+        <!-- Profile Image and Short Biography for Commander Valentine Searles-Wood -->
+        <div class="row mb-4">
+            <div class="col-auto">
+                <img src="images/89385_xl.jpg" alt="Commander Valentine Searles-Wood" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/89385_xl.jpg">
+            </div>
+            <div class="col">
+                <h5>Commander Valentine Searles-Wood Royal Navy</h5>
+                <p>Commander Valentine Searles-Wood Royal Navy was born on 23rd June 1892. He served as an officer in
+                    the Royal Navy during WW1, being the commander of HMS Harpy on 5th November 1918. He rose to the
+                    rank of Lieutenant Commander on 15th April 1923, placed on the retired list with rank of commander
+                    on 20th August 1935. When WW2 broke out, he was called back into service and commanded 25 group of
+                    anti-submarine trawlers from 12th to 23rd October 1939, after this he was placed in command of the
+                    armed yacht St Modwen. He reverted to the retired list on 13th February 1940. His death was recorded
+                    at Blandford Forum in April 1943.</p>
+            </div>
+        </div>
+
+        <!-- Profile Image and Short Biography for Lieutenant Gary Fletcher -->
+        <div class="row mb-4">
+            <div class="col-auto">
+                <img src="images/Lt_VCC_Gary_Fletcher_RN.jpg" alt="Lieutenant Gary Fletcher" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Lt_VCC_Gary_Fletcher_RN.jpg">
+            </div>
+            <div class="col">
+                <h5>Lieutenant (VCC) Gary Fletcher</h5>
+                <p>Gary is a dedicated volunteer and coach with notable achievements in maritime research and
+                    paddlesports, including solo crossings of the English Channel and leading Arctic expeditions. As VCC
+                    Deputy Commander, he brings extensive experience from his Teaching and Research Fellowship at
+                    Imperial College London. His professional background includes technology consultancy for central
+                    government and global deployments, such as Diego Garcia and Buckingham Palace, highlighting his
+                    diverse expertise and commitment.</p>
+            </div>
+        </div>
+
+        <p>Ship registration records:</p>
+
+        <!-- Gallery for Owners -->
+        <div class="gallery row" id="gerfalcon-broker-ads">
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg" alt="Gerfalcon owners" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg">
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="container container-white-alpha mt-5" id="history">
+
+        <h4>We will restore Gerfalcon in its Royal Navy Patrol Boat Colours</h4>
+
+        <p>After its valiant service at Dunkirk, Gerfalcon was immediately conscripted into the Royal Navy, serving as a
+            patrol auxiliary vessel. Although its tenure with the Royal Navy was brief, lasting only from June to August
+            1940, this period remains a significant chapter in its storied history. The decision to restore Gerfalcon in
+            its Royal Navy patrol boat colours is grounded in several compelling reasons:</p>
+
+        <ol>
+            <li><strong>Historical Rarity and Significance:</strong> Despite its short service, there are virtually no
+                remaining vessels that served in this capacity. By preserving Gerfalcon in its Royal Navy colours, we
+                honour a rare and unique aspect of maritime history, offering a glimpse into the less-documented roles
+                that small ships played during the war.</li>
+            <li><strong>Continuation of Narrative:</strong> Gerfalcon's journey from a private yacht to a wartime vessel
+                and back to private ownership is a compelling narrative. Restoring it in its wartime livery ensures that
+                the vessel's story is told accurately and respectfully.</li>
+            <li><strong>Symbol of Service and Sacrifice:</strong> The Royal Navy colours serve as a tribute to all the
+                vessels and crew members who played vital roles in patrol duties during World War II. It commemorates
+                their service and sacrifices, adding depth to the historical context in which Gerfalcon operated.</li>
+            <li><strong>Educational Purpose:</strong> Restoring Gerfalcon in its patrol boat colours enhances its
+                educational value. It allows us to tell a more comprehensive story of the vessel's service life, from
+                its heroic deeds at Dunkirk to its subsequent role in the Royal Navy, providing a richer experience for
+                those who encounter this <a href="" https://www.nationalhistoricships.org.uk/register/2233/gerfalcon"
+                    target="_blank">historic ship</a>.</li>
+        </ol>
+
+        <p>By keeping Gerfalcon in its Royal Navy patrol boat colours, we ensure that its complete story is preserved
+            and honoured, celebrating not only its contribution to Operation Dynamo but also its service in the Royal
+            Navy. This decision is a homage to the ship's multifaceted history and a commitment to preserving our
+            maritime heritage for future generations to appreciate.</p>
+
+        <!-- Gallery for Royal Navy Auxiliary Patrol Boat Colours -->
+        <div class="gallery row" id="patrol-gallery">
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_1.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_1.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_2.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_2.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_3.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_3.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_4.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_4.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_5.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_5.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_6.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_6.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_7.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_7.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_8.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_8.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_9.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_9.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_10.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_10.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_11.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_11.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_12.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_12.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_13.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_13.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_14.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_14.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_15.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_15.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_16.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_16.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/Royal_NavalAuxillary_Patrol_17.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_17.png">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg">
+            </div>
+            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg">
+            </div>
+        </div>
+
+    </section>
+
+
+    <section>
+        <div class="container container-white-alpha">
+            <div class="row">
+                <div class="col">
+                    <h4>Registration records</h4>
+                    <div class="gallery" id="gerfalcon-registration-records">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg">
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="images/National_Historic_Ship_Gerfalcon.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 72.jpeg">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg">
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg">
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg">
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg">
+                </div>
+            </div>
+            <!-- Repeat the above structure for other sections -->
+        </div>
+        <div class="container container-white-alpha">
+
+            <div class="row">
+                <div class="col">
+                    <h4>Historical ship Register and Dunkirk Little Ships</h4>
+                    <div class="gallery" id="gerfalcon-historical-ships">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/National_Historic_Ship_Gerfalcon.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 72.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg">
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg">
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container container-white-alpha">
-<div class="row">
-    <div class="col">
-        <h4>Old Media</h4>
-        <div class="gallery" id="gerfalcon-old-media">
+        <div class="container container-white-alpha">
             <div class="row">
-                <div class="col-md-3">
-                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg">
+                <div class="col">
+                    <h4>Old Media</h4>
+                    <div class="gallery" id="gerfalcon-old-media">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg">
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                                <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg">
+                            </div>
+
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg">
-                </div>
+        </div>
+        <div class="container container-white-alpha">
+            <h4>Miscellaneous images</h4>
 
+            <div class="gallery row" id="gerfalcon-broker-ads">
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg" alt="Miscellaneous Image 1" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg" alt="Miscellaneous Image 4" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg" alt="Miscellaneous Image 5" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
+                    <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_.jpeg" alt="Miscellaneous Image 6" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_.jpeg">
+                </div>
             </div>
 
 
         </div>
-    </div>
-</div>
-    </div>
-    <div class="container container-white-alpha">
-<h4>Miscellaneous images</h4>
-
-<div class="gallery row" id="gerfalcon-broker-ads">
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg" alt="Miscellaneous Image 1" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg" alt="Miscellaneous Image 4" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg" alt="Miscellaneous Image 5" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg">
-    </div>
-    <div class="col-md-3">
-        <img src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_.jpeg" alt="Miscellaneous Image 6" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_.jpeg">
-    </div>
-</div>
-
-
-    </div>
-</section>
+    </section>
 
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Adjust size here -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">Gerfalcon</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Adjust size here -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Gerfalcon</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                <img src="" id="modalImage" class="img-fluid" alt="Gerfalcon">
-            </div>
-        </div>
-    </div>
-</div>
-<p>&nbsp;</p>
-<footer class="footer bg-light py-4" id="contact">
-    <div class="container container-white-alpha">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="contact">
-                    <h4>Contact and More Information</h4>
-                    <p>Feel free to contact the new Skipper, Gary Fletcher, for any questions or interest at <a href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a>. For more information on Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank" rel="noopener noreferrer">National Historic Ships</a>.</p>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="modalImage" class="img-fluid" alt="Gerfalcon">
                 </div>
             </div>
         </div>
     </div>
-</footer>
+    <p>&nbsp;</p>
+    <footer class="footer bg-light py-4" id="contact">
+        <div class="container container-white-alpha">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="contact">
+                        <h4>Contact and More Information</h4>
+                        <p>Feel free to contact the new Skipper, Gary Fletcher, for any questions or interest at <a
+                                href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a>. For more information on
+                            Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk"
+                                target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a
+                                href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank"
+                                rel="noopener noreferrer">National Historic Ships</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -737,4 +822,5 @@
         });
     </script>
 </body>
+
 </html>
