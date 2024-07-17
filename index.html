@@ -7,15 +7,24 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: "Baskervville SC", serif;
+                font-family: "Baskervville SC", serif;
             font-weight: 400;
             font-style: normal;
-            background-color: #f0f0f0;
-            background-image: url('https://example.com/ww2_texture.jpg');
-            background-size: cover;
-            color: #333;
-            position: relative;
+
+            background-image: url('images/thumb-1920-861316.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover; /* You can also use contain, or any other value based on your needs */
+            background-position: center center;
         }
+
+        .container-white-alpha {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 60px 15px;
+            border-radius: 10px; /* Optional: for rounded corners */
+            margin-top: 20px; /* Adjust as needed */
+        }
+
         h3, h4 {
             margin-bottom: 10px;
             color: #333;
@@ -70,7 +79,7 @@
 </head>
 <body>
     <!-- Top Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#">
             <img src="images/ADLS_Letterhead Flag Logo 2_edited.png.webp" width="30" height="30" alt="">
             Gerfalcon
@@ -92,6 +101,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#donate">Donate</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
             </ul>
         </div>
     </nav>
@@ -104,7 +117,7 @@
     </div>
 
     <!-- Main Content -->
-<div class="container">
+<div class="container container-white-alpha">
     <div class="row">
         <div class="col-md-8">
             <h4>Gerfalcon: A Storied Vessel</h4>
@@ -134,7 +147,7 @@
 
 
 
-           <section class="container mt-5" id="now">
+           <section class="container container-white-alpha mt-5" id="now">
         <h4>Gerfalcon as she is now</h4>
         <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition (you can view her last survey <a href="images/" target="_blank">here</a>):</p>
         
@@ -157,7 +170,7 @@
 
 
     <!-- Section with Gallery -->
-    <section class="container mt-5">
+    <section class="container container-white-alpha mt-5">
         <h4>Operation Dynamo: Gerfalcon's Role as a <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Little Dunkirk Ship</a></h4>
         <p>Operation Dynamo, also known as the Miracle of Dunkirk, saw over 338,000 Allied soldiers evacuated from the beaches of Dunkirk, France, between 26 May and 4 June 1940. Among these heroic vessels was Gerfalcon, a motor yacht built in 1937. As a designated Dunkirk Little Ship, Gerfalcon played a crucial role in ferrying soldiers from the beaches to larger ships waiting offshore. This effort epitomised the "Spirit of Dunkirk," symbolising bravery and resilience during one of World War II’s most critical moments.</p>
 
@@ -186,7 +199,7 @@
         </div>
     </section>
 
-<section class="container mt-5" id="broker_images">
+<section class="container container-white-alpha mt-5" id="broker_images">
     <h4>Broker Images</h4>
     <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition:</p>
 
@@ -278,7 +291,7 @@
 </section>
 
 
-<section class="container mt-5">
+<section class="container container-white-alpha mt-5">
     <h4>Owners of Gerfalcon</h4>
 
     <p>The boat was originally ordered for recreational use by Royal Navy Commander Valentine Searles-Wood of Waterlooville, Hampshire. Gerfalcon is now <u><b>privately owned for recreational use</b></u> by Lieutenant (VCC) Gary Fletcher and is currently laid up in Essex where she will be taken out of the water, surveyed and remedial works undertaken to get her back to her former glory. Lt Fletcher hopes to return the boat to Hampshire, Gosport once seaworthy.</p>
@@ -320,7 +333,7 @@
 
 </section>
 
-<section class="container mt-5" id="history">
+<section class="container container-white-alpha mt-5" id="history">
     <p>Ship registration records:</p>
 
     <h4>We will restore Gerfalcon in its Royal Navy Patrol Boat Colours</h4>
@@ -404,7 +417,7 @@
 
 
 <section>
-    <div class="container">
+    <div class="container container-white-alpha">
         <div class="row">
             <div class="col">
                 <h4>Registration records</h4>
@@ -536,6 +549,9 @@
             </div>
         </div>
         <!-- Repeat the above structure for other sections -->
+    </div>
+    <div class="container container-white-alpha">
+
         <div class="row">
             <div class="col">
                 <h4>Historical ship Register and Dunkirk Little Ships</h4>
@@ -576,6 +592,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container container-white-alpha">
 <div class="row">
     <div class="col">
         <h4>Old Media</h4>
@@ -609,7 +627,8 @@
         </div>
     </div>
 </div>
-
+    </div>
+    <div class="container container-white-alpha">
 <h4>Miscellaneous images</h4>
 
 <div class="gallery row" id="gerfalcon-broker-ads">
@@ -637,16 +656,7 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="contact">
-                <h4>Contact and More Information</h4>
-                <p>Feel free to contact the new Skipper, Gary Fletcher, for any questions or interest at <a href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a>. For more information on Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk" target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank" rel="noopener noreferrer">National Historic Ships</a>.</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <!-- Modal -->
@@ -665,9 +675,9 @@
         </div>
     </div>
 </div>
-
-<footer class="footer bg-light py-4">
-    <div class="container">
+<p>&nbsp;</p>
+<footer class="footer bg-light py-4" id="contact">
+    <div class="container container-white-alpha">
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="contact">
