@@ -1,6 +1,0 @@
-newmtl Material_1
-map_Kd assets/color.jpg
-Pm 0.00
-newmtl Material_2
-map_Kd assets/color_2.jpg
-Pm 0.00

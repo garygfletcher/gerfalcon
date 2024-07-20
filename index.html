@@ -105,9 +105,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
 
-    <script src="https://preview.babylonjs.com/gltf_validator.js"></script>
-    <script src="https://preview.babylonjs.com/babylon.js"></script>
-    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+    <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+    <script src="https://cdn.babylonjs.com/recast.js"></script>
+    <script src="https://cdn.babylonjs.com/ammo.js"></script>
+    <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+    <script src="https://cdn.babylonjs.com/cannon.js"></script>
+    <script src="https://cdn.babylonjs.com/Oimo.js"></script>
+    <script src="https://cdn.babylonjs.com/earcut.min.js"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+    <script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
 
     <script type="text/javascript">
 
@@ -188,7 +201,6 @@ function exportThenImportAsync(scene, toFile){
     </div>
 
 
-
     <!-- Main Content -->
     <div class="container container-white-alpha">
         <div class="row">
@@ -262,6 +274,14 @@ function exportThenImportAsync(scene, toFile){
         </div>
     </section>
 
+<div class="container container-white-alpha">
+
+    <h4>Gerfalcon 3D Scan</h4>
+
+    <div id="canvasZone" class="my-4">
+        <canvas id="renderCanvas" style="width: 100%; height: 500px;"></canvas>
+    </div>
+</div>
 
     <!-- Section with Gallery -->
     <section class="container container-white-alpha mt-5">
@@ -871,8 +891,90 @@ function exportThenImportAsync(scene, toFile){
 
 
 
+        var canvas = document.getElementById("renderCanvas");
 
+        var startRenderLoop = function (engine, canvas) {
+            engine.runRenderLoop(function () {
+                if (sceneToRender && sceneToRender.activeCamera) {
+                    sceneToRender.render();
+                }
+            });
+        }
 
+        var engine = null;
+        var scene = null;
+        var sceneToRender = null;
+        var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
+        var createScene = function () {
+            var scene = new BABYLON.Scene(engine);
+          var hdrTexture = new BABYLON.CubeTexture("https://playground.babylonjs.com/textures/Studio_Softbox_2Umbrellas_cube_specular.env", scene);
+                console.log("hdrTexture = " + hdrTexture);
+        
+        
+        
+                hdrTexture.gammaSpace = false;
+        
+            scene.environmentTexture = hdrTexture;
+        
+        
+        
+            //Adding a light
+           // var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(20, 20, 100), scene);
+        
+            //Adding an Arc Rotate Camera
+            var camera = new BABYLON.ArcRotateCamera("Camera", 1.9, 1.5, 80, BABYLON.Vector3.Zero(), scene);
+            camera.attachControl(canvas, false);
+           camera.useFramingBehavior = true;
+           camera.useAutoRotationBehavior = true;
+        
+               var directoryPath = "https://gerfalcon.navy/images/";
+            var assetName = "gerfalcon_3d_external.glb";
+            var assetExtension = ".glb";
+        
+        
+            // The first parameter can be used to specify which mesh to import. Here we import all meshes
+            BABYLON.SceneLoader.ImportMesh("", directoryPath, assetName+assetExtension, scene, function (newMeshes) {
+                // Set the target of the camera to the first imported mesh
+              //  camera.target = newMeshes[0];
+        
+                  camera.setTarget(newMeshes[1]);
+            });
+        var alpha = 0;
+            // Move the light with the camera
+            scene.registerBeforeRender(function () {
+            //    light.position = camera.position;
+            if (camera.radius >40) {
+            camera.radius -= alpha;
+            alpha = alpha+0.01;
+            }
+            });
+        
+            return scene;
+        }
+                window.initFunction = async function() {
+                    
+                    
+                    
+                    var asyncEngineCreation = async function() {
+                        try {
+                        return createDefaultEngine();
+                        } catch(e) {
+                        console.log("the available createEngine function failed. Creating the default engine instead");
+                        return createDefaultEngine();
+                        }
+                    }
+
+                    window.engine = await asyncEngineCreation();
+        if (!engine) throw 'engine should not be null.';
+        startRenderLoop(engine, canvas);
+        window.scene = createScene();};
+        initFunction().then(() => {sceneToRender = scene                    
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
     </script>
 </body>
 
