@@ -104,9 +104,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+
+    <script src="https://preview.babylonjs.com/gltf_validator.js"></script>
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+
+    <script type="text/javascript">
+
+function clear(scene) {
+    scene.meshes.slice().forEach(function (mesh) {
+        mesh.dispose(false, true);
+    });
+    scene.lights.slice().forEach(function (light) {
+        //light.dispose();
+    });
+    scene.skeletons.slice().forEach(function (skeleton) {
+       // skeleton.dispose();
+    });
+}
+
+function exportThenImportAsync(scene, toFile){
+    console.log("Exporting scene to GLTF, then loading GLTF");
+    return BABYLON.GLTF2Export.GLBAsync(scene, "geometry").then((response) => {
+        clear(scene);
+        let blob = response.glTFFiles['geometry.glb'];
+        let file = new File([blob], 'geometry.glb');
+
+        if (toFile) {
+            response.downloadFiles();
+        }
+
+        return BABYLON.SceneLoader.LoadAssetContainerAsync('file:', file, scene).then((container) => {
+            container.addAllToScene();
+        });
+    });
+}
+
+
+    </script>
+
 </head>
 
 <body>
+
+
     <!-- Top Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#">
@@ -145,6 +186,8 @@
             <h1 class="display-4">Gerfalcon: A 96-Year-Old Hero of Dunkirk and Royal Navy Patrol Vessel</h1>
         </div>
     </div>
+
+
 
     <!-- Main Content -->
     <div class="container container-white-alpha">
@@ -824,6 +867,12 @@
             var modal = $(this);
             modal.find('#modalImage').attr('src', imgSrc);
         });
+
+
+
+
+
+
     </script>
 </body>
 
