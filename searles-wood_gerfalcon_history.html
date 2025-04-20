@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerfalcon and the Searles-Wood's</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: "Baskervville SC", serif;
+            font-weight: 400;
+            font-style: normal;
+
+            background-image: url('images/thumb-1920-861316.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            /* You can also use contain, or any other value based on your needs */
+            background-position: center center;
+        }
+
+        .container-white-alpha {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white */
+            padding: 60px 15px;
+            border-radius: 10px;
+            /* Optional: for rounded corners */
+            margin-top: 20px;
+            /* Adjust as needed */
+        }
+
+        .footer{
+            background-color: rgb(33, 37, 41);
+        }
+
+        h3,
+        h4 {
+            margin-bottom: 0.625em;
+            /* 10px converted to em */
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            /* 24px converted to em */
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 1.25em;
+            /* 20px converted to em */
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.125em;
+            /* 18px converted to em */
+        }
+
+        .source {
+            font-size: 0.8em;
+            /* This remains the same */
+        }
+
+        ol {
+            margin-left: 1.25em;
+            /* 20px converted to em */
+        }
+
+        li {
+            font-size: 1em;
+            /* 16px converted to em */
+            line-height: 1.6;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+    <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+    <script src="https://cdn.babylonjs.com/recast.js"></script>
+    <script src="https://cdn.babylonjs.com/ammo.js"></script>
+    <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+    <script src="https://cdn.babylonjs.com/cannon.js"></script>
+    <script src="https://cdn.babylonjs.com/Oimo.js"></script>
+    <script src="https://cdn.babylonjs.com/earcut.min.js"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+    <script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
+</head>
+
+<<body>
+
+    <!-- Top Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/ADLS_Letterhead Flag Logo 2_edited.png.webp" width="30" height="30" alt="">
+            Gerfalcon
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#history">History</a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#instagram-feed">Latest News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#broker_images">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#donate">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+                </li>
+
+|
+                <li class="nav-item">
+                    <a class="nav-link" href="searles-wood_gerfalcon_history.html">Gerfalcon and the Searles-Wood's</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+  <!-- Main Content -->
+<div class="container container-white-alpha">
+    <main>
+      <section>
+        <h2>Valentine Searles-Wood (1892–1943)</h2>
+        <p>Valentine was born Valentine Appleton on 23 June 1892 to Herbert Duncan Searles-Wood and Bessie Tooke. His father, a respected architect and Fellow of the Royal Institute of British Architects (FRIBA), adopted the name Searles-Wood upon marrying Bessie, the adopted daughter of solicitor and geologist Searles Valentine Wood. The family resided in Sutton before moving to Christchurch Park, where Herbert designed many notable homes.</p>
+
+        <p>Valentine pursued a naval career and was commissioned into the Royal Navy before the outbreak of the First World War. He served with distinction and commanded HMS <em>Harpy</em> as of 5 November 1918. His skills and leadership earned him promotion to Lieutenant Commander on 15 April 1923. He continued his service through peacetime before being placed on the retired list with the honorary rank of Commander on 20 August 1935.</p>
+
+        <p>With the advent of the Second World War, he was recalled to active duty. He initially took command of a group of 25 anti-submarine trawlers from 12 to 23 October 1939. Soon after, he was posted to the armed yacht <em>St Modwen</em>, continuing his critical wartime service. He reverted to the retired list on 13 February 1940, concluding a long and decorated naval career. His death was registered at Blandford Forum in April 1943.</p>
+
+        <p>Valentine was posthumously awarded the British War Medal for his WWII service. The medal was un-named as issued and arrived with an OHMS forwarding box addressed to his wife in Devon. The accompanying Admiralty casualty slip was marked: "COMMANDER VALENTINE SEARLES-WOOD R.N".</p>
+
+        <h3>Naval Service Timeline</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Rank/Role</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Pre-1918</td><td>Lieutenant, RN</td><td>Service in WWI</td></tr>
+            <tr><td>5 Nov 1918</td><td>Commander</td><td>Commanded HMS <em>Harpy</em></td></tr>
+            <tr><td>15 Apr 1923</td><td>Lieutenant Commander</td><td>Promotion confirmed</td></tr>
+            <tr><td>20 Aug 1935</td><td>Commander (Retired)</td><td>Placed on retired list</td></tr>
+            <tr><td>12–23 Oct 1939</td><td>Commander</td><td>Commanded 25 anti-sub trawlers</td></tr>
+            <tr><td>Late 1939</td><td>Commander</td><td>Assigned to armed yacht <em>St Modwen</em></td></tr>
+            <tr><td>13 Feb 1940</td><td>Commander</td><td>Returned to retired list</td></tr>
+            <tr><td>Apr 1943</td><td>—</td><td>Death recorded in Dorset</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+            <img src="images/searles-wood/IMG_9689.jpeg" class="img-fluid w-25">
+
+        </p>
+      </section>
+
+      <section>
+        <h2>Sibyl Read Searles-Wood (1893–1970)</h2>
+        <p>Sibyl Read was born in Surbiton in April 1893. By the 1911 Census, her family had moved to Grange Road in Sutton, Surrey. From this residence, she volunteered to serve at Benfleet Hall Hospital, also known as Sutton Red Cross Hospital, during the First World War.</p>
+
+        <p>She enrolled as a General Service Volunteer from 1916 to 1917, working at the hospital which was established at Benfleet Hall, a private residence loaned rent-free to the Red Cross by William Knibb Appleton, Sibyl’s future husband’s uncle.</p>
+
+        <p>The hospital was formally active from 10 June 1915 to 10 April 1919, and during its peak in October 1918, it housed 24 General Service staff. These volunteers—such as Sibyl—were vital to the day-to-day operations. They assisted with dispensing, clerical work, storekeeping, and relieving the burden on nursing staff. General Service staff were formally recognised from September 1915, and although many worked part-time, their contribution was essential to the smooth functioning of the hospital.</p>
+
+        <p>Sibyl’s record in the hospital archives identifies her as “now Mrs Searles-Wood”, a notation confirming her later marriage on 25 February 1919 to Valentine Searles-Wood, then a serving Lieutenant in the Royal Navy. This link between two families—Appleton and Read—rooted in the wartime experiences at Benfleet Hall is one of historic significance, tying together service, sacrifice, and community support.</p>
+
+        <h3>🏥 Contextualising Benfleet Hall Hospital</h3>
+        <p>Benfleet Hall’s hospital conversion was part of a broader mobilisation of British civilian infrastructure during the war. The volunteer staff worked alongside trained nurses, masseuses from the King George Hospital in Waterloo, pharmacists, ward sisters, and domestic workers. It was an environment governed by structure and duty. The Chairman of the hospital committee was Sir Ralph Collingwood Forster, with William Knibb Appleton—Sibyl’s future uncle-in-law—among its senior civic patrons.</p>
+
+
+<p>
+  <img src="images/searles-wood/benfleet-hall-as-war-hospital-ww1.jpg.webp" class="img-fluid w-25">
+  <img src="images/searles-wood/the-haig-ward.jpg" class="img-fluid w-25">
+  <img src="images/searles-wood/staff-soldiers-at-benfleet-smaller.jpg" class="img-fluid w-25">
+</p>
+
+        <p>The social profile of Benfleet Hall volunteers varied greatly. Many came from well-established families, and a large number served only for short periods or part-time. That Sibyl served over multiple years indicates a deeper level of commitment and reliability.</p>
+
+        <h3>🧵 Personal Footnote</h3>
+        <p>Sibyl’s life at the hospital would have been surrounded by both compassion and the emotional strain of caring for the wounded. Her wartime experience exemplifies the role of women who served with quiet perseverance behind the front lines. After marrying Valentine, Sibyl relocated to Hampshire, where they raised their son John. She passed away in 1970, having lived through both World Wars and the personal loss of her son during the Second.</p>
+      </section>
+
+      <section>
+        <h2>Lieutenant John Valentine Searles-Wood (1919–1940)</h2>
+        <p>John Valentine Searles-Wood was born in 1919 in Epsom, Surrey. Raised in a family deeply steeped in naval and civic tradition, John followed in his father's footsteps and pursued a career in the Royal Navy. He was commissioned as a Sub-Lieutenant and assigned to the Royal Naval Patrol Service during the Second World War.</p>
+
+        <p>In the summer of 1940, from 4 June to 8 August, John served aboard HMS <em>Vimiera</em> at Ramsgate. This posting coincided with the operations of H.M. vessel <em>Gerfalcon</em>. Later, he was given command of HMT (His Majesty’s Trawler) <em>Fifeshire</em>, a naval trawler used for coastal defence duties and anti-submarine patrols.</p>
+
+        <p>Tragically, in February 1940, HMT <em>Fifeshire</em> was attacked by German Heinkel bombers off the coast of Copinsay Island and was lost with all hands. </p>
+        <p>The trawler was bombed by two He 111's which hit the Fifeshire twice in the first pass. Sailing in company with the fully armed HMT Ayrshire, Fifeshire had only two Lewis guns to defend herself as she was awaiting her 4" gun to be fitted.
+        </p>
+        <p>John, just 20 years old at the time, was killed in action. His name is inscribed on the Lowestoft Naval Memorial, and his service and sacrifice are honoured by the <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/2500561/john-valentine-searles-wood/" target="_blank">Commonwealth War Graves Commission</a>.</p>
+
+        <p>He was posthumously awarded the 1939–45 Star, the Atlantic Star, and the War Medal. These medals were delivered in wax packets within a transmittal box addressed to his father, Commander V. Searles-Wood, at Well Cottage, Ringmore, Devon, along with an official Admiralty casualty slip.</p>
+
+        <h3>Naval Service Timeline</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Rank/Role</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1939</td><td>Naval Cadet</td><td>Commenced officer training</td></tr>
+            <tr><td>1940</td><td>Sub-Lieutenant</td><td>Commissioned Royal Navy</td></tr>
+            <tr><td>Jun–Aug 1940</td><td>Watch Officer</td><td>HMS <em>Vimiera</em> stationed at Ramsgate</td></tr>
+            <tr><td>Feb 1940</td><td>Commanding Officer</td><td>HMT <em>Fifeshire</em> patrol duties</td></tr>
+            <tr><td>Feb 1940</td><td>Killed in Action</td><td>Lost with all hands during enemy bombing</td></tr>
+          </tbody>
+        </table>
+
+<p>
+  <img src="images/searles-wood/rnps_memorial-2.jpg" class="img-fluid w-25">
+  <img src="images/searles-wood/rnps_panel_1-2.jpg" class="img-fluid w-25">
+  <img src="images/searles-wood/IMG_3475-scaled.jpeg" class="img-fluid w-25">
+  <img src="images/searles-wood/wwii-casualty-group-commanding-officer-hmt-fifeshire-1940-bridgewater-devon-_73503_pic4_size3.webp" class="img-fluid w-25">
+  <img src="images/searles-wood/wwii-casualty-group-commanding-officer-hmt-fifeshire-1940-bridgewater-devon-_73503_pic5_size1.jpg" class="img-fluid w-25">
+</p>
+      </section>
+
+
+    <section>
+      <h2>Legacy and Presentation of Medals</h2>
+      <p>On Good Friday, 18th April 2025, following the successful relaunch of <em>Gerfalcon</em> into the water after her restoration earlier that week on the 16th, Steve Hurrell—the previous owner of the vessel—kindly presented Commander Valentine Searles-Wood’s British War Medal to Gary Fletcher. In a remarkable continuation of this historic thread, Gary later discovered the war medals of John Valentine Searles-Wood.</p>
+      <p>These treasured medals will now remain aboard <em>Gerfalcon</em>, preserving a powerful piece of naval heritage and honouring the service and sacrifice of both father and son. The vessel, reborn through restoration, now also serves as a floating tribute to their memory.</p>
+    </section>
+
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 Gerfalcon. All rights reserved.</p>
+  </footer>
+</body>
+</html>
