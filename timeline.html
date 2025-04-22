@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of William Osborne Boats</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: "Baskervville SC", serif;
+            font-weight: 400;
+            font-style: normal;
+
+            background-image: url('images/thumb-1920-861316.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            /* You can also use contain, or any other value based on your needs */
+            background-position: center center;
+        }
+
+        .container-white-alpha {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white */
+            padding: 60px 15px;
+            border-radius: 10px;
+            /* Optional: for rounded corners */
+            margin-top: 20px;
+            /* Adjust as needed */
+        }
+
+        .footer{
+            background-color: rgb(33, 37, 41);
+        }
+
+        h3,
+        h4 {
+            margin-bottom: 0.625em;
+            /* 10px converted to em */
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            /* 24px converted to em */
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 1.25em;
+            /* 20px converted to em */
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.125em;
+            /* 18px converted to em */
+        }
+
+        .source {
+            font-size: 0.8em;
+            /* This remains the same */
+        }
+
+        ol {
+            margin-left: 1.25em;
+            /* 20px converted to em */
+        }
+
+        li {
+            font-size: 1em;
+            /* 16px converted to em */
+            line-height: 1.6;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+/*timeline*/
+/* Timeline container */
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-left: 3px solid #0d6efd;
+}
+
+/* Individual timeline item */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.6rem;
+  top: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Date style */
+.timeline-date {
+  font-weight: 500;
+  color: #0d6efd;
+  margin-bottom: 0.25rem;
+}
+
+/* Description */
+.timeline-content {
+  background: #f8f9fa;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+    <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+    <script src="https://cdn.babylonjs.com/recast.js"></script>
+    <script src="https://cdn.babylonjs.com/ammo.js"></script>
+    <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+    <script src="https://cdn.babylonjs.com/cannon.js"></script>
+    <script src="https://cdn.babylonjs.com/Oimo.js"></script>
+    <script src="https://cdn.babylonjs.com/earcut.min.js"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+    <script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Top Menu -->
+<!-- Top Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">
+            <img class="img-fluid w-25" src="images/ADLS_Letterhead Flag Logo 2_edited.png.webp" width="30" height="30" alt="">
+            Gerfalcon
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#history">History</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#instagram-feed">Latest News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#broker_images">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#donate">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="timeline.html">Gerfalcon Timeline</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="william_osborne_boats.html">William Osborne Boats</a>
+                </li>
+|
+                <li class="nav-item">
+                    <a class="nav-link" href="searles-wood_gerfalcon_history.html">Gerfalcon and the Searles-Wood's</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+  </header>
+  <!-- Main Content -->
+<div class="container container-white-alpha">
+
+<div class="container">
+  <h2 class="mb-4">Gerfalcon Historical Timeline</h2>
+  <div class="timeline">
+
+<!-- Early History -->
+    <div class="timeline-item">
+      <div class="timeline-date">23 June 1892</div>
+      <div class="timeline-content">Birth of Valentine Searles-Wood in Waterlooville, Hampshire.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">April 1893</div>
+      <div class="timeline-content">Birth of Sibyl Read in Surbiton, Surrey.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">25 February 1919</div>
+      <div class="timeline-content">Marriage of Valentine and Sibyl Read.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Late 1919</div>
+      <div class="timeline-content">Birth of John Valentine Searles-Wood.</div>
+    </div>
+
+    <!-- Gerfalcon Construction -->
+    <div class="timeline-item">
+      <div class="timeline-date">1937</div>
+      <div class="timeline-content">Gerfalcon commissioned by Cdr. Searles-Wood and built by William Osborne Ltd.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">February 1938</div>
+      <div class="timeline-content">Official Builder’s Certificate issued for Gerfalcon at Littlehampton.</div>
+    </div>
+
+    <!-- Wartime Service -->
+    <div class="timeline-item">
+      <div class="timeline-date">20 February 1940</div>
+      <div class="timeline-content">Death of Sub-Lt. John Searles-Wood in sinking of HMT Fifeshire.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">4 June – 8 August 1940</div>
+      <div class="timeline-content">Gerfalcon serves in the Royal Navy Patrol Service after participating in Operation Dynamo.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2 May 1943</div>
+      <div class="timeline-content">Death of Commander Valentine Searles-Wood in Blandford Forum.</div>
+    </div>
+
+    <!-- Ownership -->
+    <div class="timeline-item">
+      <div class="timeline-date">28 May 1946</div>
+      <div class="timeline-content">Joint ownership recorded: Sibyl Searles-Wood, Albert E.C. Murray, and Alan C. Tooke.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">7 June 1946</div>
+      <div class="timeline-content">Sibyl Searles-Wood resumes sole ownership of Gerfalcon.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">12 December 1946</div>
+      <div class="timeline-content">Ownership transferred to Edwin Thomas Stevenson-Steel.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">28 November 1949</div>
+      <div class="timeline-content">Ownership transferred to Margery Martha Sandys-Weekes of Poole, Dorset.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">18 October 1952</div>
+      <div class="timeline-content">John and Irene Stradling become joint owners in Berkshire.</div>
+    </div>
+
+    <!-- Commemoration & Preservation -->
+    <div class="timeline-item">
+      <div class="timeline-date">2012</div>
+      <div class="timeline-content">Gerfalcon participates in the Queen’s Diamond Jubilee Pageant on the Thames.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">26 November 2014</div>
+      <div class="timeline-content">Gerfalcon becomes a member of the Association of Dunkirk Little Ships (ADLS).</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">13 August 2019</div>
+      <div class="timeline-content">Added to the National Register of Historic Ships UK.</div>
+    </div>
+
+    <!-- Modern Restoration -->
+    <div class="timeline-item">
+      <div class="timeline-date">2 January 2021</div>
+      <div class="timeline-content">Survey carried out to assess restoration feasibility.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">8 July 2024</div>
+      <div class="timeline-content">Purchased by Gary Fletcher through Dean & Holland Yacht Brokers.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">28 July 2024</div>
+      <div class="timeline-content">Second, detailed survey undertaken.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">23 August 2024</div>
+      <div class="timeline-content">Gary Fletcher registers Gerfalcon with National Historic Ships UK.</div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+    <footer class="footer bg-dark py-4" id="contact">
+        <div class="container container-white-alpha">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="contact">
+                        <h4>Contact and More Information</h4>
+                        <p>Feel free to contact the new Skipper, Gary Fletcher, for any questions or interest at <a
+                                href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a>. For more information on
+                            Gerfalcon and other Dunkirk Little Ships, visit the <a href="https://www.adls.org.uk"
+                                target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a
+                                href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank"
+                                rel="noopener noreferrer">National Historic Ships</a>.</p>
+                                <p><a href="https://wa.me/447946325160" target="_blank"><img class="img-fluid w-25" src="images/wa.png" width="250px"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
