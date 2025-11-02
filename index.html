@@ -119,6 +119,40 @@
             width: 100%;
             height: 100%;
         }
+
+      .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--navy-mid);
+        color: var(--gold-soft);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        box-shadow: 0 10px 20px rgba(7, 24, 39, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(7, 24, 39, 0.26);
+        background: var(--navy);
+      }
+
+      .button svg {
+        width: 1.35rem;
+        height: 1.35rem;
+        fill: currentColor;
+      }        
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
