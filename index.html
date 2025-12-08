@@ -382,6 +382,16 @@
                      data-img-src="images/journey/85th_journey_3.jpg">
             </div>
         </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-lg-8">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video id="operation-dynamo-video" class="embed-responsive-item" playsinline muted controls preload="metadata">
+                        <source src="images/gerfalcon_splash.m4v" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1368,6 +1378,28 @@
             var modal = $(this);
             modal.find('#modalImage').attr('src', imgSrc);
         });
+
+        var operationDynamoVideo = document.getElementById('operation-dynamo-video');
+
+        if (operationDynamoVideo) {
+            var dynamoObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var playPromise = operationDynamoVideo.play();
+
+                        if (playPromise !== undefined) {
+                            playPromise.catch(function() {
+                                // Autoplay might be blocked; ignore errors
+                            });
+                        }
+                    } else {
+                        operationDynamoVideo.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            dynamoObserver.observe(operationDynamoVideo);
+        }
 
 
 
