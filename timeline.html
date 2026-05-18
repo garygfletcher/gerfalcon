@@ -547,6 +547,17 @@
             padding: 1rem 1.25rem;
         }
 
+        .timeline-image {
+            display: block;
+            width: min(100%, 320px);
+            margin-top: 1rem;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            border-radius: 8px;
+            background: #eeece0;
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.16);
+            cursor: zoom-in;
+        }
+
         .modal-dialog.modal-lg {
             max-width: min(96vw, 1400px);
         }
@@ -1120,6 +1131,14 @@
     <div class="timeline-item">
       <div class="timeline-date">May 2025</div>
       <div class="timeline-content">Gerfalcon makes it to the 85th Anniversary of Operation Dynamo, joining the remembrance of the Dunkirk evacuation and the enduring legacy of the Little Ships.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">13 April 2026</div>
+      <div class="timeline-content">
+        Gerfalcon received a personal acknowledgement from Queen Camilla, recognising the restoration of a Dunkirk Little Ship and the work to raise awareness of Britain's maritime history.
+        <img src="images/queen-camilla-acknowledgement.png" alt="Acknowledgement from Queen Camilla" class="timeline-image" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/queen-camilla-acknowledgement.png">
+      </div>
     </div>
 
     <div class="timeline-item">
