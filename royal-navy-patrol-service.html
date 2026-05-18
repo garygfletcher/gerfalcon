@@ -681,6 +681,18 @@
                 transition: none;
             }
         }
+        @media (max-width: 767.98px) {
+            .section-transition,
+            .section-transition.is-visible,
+            .jumbotron.section-transition,
+            .jumbotron.section-transition.is-visible {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none;
+            }
+        }
+
 
         .floating-social {
             position: fixed;
@@ -817,8 +829,19 @@
                 bottom: 0.75rem;
             }
 
+            .floating-social {
+                display: none;
+            }
+
             .cookie-notice {
-                bottom: 11rem;
+                bottom: 0.75rem;
+                max-height: 34vh;
+                overflow: auto;
+                padding: 0.85rem;
+            }
+
+            .cookie-notice p {
+                font-size: 0.82rem;
             }
         }
 
@@ -829,6 +852,21 @@
 
             .navbar-collapse {
                 padding-top: 1rem;
+            }
+
+            .navbar .dropdown-menu {
+                position: static;
+                float: none;
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                margin-top: 0.35rem;
+                white-space: normal;
+            }
+
+            .navbar .dropdown-item {
+                white-space: normal;
+                overflow-wrap: anywhere;
             }
 
             .jumbotron {
@@ -890,7 +928,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html#">Home</a></li>
                 <li class="nav-item dropdown gallery-dropdown history-dropdown active">
-                    <a class="nav-link dropdown-toggle" href="index.html#history" id="historyDropdown" role="button" aria-haspopup="true" aria-expanded="false">History</a>
+                    <a class="nav-link dropdown-toggle" href="index.html#history" id="historyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
                     <div class="dropdown-menu" aria-labelledby="historyDropdown">
                         <a class="dropdown-item" href="index.html#history">Gerfalcon History</a>
                         <a class="dropdown-item" href="royal-navy-patrol-colours.html">Royal Navy Patrol Boat Colours</a>
@@ -901,7 +939,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="index.html#latest-news">Latest News</a></li>
                 <li class="nav-item dropdown gallery-dropdown">
-                    <a class="nav-link dropdown-toggle" href="gallery.html" id="galleryDropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                    <a class="nav-link dropdown-toggle" href="gallery.html" id="galleryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
                     <div class="dropdown-menu" aria-labelledby="galleryDropdown">
                         <a class="dropdown-item" href="gallery.html">Gallery overview</a>
                         <a class="dropdown-item" href="gallery-3d-scan.html">Gerfalcon 3D Scan</a>
