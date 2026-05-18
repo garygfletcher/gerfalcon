@@ -9,107 +9,387 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <style>
+        :root {
+            --ink: #071017;
+            --navy: #0b1e2f;
+            --navy-mid: #12334b;
+            --navy-soft: #214b63;
+            --cream: #f7f1e5;
+            --paper: #fffaf0;
+            --gold: #d99a21;
+            --gold-soft: #f3c35a;
+            --red: #a72e2a;
+            --muted: #60717f;
+            --line: rgba(217, 154, 33, 0.32);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: "Baskervville SC", serif;
+            min-height: 100vh;
+            font-family: "Baskervville SC", Georgia, serif;
             font-weight: 400;
             font-style: normal;
-
-            background-image: url('images/gerfalcon_at_sea.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            /* You can also use contain, or any other value based on your needs */
-            background-position: center center;
+            color: var(--cream);
+            background:
+                linear-gradient(180deg, rgba(7, 16, 23, 0.88), rgba(7, 16, 23, 0.72) 42%, rgba(7, 16, 23, 0.95)),
+                url('images/_optimized/full/gerfalcon_at_sea.jpg.webp') center / cover fixed no-repeat;
         }
 
-        .container-white-alpha {
-            background-color: rgba(255, 255, 255, 0.8);
-            /* Semi-transparent white */
-            padding: 60px 15px;
-            border-radius: 10px;
-            /* Optional: for rounded corners */
-            margin-top: 20px;
-            /* Adjust as needed */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 42px 42px;
+            opacity: 0.35;
+            z-index: -1;
         }
 
-        .footer{
-            background-color: rgb(33, 37, 41);
+        .navbar {
+            padding: 0.85rem 1.5rem;
+            border-bottom: 1px solid rgba(243, 195, 90, 0.24);
+            background: rgba(7, 16, 23, 0.88) !important;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
         }
 
-        h3,
-        h4 {
-            margin-bottom: 0.625em;
-            /* 10px converted to em */
-            color: #333;
+        .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--gold-soft) !important;
+            font-size: 1.35rem;
+            letter-spacing: 0.05em;
+            border: 0;
+            border-bottom: 0;
+            outline: 0;
+            box-shadow: none;
         }
 
-        h3 {
-            font-size: 1.5em;
-            /* 24px converted to em */
-            font-weight: bold;
+        .navbar-brand img {
+            width: auto;
+            height: 42px;
+            border-radius: 0;
+            object-fit: contain;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+            outline: 0;
         }
 
-        h4 {
-            font-size: 1.25em;
-            /* 20px converted to em */
-            font-weight: bold;
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            outline: 0;
+            border: 0;
+            border-bottom: 0;
+            box-shadow: none;
         }
 
-        p {
-            font-size: 1.125em;
-            /* 18px converted to em */
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(247, 241, 229, 0.78);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            transition: color 0.2s ease, background 0.2s ease;
         }
 
-        .source {
-            font-size: 0.8em;
-            /* This remains the same */
-        }
-
-        ol {
-            margin-left: 1.25em;
-            /* 20px converted to em */
-        }
-
-        li {
-            font-size: 1em;
-            /* 16px converted to em */
-            line-height: 1.6;
-        }
-
-        a {
-            color: #0066cc;
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .active > .nav-link {
+            color: var(--ink);
+            background: var(--gold-soft);
             text-decoration: none;
         }
 
+        .jumbotron {
+            position: relative;
+            display: flex;
+            align-items: end;
+            min-height: 72vh;
+            height: auto !important;
+            margin-bottom: 0;
+            padding: 8rem 0 5rem;
+            overflow: hidden;
+            background-position: center !important;
+        }
+
+        .jumbotron::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(7, 16, 23, 0.92), rgba(7, 16, 23, 0.54) 52%, rgba(7, 16, 23, 0.2)),
+                linear-gradient(0deg, rgba(7, 16, 23, 0.96), rgba(7, 16, 23, 0.05) 45%);
+        }
+
+        .jumbotron .container {
+            position: relative;
+            text-align: left !important;
+        }
+
+        .jumbotron h1 {
+            max-width: 920px;
+            margin: 0;
+            color: #fff;
+            font-size: clamp(2.4rem, 6vw, 5.7rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+            text-shadow: 0 12px 30px rgba(0, 0, 0, 0.56);
+        }
+
+        .jumbotron h1::after {
+            content: "Restored, returned, remembered";
+            display: block;
+            width: fit-content;
+            margin-top: 1rem;
+            padding: 0.5rem 0.85rem;
+            color: var(--ink);
+            background: var(--gold-soft);
+            font-size: clamp(1rem, 1.8vw, 1.5rem);
+            line-height: 1;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.26);
+        }
+
+        .container-white-alpha {
+            position: relative;
+            margin-top: 2.4rem;
+            padding: clamp(1.5rem, 4vw, 3.8rem);
+            border: 1px solid rgba(243, 195, 90, 0.22);
+            border-radius: 8px;
+            background:
+                linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(239, 232, 215, 0.9));
+            color: #17212a;
+            box-shadow: var(--shadow);
+        }
+
+        .container-white-alpha::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            border-top: 4px solid var(--gold);
+        }
+
+        section {
+            scroll-margin-top: 96px;
+        }
+
+        #latest-news,
+        #instagram-feed {
+            scroll-margin-top: 180px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: var(--navy);
+            letter-spacing: 0;
+        }
+
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+        }
+
+        h4 {
+            display: inline-block;
+            font-size: clamp(1.28rem, 2vw, 1.75rem);
+            line-height: 1.1;
+        }
+
+        h4::after {
+            content: "";
+            display: block;
+            width: 72px;
+            height: 3px;
+            margin-top: 0.55rem;
+            background: var(--gold);
+        }
+
+        h5 {
+            color: var(--navy-mid);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.72;
+        }
+
+        .source {
+            font-size: 0.85em;
+        }
+
+        ol,
+        ul {
+            padding-left: 1.25rem;
+        }
+
+        li {
+            font-size: 1.02rem;
+            line-height: 1.62;
+            margin-bottom: 0.45rem;
+        }
+
+        a {
+            color: #0b5d83;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(11, 93, 131, 0.28);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--red);
+            border-color: rgba(167, 46, 42, 0.45);
+            text-decoration: none;
+        }
+
+        .btn,
+        .button {
+            border: 0;
+            border-radius: 999px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: none;
+        }
+
+        .btn {
+            margin-bottom: 0.7rem;
+            padding: 0.74rem 1.1rem;
+            box-shadow: 0 12px 26px rgba(7, 24, 39, 0.14);
+        }
+
+        .btn-info,
+        .btn-primary {
+            background: var(--navy-mid);
+        }
+
+        .btn-danger {
+            background: var(--red);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .card {
+            border: 1px solid rgba(18, 51, 75, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 18px 45px rgba(18, 51, 75, 0.12) !important;
         }
 
         .logo {
             width: 150px;
         }
 
+        img {
+            max-width: 100%;
+        }
+
+        .img-fluid,
+        .img-thumbnail,
+        .gallery img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .img-thumbnail {
+            padding: 0;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            background: transparent;
+            box-shadow: 0 15px 32px rgba(18, 51, 75, 0.16);
+        }
+
+        [data-toggle="modal"] {
+            cursor: zoom-in;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        [data-toggle="modal"]:hover {
+            transform: translateY(-3px);
+            filter: saturate(1.07) contrast(1.03);
+            box-shadow: 0 20px 42px rgba(7, 24, 39, 0.24);
+        }
+
         .gallery img {
             width: 100%;
-            max-width: 300px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
+            max-width: none;
+            min-height: 180px;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.16);
+        }
+
+        .homepage-highlights .highlight-media {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            background: #071017;
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.16);
+        }
+
+        .homepage-highlights video.highlight-media {
+            cursor: default;
+        }
+
+        .gallery .col-12,
+        .gallery .col-md-3,
+        .gallery .col-md-6,
+        section .row > [class*="col-md-3"] {
+            margin-bottom: 1.25rem;
         }
 
         .profile-img {
             width: 150px;
+            height: 150px;
             border-radius: 50%;
             margin-right: 10px;
+            object-fit: cover;
+            border: 4px solid var(--paper);
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.22);
+        }
+
+        .video-container,
+        .embed-responsive {
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 20px 46px rgba(7, 24, 39, 0.24);
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
-            overflow: hidden;
             max-width: 100%;
-            background: #000;
         }
+
         .video-container iframe,
         .video-container object,
         .video-container embed {
@@ -120,61 +400,439 @@
             height: 100%;
         }
 
-      .button-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
+        #gerfalcon-vessel-gallery img {
+            width: 100%;
+            height: 100%;
+            min-height: 290px;
+            box-shadow: 0 18px 38px rgba(18, 51, 75, 0.18);
+        }
 
-      .button {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.65rem;
-        padding: 0.75rem 1.4rem;
-        border-radius: 999px;
-        background: var(--navy-mid);
-        color: var(--gold-soft);
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-decoration: none;
-        box-shadow: 0 10px 20px rgba(7, 24, 39, 0.22);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
+        #gerfalcon-85th .container-white-alpha {
+            background:
+                linear-gradient(135deg, rgba(11, 30, 47, 0.96), rgba(18, 51, 75, 0.94)),
+                url('images/_optimized/full/journey/85th_journey_2.jpg.webp') center / cover;
+            color: var(--cream);
+        }
 
-      .button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 28px rgba(7, 24, 39, 0.26);
-        background: var(--navy);
-      }
+        #gerfalcon-85th h4,
+        #gerfalcon-85th p {
+            color: var(--cream);
+        }
 
-      .button svg {
-        width: 1.35rem;
-        height: 1.35rem;
-        fill: currentColor;
-      }        
+        #gerfalcon-85th h4::after {
+            margin-left: auto;
+            margin-right: auto;
+            background: var(--gold-soft);
+        }
+
+        #canvasZone1,
+        #canvasZone2 {
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(243, 195, 90, 0.2);
+            background: radial-gradient(circle at 50% 0%, #29465b, #071017 70%);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 20px 48px rgba(7, 24, 39, 0.2);
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .modal-dialog.modal-lg {
+            max-width: min(96vw, 1400px);
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .modal-body img {
+            max-height: 82vh;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .modal-content {
+            border: 1px solid rgba(243, 195, 90, 0.32);
+            border-radius: 8px;
+            background: var(--ink);
+            color: var(--cream);
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            border-bottom-color: rgba(243, 195, 90, 0.22);
+        }
+
+        .modal-title {
+            color: var(--gold-soft);
+        }
+
+        .modal .close {
+            color: var(--cream);
+            text-shadow: none;
+            opacity: 0.9;
+        }
+
+        .modal-body img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(243, 195, 90, 0.24);
+            background: rgba(7, 16, 23, 0.96) !important;
+        }
+
+        .footer .container-white-alpha {
+            margin-top: 0;
+            color: var(--cream);
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+        }
+
+        .footer .container-white-alpha::before {
+            display: none;
+        }
+
+        .footer h4,
+        .footer p {
+            color: var(--cream);
+        }
+
+        .footer h4::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer a {
+            color: var(--gold-soft);
+            border-color: rgba(243, 195, 90, 0.35);
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.78rem 1.2rem;
+            background: var(--navy-mid);
+            color: var(--gold-soft);
+            box-shadow: 0 12px 25px rgba(7, 24, 39, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            color: var(--ink);
+            background: var(--gold-soft);
+            box-shadow: 0 16px 32px rgba(7, 24, 39, 0.26);
+        }
+
+        .button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+            flex: 0 0 auto;
+        }
+
+        .section-transition {
+            opacity: 0;
+            transform: translateY(34px);
+            filter: blur(2px);
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease,
+                filter 0.75s ease;
+            will-change: opacity, transform, filter;
+        }
+
+        .section-transition.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .container-white-alpha.section-transition {
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease,
+                filter 0.75s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .container-white-alpha.section-transition.is-visible:hover {
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+        }
+
+        .jumbotron.section-transition {
+            transform: translateY(24px);
+            transition:
+                opacity 0.95s ease,
+                transform 1.1s ease,
+                filter 0.95s ease;
+        }
+
+        .jumbotron.section-transition.is-visible {
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .section-transition,
+            .section-transition.is-visible,
+            .jumbotron.section-transition,
+            .jumbotron.section-transition.is-visible {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none;
+            }
+        }
+
+        .floating-social {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1060;
+            width: min(320px, calc(100vw - 2rem));
+            padding: 1rem;
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.94);
+            color: var(--cream);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            backdrop-filter: blur(14px);
+        }
+
+        .floating-social h5 {
+            margin: 0 2rem 0.35rem 0;
+            color: var(--gold-soft);
+            font-size: 1.05rem;
+        }
+
+        .floating-social p {
+            margin-bottom: 0.75rem;
+            color: rgba(247, 241, 229, 0.86);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .floating-social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .floating-social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.48rem 0.65rem;
+            border: 1px solid rgba(243, 195, 90, 0.26);
+            border-radius: 999px;
+            color: var(--gold-soft);
+            background: rgba(255, 255, 255, 0.04);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .floating-social a:hover {
+            color: var(--ink);
+            background: var(--gold-soft);
+            border-color: var(--gold-soft);
+        }
+
+        .floating-social-close {
+            position: absolute;
+            top: 0.45rem;
+            right: 0.55rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            border: 0;
+            border-radius: 50%;
+            color: var(--cream);
+            background: transparent;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .floating-social-close:hover {
+            color: var(--gold-soft);
+        }
+
+        .cookie-notice {
+            position: fixed;
+            left: 1rem;
+            bottom: 1rem;
+            z-index: 1060;
+            width: min(390px, calc(100vw - 2rem));
+            padding: 1rem;
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.94);
+            color: var(--cream);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            backdrop-filter: blur(14px);
+        }
+
+        .cookie-notice p {
+            margin: 0 0 0.8rem;
+            color: rgba(247, 241, 229, 0.9);
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .cookie-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cookie-actions button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.48rem 0.85rem;
+            color: var(--ink);
+            background: var(--gold-soft);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cookie-actions button[data-cookie-choice="declined"] {
+            color: var(--cream);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .cookie-actions button:hover {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 767.98px) {
+            .floating-social,
+            .cookie-notice {
+                right: 0.75rem;
+                left: 0.75rem;
+                width: auto;
+            }
+
+            .floating-social {
+                bottom: 0.75rem;
+            }
+
+            .cookie-notice {
+                bottom: 11rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+
+            .navbar-collapse {
+                padding-top: 1rem;
+            }
+
+            .jumbotron {
+                min-height: 64vh;
+                padding: 7rem 0 4rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .container-white-alpha {
+                width: calc(100% - 1.5rem);
+                padding: 1.35rem;
+            }
+
+            .jumbotron h1 {
+                font-size: 2.6rem;
+            }
+
+            p,
+            li {
+                font-size: 1rem;
+            }
+
+            #gerfalcon-vessel-gallery img,
+            .gallery img {
+                min-height: 220px;
+            }
+
+            .row > .col-auto {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .profile-img {
+                margin-right: 0;
+            }
+        }
+    
+
+        .gallery-dropdown .dropdown-menu {
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.96);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            padding: 0.5rem;
+        }
+
+        .gallery-dropdown .dropdown-item {
+            color: rgba(247, 241, 229, 0.86);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .gallery-dropdown .dropdown-item:hover,
+        .gallery-dropdown .dropdown-item.active {
+            color: var(--ink, #071017);
+            background: var(--gold-soft, #f3c35a);
+        }
+    
+
+        .navbar .dropdown:hover > .dropdown-menu,
+        .navbar .dropdown:focus-within > .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .navbar .dropdown:hover > .dropdown-toggle,
+        .navbar .dropdown:focus-within > .dropdown-toggle {
+            color: var(--ink, #071017) !important;
+            background: var(--gold-soft, #f3c35a);
+            text-decoration: none;
+        }
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
-    <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
-    <script src="https://cdn.babylonjs.com/recast.js"></script>
-    <script src="https://cdn.babylonjs.com/ammo.js"></script>
-    <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
-    <script src="https://cdn.babylonjs.com/cannon.js"></script>
-    <script src="https://cdn.babylonjs.com/Oimo.js"></script>
-    <script src="https://cdn.babylonjs.com/earcut.min.js"></script>
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
-    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-    <script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-    <script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-    <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-    <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
 
 </head>
 
@@ -184,7 +842,7 @@
 <!-- Top Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#">
-            <img src="images/ADLS_Letterhead Flag Logo 2_edited.png.webp" width="30" height="30" alt="">
+            <img src="images/_optimized/display/ADLS_Letterhead Flag Logo 2_edited.png.webp.webp" width="30" height="30" alt="Gerfalcon flag logo" style="width: auto; height: 42px; border-radius: 0; object-fit: contain; border: 0; background: transparent; box-shadow: none; outline: 0;">
             Gerfalcon
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -195,33 +853,40 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html#">Home</a>
                 </li>
+                <li class="nav-item dropdown gallery-dropdown history-dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.html#history" id="historyDropdown" role="button" aria-haspopup="true" aria-expanded="false">History</a>
+                    <div class="dropdown-menu" aria-labelledby="historyDropdown">
+                        <a class="dropdown-item" href="index.html#history">Gerfalcon History</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-colours.html">Royal Navy Patrol Boat Colours</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-service.html">Royal Navy Patrol Service</a>
+                        <a class="dropdown-item" href="timeline.html">Gerfalcon Timeline</a>
+                        <a class="dropdown-item" href="william_osborne_boats.html">William Osborne Boats</a>
+                    </div>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html#history">History</a>
+                    <a class="nav-link" href="index.html#latest-news">Latest News</a>
+                </li>
+                <li class="nav-item dropdown gallery-dropdown">
+                    <a class="nav-link dropdown-toggle" href="gallery.html" id="galleryDropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                    <div class="dropdown-menu" aria-labelledby="galleryDropdown">
+                        <a class="dropdown-item" href="gallery.html">Gallery overview</a>
+                        <a class="dropdown-item" href="gallery-3d-scan.html">Gerfalcon 3D Scan</a>
+                        <a class="dropdown-item" href="gallery-86th-pre-launch.html">86th Pre-launch</a>
+                        <a class="dropdown-item" href="gallery-broker-images.html">Broker Images</a>
+                        <a class="dropdown-item" href="gallery-registration-records.html">Registration records</a>
+                        <a class="dropdown-item" href="gallery-historical-register.html">Historical ship Register and Dunkirk Little Ships</a>
+                        <a class="dropdown-item" href="gallery-old-media.html">Old Media</a>
+                        <a class="dropdown-item" href="gallery-previous-restoration.html">Previous restoration works</a>
+                        <a class="dropdown-item" href="gallery-miscellaneous-images.html">Miscellaneous images</a>
+                    </div>
                 </li>
 
+
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html#instagram-feed">Latest News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html#broker_images">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html#donate">Donate</a>
+                    <a class="nav-link" href="searles-wood_gerfalcon_history.html">Gerfalcon and the Searles-Wood's</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html#contact">Contact</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="timeline.html">Gerfalcon Timeline</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="william_osborne_boats.html">William Osborne Boats</a>
-                </li>
-|
-                <li class="nav-item">
-                    <a class="nav-link" href="searles-wood_gerfalcon_history.html">Gerfalcon and the Searles-Wood's</a>
                 </li>
             </ul>
         </div>
@@ -229,15 +894,120 @@
 
     <!-- Hero Section -->
     <div class="jumbotron jumbotron-fluid"
-        style="background-image: url('images/dunkirk-evacuation.jpg'); background-size: cover; height: 475px; color: white;">
+        style="background-image: url('images/_optimized/full/highlights/7B1B20D6-F6D0-4637-9D4F-3AC8E6FA011D.jpg.webp'); background-size: cover; height: 475px; color: white;">
         <div class="container text-center">
             <h1 class="display-4">Gerfalcon: A 96-Year-Old Hero of Dunkirk and Royal Navy Patrol Vessel</h1>
         </div>
     </div>
 
 
+<!-- 85th Anniversary Section -->
+<section class="py-5" id="gerfalcon-85th">
+    <div class="container container-white-alpha mt-5 text-center">
+        <h4 class="mb-4"><strong>She made it to the 85th Anniversary of Operation Dynamo</strong></h4>
+
+<p>Thank you to every volunteer, supporter, friend and well-wisher who helped bring Gerfalcon home to Dunkirk once more.</p>
+
+        <div class="row justify-content-center">
+            <!-- Image 1 -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img src="images/_optimized/display/journey/85th_journey_1.jpg.webp"
+                     class="img-fluid img-thumbnail"
+                     alt="Gerfalcon en route"
+                     data-toggle="modal" data-target="#imageModal"
+                     data-img-src="images/_optimized/full/journey/85th_journey_1.jpg.webp">
+            </div>
+
+            <!-- Image 2 -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img src="images/_optimized/display/journey/85th_journey_2.jpg.webp"
+                     class="img-fluid img-thumbnail"
+                     alt="Gerfalcon among the Little Ships"
+                     data-toggle="modal" data-target="#imageModal"
+                     data-img-src="images/_optimized/full/journey/85th_journey_2.jpg.webp">
+            </div>
+
+            <!-- Image 3 -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img src="images/_optimized/display/journey/85th_journey_3.jpg.webp"
+                     class="img-fluid img-thumbnail"
+                     alt="Gerfalcon in Dunkirk Harbour"
+                     data-toggle="modal" data-target="#imageModal"
+                     data-img-src="images/_optimized/full/journey/85th_journey_3.jpg.webp">
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-lg-8">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video id="operation-dynamo-video" class="embed-responsive-item" playsinline muted controls preload="auto">
+                        <source src="images/gerfalcon_splash.m4v" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        if (window.__operationDynamoAutoplayReady) {
+            return;
+        }
+
+        window.__operationDynamoAutoplayReady = true;
+
+        function setupOperationDynamoAutoplay() {
+            var video = document.getElementById('operation-dynamo-video');
+
+            if (!video) {
+                return;
+            }
+
+            video.muted = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+
+            function playVideo() {
+                var playPromise = video.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.catch(function () {
+                        // Autoplay can be blocked by the browser until the user interacts.
+                    });
+                }
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                playVideo();
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        playVideo();
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px -15% 0px',
+                threshold: 0.35
+            });
+
+            observer.observe(video);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupOperationDynamoAutoplay);
+        } else {
+            setupOperationDynamoAutoplay();
+        }
+    })();
+</script>
+
     <!-- Main Content -->
-    <div class="container container-white-alpha">
+    <div class="container container-white-alpha" id="history">
         <div class="row">
             <div class="col-md-8">
                 <h4>Gerfalcon: A Storied Vessel</h4>
@@ -252,10 +1022,10 @@
                 <!-- Gallery -->
                 <div class="row" id="gerfalcon-vessel-gallery">
                     <div class="col-md-6">
-                        <img src="images/Gerfalcon.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/Gerfalcon.jpg">
+                        <img src="images/_optimized/display/Gerfalcon.jpg.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/Gerfalcon.jpg.webp">
                     </div>
                     <div class="col-md-6">
-                        <img src="images/2233_GERFALCON_3.jpg" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/2233_GERFALCON_3.jpg">
+                        <img src="images/_optimized/display/2233_GERFALCON_3.jpg.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/2233_GERFALCON_3.jpg.webp">
                     </div>
 
 
@@ -264,11 +1034,11 @@
 
                 <div class="row" id="gerfalcon-vessel-gallery">
                     <div class="col-md-6">
-                        <img src="images/broker/4-1-scaled.jpg" class="img-fluid" alt="Gerfalcon Now" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
+                        <img src="images/_optimized/display/broker/4-1-scaled.jpg.webp" class="img-fluid" alt="Gerfalcon Now" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/broker/4-1-scaled.jpg.webp">
                     </div>
 
                     <div class="col-md-6">
-                        <img src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp">
+                        <img src="images/_optimized/display/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp.webp" class="img-fluid" alt="Gerfalcon" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/5c7040_c43f31a61d73425cab86dd961872281a~mv2.webp.webp">
                     </div>
 
                 </div>
@@ -314,10 +1084,10 @@
 
     <!-- Single thumbnail image (opens modal) -->
     <div class="text-center mb-3">
-        <img src="images/journey/gerfalcon_book.png" class="img-fluid img-thumbnail"
+        <img src="images/_optimized/display/journey/gerfalcon_book.png.webp" class="img-fluid img-thumbnail"
              alt="Gerfalcon restoration icon"
              data-toggle="modal" data-target="#imageModal"
-             data-img-src="images/journey/gerfalcon_book.ong">
+             data-img-src="images/_optimized/full/journey/gerfalcon_book.png.webp">
     </div>
 
         <div class="button-group">
@@ -347,53 +1117,7 @@
 
 
 
-<!-- 85th Anniversary Section -->
-<section class="py-5" id="gerfalcon-85th">
-    <div class="container container-white-alpha mt-5 text-center">
-        <h4 class="mb-4"><strong>She made it to the 85th Anniversary of Operation Dynamo</strong></h4>
 
-<p>Thank you to every volunteer, supporter, friend and well-wisher who helped bring Gerfalcon home to Dunkirk once more.</p>
-
-        <div class="row justify-content-center">
-            <!-- Image 1 -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img src="images/journey/85th_journey_1.jpg"
-                     class="img-fluid img-thumbnail"
-                     alt="Gerfalcon en route"
-                     data-toggle="modal" data-target="#imageModal"
-                     data-img-src="images/journey/85th_journey_1.jpg">
-            </div>
-
-            <!-- Image 2 -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img src="images/journey/85th_journey_2.jpg"
-                     class="img-fluid img-thumbnail"
-                     alt="Gerfalcon among the Little Ships"
-                     data-toggle="modal" data-target="#imageModal"
-                     data-img-src="images/journey/85th_journey_2.jpg">
-            </div>
-
-            <!-- Image 3 -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img src="images/journey/85th_journey_3.jpg"
-                     class="img-fluid img-thumbnail"
-                     alt="Gerfalcon in Dunkirk Harbour"
-                     data-toggle="modal" data-target="#imageModal"
-                     data-img-src="images/journey/85th_journey_3.jpg">
-            </div>
-        </div>
-        <div class="row justify-content-center mt-4">
-            <div class="col-12 col-lg-8">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <video id="operation-dynamo-video" class="embed-responsive-item" playsinline muted controls preload="metadata">
-                        <source src="images/gerfalcon_splash.m4v" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
     <section class="container container-white-alpha mt-5" id="now">
         <h4>Gerfalcon as she was last purchased</h4>
@@ -402,16 +1126,24 @@
 
         <div class="gallery row">
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/1-1-scaled.jpg">
+                <a href="images/broker/1-1-scaled.jpg" class="d-block" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/broker/1-1-scaled.jpg.webp">
+                    <img src="images/_optimized/display/broker/1-1-scaled.jpg.webp" alt="Gerfalcon Now" class="img-fluid">
+                </a>
             </div>
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/2-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/2-1-scaled.jpg">
+                <a href="images/broker/2-1-scaled.jpg" class="d-block" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/broker/2-1-scaled.jpg.webp">
+                    <img src="images/_optimized/display/broker/2-1-scaled.jpg.webp" alt="Gerfalcon Now" class="img-fluid">
+                </a>
             </div>
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/3-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/3-1-scaled.jpg">
+                <a href="images/broker/3-1-scaled.jpg" class="d-block" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/broker/3-1-scaled.jpg.webp">
+                    <img src="images/_optimized/display/broker/3-1-scaled.jpg.webp" alt="Gerfalcon Now" class="img-fluid">
+                </a>
             </div>
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/4-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
+                <a href="images/broker/4-1-scaled.jpg" class="d-block" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/broker/4-1-scaled.jpg.webp">
+                    <img src="images/_optimized/display/broker/4-1-scaled.jpg.webp" alt="Gerfalcon Now" class="img-fluid">
+                </a>
             </div>
             <!-- Add more images as needed -->
         </div>
@@ -454,7 +1186,7 @@
 
         <!-- Text Content -->
         <div class="col-12 col-md-8">
-            <h4>Restoration Needs: Gerfalcon's Current Condition</h4>
+            <h4>Restoration Needs: Gerfalcon's 2024 Condition</h4>
             <p>In recent years, Gerfalcon has not weathered well and requires significant restoration work to preserve its
                 historic integrity. The vessel, despite meticulous previous efforts, now shows signs of wear and
                 deterioration that necessitate careful attention. This restoration work will ensure that Gerfalcon continues
@@ -467,16 +1199,16 @@
     <!-- Gallery for Gerfalcon's Current Condition -->
     <div class="gallery row" id="gerfalcon-condition-gallery">
         <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/thumbs/gerfalcon_condition_1.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_1.jpeg">
+            <img src="images/_optimized/display/thumbs/gerfalcon_condition_1.jpeg.webp" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_condition_1.jpeg.webp">
         </div>
         <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/thumbs/gerfalcon_condition_2.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_2.jpeg">
+            <img src="images/_optimized/display/thumbs/gerfalcon_condition_2.jpeg.webp" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_condition_2.jpeg.webp">
         </div>
         <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/thumbs/gerfalcon_condition_3.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_3.jpeg">
+            <img src="images/_optimized/display/thumbs/gerfalcon_condition_3.jpeg.webp" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_condition_3.jpeg.webp">
         </div>
         <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-            <img src="images/thumbs/gerfalcon_condition_4.jpeg" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_condition_4.jpeg">
+            <img src="images/_optimized/display/thumbs/gerfalcon_condition_4.jpeg.webp" alt="Gerfalcon Condition" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_condition_4.jpeg.webp">
         </div>
     </div>
 
@@ -508,49 +1240,49 @@
     <p>The new owner, Gary Fletcher, preparing to lift the boat out of the water to commence the significant restoration works scheduled for 2024. This marks the beginning of an extensive project aimed at rejuvenating the vessel and addressing Gerfalcons long-standing refurbishment needs. With Gary’s commitment and expertise, the restoration promises to restore the boat to its former glory, reflecting both its historical value and its future potential. The careful removal of the boat is a crucial first step in what is expected to be a transformative undertaking.</p>
     <div class="row">
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_1.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_1.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_1.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_1.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_2.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_2.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_2.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_3.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_3.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_3.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_4.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_4.jpeg" alt="Gerfalcon Restoration">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_5.jpeg" alt="Gerfalcon Restoration">
-        </div>
-        <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_6.jpeg" alt="Gerfalcon Restoration">
-        </div>
-        <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_7.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_7.jpeg" alt="Gerfalcon Restoration">
-        </div>
-        <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_8.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_8.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_4.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_4.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
     </div>
     <div class="row">
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_9.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_9.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_5.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_5.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_10.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_10.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_6.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_6.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_11.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_7.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_7.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
         <div class="col-md-3">
-            <img src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_12.jpeg" alt="Gerfalcon Restoration">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_8.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_8.jpeg.webp" alt="Gerfalcon Restoration">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_9.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_9.jpeg.webp" alt="Gerfalcon Restoration">
+        </div>
+        <div class="col-md-3">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_10.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_10.jpeg.webp" alt="Gerfalcon Restoration">
+        </div>
+        <div class="col-md-3">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_11.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_11.jpeg.webp" alt="Gerfalcon Restoration">
+        </div>
+        <div class="col-md-3">
+            <img src="images/_optimized/display/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_12.jpeg.webp" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/20240722-Gerfalcon_Lift_Out/Gerfalcon_lift_out_start_of_restoration_work_2024_12.jpeg.webp" alt="Gerfalcon Restoration">
         </div>
     </div>
 </div>
 
-    <div class="container container-white-alpha">
+    <div id="latest-news" class="container container-white-alpha">
         <h1>Latest News from Instagram</h1>
         <!-- Placeholder for Instagram Feed -->
         <div id="instagram-feed">
@@ -560,21 +1292,6 @@
     </div>
 
 </section>
-
-<div class="container container-white-alpha">
-
-    <h4>Gerfalcon 3D Scan</h4>
-
-    <p>Here is a crude first scan of Gerfalcons exterior and interior. 3D scans like this are invaluable as they provide detailed digital replicas, aiding in research, preservation, and education. </p>
-
-    <div id="canvasZone1" class="my-4">
-        <canvas id="renderCanvasExternal" style="width: 100%; height: 500px;"></canvas>
-    </div>
-
-    <div id="canvasZone2" class="my-4">
-        <canvas id="renderCanvasInternal" style="width: 100%; height: 500px;"></canvas>
-    </div>
-</div>
 
     <!-- Section with Gallery -->
     <section class="container container-white-alpha mt-5">
@@ -586,7 +1303,7 @@
 
         <div class="row">
             <div class="col-auto">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
+                <img src="images/_optimized/display/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg.webp" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg.webp">
             </div>
             <div class="col">
                 <h4>Operation Dynamo: Gerfalcon's Role as a <a href="https://www.adls.org.uk" target="_blank"
@@ -602,7 +1319,7 @@
 
         <div class="row">
             <div class="col-auto">
-                <img src="images/National_Historic_Ship_Gerfalcon.jpeg" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/National_Historic_Ship_Gerfalcon.jpeg">
+                <img src="images/_optimized/display/National_Historic_Ship_Gerfalcon.jpeg.webp" alt="Gerfalcon" class="img-fluid mb-3" style="max-width: 150px;" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/National_Historic_Ship_Gerfalcon.jpeg.webp">
             </div>
             <div class="col">
                 <h4>Gerfalcon as a <a href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon"
@@ -621,99 +1338,6 @@
 
 
 
-    <section class="container container-white-alpha mt-5" id="broker_images">
-        <h4>Broker Images</h4>
-        <p>Gerfalcon was recently purchased via Dean and Holland Yacht Brokers in the following condition:</p>
-
-        <!-- Gallery for Gerfalcon as she is now -->
-        <div class="gallery row" id="gerfalcon-now-gallery">
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/1-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/1-1-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/2-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/2-1-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/3-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/3-1-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/4-1-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/4-1-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/5c7040_c4ece20080654ec087dce8c6fd023ee4~mv2.webp">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7648-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7648-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7649-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7649-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7650-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7650-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7651-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7651-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7652-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7652-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7653-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7653-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7655-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7655-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7656-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7656-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7657-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7657-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7658-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7658-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7659-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7659-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7660-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7660-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7661-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7661-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7662-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7662-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7663-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7663-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7664-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7664-scaled.jpg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/broker/IMG_7665-2-scaled.jpg" alt="Gerfalcon Now" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/broker/IMG_7665-2-scaled.jpg">
-            </div>
-        </div>
-
-
-        <h4>The brokerage</h4>
-
-        <p>The ship exchanged hands on 8th July 2024 via the Broker Holland and Dean in Essex. The advertisements are
-            shown below:</p>
-
-        <!-- Gallery for Gerfalcon brokerage -->
-        <div class="gallery row" id="gerfalcon-broker-ads">
-            <div class="col-md-6 mb-3">
-                <img src="images/deanandholland.com_product_3750_.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/deanandholland.com_product_3750_.png">
-            </div>
-            <div class="col-md-6 mb-3">
-                <img src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png" alt="Gerfalcon Brokerage" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/www.apolloduck.co.uk_boat_osborne-for-sale_731206.png">
-            </div>
-        </div>
-
-    </section>
-
-
     <section class="container container-white-alpha mt-5">
         <h4>Owners of Gerfalcon</h4>
 
@@ -726,7 +1350,7 @@
         <!-- Profile Image and Short Biography for Commander Valentine Searles-Wood -->
         <div class="row mb-4">
             <div class="col-auto">
-                <img src="images/89385_xl.jpg" alt="Commander Valentine Searles-Wood" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/89385_xl.jpg">
+                <img src="images/_optimized/display/89385_xl.jpg.webp" alt="Commander Valentine Searles-Wood" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/89385_xl.jpg.webp">
             </div>
             <div class="col">
                 <h5>Commander Valentine Searles-Wood Royal Navy</h5>
@@ -744,7 +1368,7 @@
         <!-- Profile Image and Short Biography for Lieutenant Gary Fletcher -->
         <div class="row mb-4" id="ownership">
             <div class="col-auto">
-                <img src="images/Lt_VCC_Gary_Fletcher_RN.jpg" alt="Lieutenant Gary Fletcher" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Lt_VCC_Gary_Fletcher_RN.jpg">
+                <img src="images/_optimized/display/Lt_VCC_Gary_Fletcher_RN.jpg.webp" alt="Lieutenant Gary Fletcher" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/Lt_VCC_Gary_Fletcher_RN.jpg.webp">
             </div>
             <div class="col">
                 <h5>Lieutenant (VCC) Gary Fletcher (rtrd)</h5>
@@ -763,7 +1387,7 @@
                 <p>In a strange twist of fate, Commander Valentine Searles-Wood and Lieutenant (VCC) Gary Fletcher, both from the small village of <a href="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_%20Old_Media_2.jpeg" target="_blank">West Moors in Dorset</a>, are both custodians of the same boat. In an even more remarkable turn, the ship was <a href="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_%2060.jpeg" target="_blank">accepted to the Historic Ship Register</a> on Gary's birthday. Their lives, separate, have been mysteriously intertwined by the fate of Gerfalcon.</p>
             </div>
             <div class="col-auto">
-                <img src="images/gary_fletcher_of_west_moors.jpeg" alt="Gary Fletcher of West Moors" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gary_fletcher_of_west_moors.jpeg">
+                <img src="images/_optimized/display/gary_fletcher_of_west_moors.jpeg.webp" alt="Gary Fletcher of West Moors" class="profile-img img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gary_fletcher_of_west_moors.jpeg.webp">
             </div>
         </div>
 
@@ -772,561 +1396,242 @@
         <!-- Gallery for Owners -->
         <div class="gallery row" id="gerfalcon-broker-ads">
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg">
+                <img src="images/_optimized/display/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg.webp" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_1.jpeg.webp">
             </div>
             <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg" alt="Gerfalcon owners" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg">
+                <img src="images/_optimized/display/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg.webp" alt="Gerfalcon owners" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Ship_Register_2.jpeg.webp">
             </div>
         </div>
 
 
     </section>
 
-    <section class="container container-white-alpha mt-5" id="history">
 
-        <h4>We will restore Gerfalcon in its Royal Navy Patrol Boat Colours</h4>
-
-        <p>After its valiant service at Dunkirk, Gerfalcon was immediately conscripted into the Royal Navy, serving as a
-            Auxiliary Patrol Craft in the <a href="https://en.wikipedia.org/wiki/Royal_Naval_Patrol_Service">Royal Navy Patrol Service</a>. Although its tenure with the Royal Navy was brief, lasting only from June to August
-            1940, this period remains a significant chapter in its storied history. The decision to restore Gerfalcon in
-            its Royal Navy patrol boat colours is grounded in several compelling reasons:</p>
-
-        <ol>
-            <li><strong>Historical Rarity and Significance:</strong> Despite its short service, there are virtually no
-                remaining vessels that served in this capacity. By preserving Gerfalcon in its Royal Navy colours, we
-                honour a rare and unique aspect of maritime history, offering a glimpse into the less-documented roles
-                that small ships played during the war.</li>
-            <li><strong>Continuation of Narrative:</strong> Gerfalcon's journey from a private yacht to a wartime vessel
-                and back to private ownership is a compelling narrative. Restoring it in its wartime livery ensures that
-                the vessel's story is told accurately and respectfully.</li>
-            <li><strong>Symbol of Service and Sacrifice:</strong> The Royal Navy colours serve as a tribute to all the
-                vessels and crew members who played vital roles in patrol duties during World War II. It commemorates
-                their service and sacrifices, adding depth to the historical context in which Gerfalcon operated.</li>
-            <li><strong>Educational Purpose:</strong> Restoring Gerfalcon in its patrol boat colours enhances its
-                educational value. It allows us to tell a more comprehensive story of the vessel's service life, from
-                its heroic deeds at Dunkirk to its subsequent role in the Royal Navy, providing a richer experience for
-                those who encounter this <a href="" https://www.nationalhistoricships.org.uk/register/2233/gerfalcon"
-                    target="_blank">historic ship</a>.</li>
-        </ol>
-
-        <p>By keeping Gerfalcon in its Royal Navy patrol boat colours, we ensure that its complete story is preserved
-            and honoured, celebrating not only its contribution to Operation Dynamo but also its service in the Royal
-            Navy. This decision is a homage to the ship's multifaceted history and a commitment to preserving our
-            maritime heritage for future generations to appreciate.</p>
-
-        <!-- Gallery for Royal Navy Auxiliary Patrol Boat Colours -->
-        <div class="gallery row" id="patrol-gallery">
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_1.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_1.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_2.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_2.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_3.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_3.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_4.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_4.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_5.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_5.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_6.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_6.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_7.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_7.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_8.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_8.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_9.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_9.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_10.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_10.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_11.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_11.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_12.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_12.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_13.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_13.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_14.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_14.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_15.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_15.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_16.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_16.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/thumbs/Royal_NavalAuxillary_Patrol_17.png" alt="Royal Navy Patrol Boat Colours" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/Royal_NavalAuxillary_Patrol_17.png">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 55.jpeg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 54.jpeg">
-            </div>
-            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg" alt="Registration Records" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 56.jpeg">
-            </div>
-        </div>
-
-    </section>
-
-
-    <section>
+    <!-- Highlights Gallery Section -->
+    <section class="py-5 homepage-highlights" id="highlights-gallery">
         <div class="container container-white-alpha">
-            <div class="row">
-                <div class="col">
-                    <h4>Registration records</h4>
-                    <div class="gallery" id="gerfalcon-registration-records">
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 11.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 22.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 15.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 26.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 21.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 19.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 13.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 53.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 30.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 31.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 43.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 24.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 37.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 11.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 8.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 38.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 25.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 51.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 3.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 27.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 23 2.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 35 16.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 16.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 58.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 6.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 45.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 18.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 33.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 34.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 9.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 8 12.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 12.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h4 class="mb-4"><strong>Highlights</strong></h4>
+            <p>Moments from Gerfalcon's restoration, return and Operation Dynamo anniversary journey.</p>
+            <div class="gallery row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/1.png.webp" alt="Gerfalcon highlight 1" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/1.png.webp">
             </div>
-            <!-- Repeat the above structure for other sections -->
-        </div>
-        <div class="container container-white-alpha">
-
-            <div class="row">
-                <div class="col">
-                    <h4>Historical ship Register and Dunkirk Little Ships</h4>
-                    <div class="gallery" id="gerfalcon-historical-ships">
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 13.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/National_Historic_Ship_Gerfalcon.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 72.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 60.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 52 11.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 88.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 63.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 3.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 83 5.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 97.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/5c568411-6a97-45da-b379-1fa4d7e8d742.jpg.webp" alt="Gerfalcon highlight 2" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/5c568411-6a97-45da-b379-1fa4d7e8d742.jpg.webp">
             </div>
-        </div>
-        <div class="container container-white-alpha">
-            <div class="row">
-                <div class="col">
-                    <h4>Old Media</h4>
-                    <div class="gallery" id="gerfalcon-old-media">
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 5.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 6.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 4.jpeg">
-                            </div>
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_1.jpeg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                                <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ Old_Media_2.jpeg">
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/08ab08a8-3e3e-400c-83e1-13cc976926d3.jpg.webp" alt="Gerfalcon highlight 3" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/08ab08a8-3e3e-400c-83e1-13cc976926d3.jpg.webp">
             </div>
-        </div>
-        <div class="container container-white-alpha">
-            <h4>Miscellaneous images</h4>
-
-            <div class="gallery row" id="gerfalcon-broker-ads">
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg" alt="Miscellaneous Image 1" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 109.jpeg">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 1.jpeg">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg" alt="Gerfalcon ownership" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 3.jpeg">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg" alt="Miscellaneous Image 4" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 81.jpeg">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg" alt="Miscellaneous Image 5" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_ 99.jpeg">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="images/gerfalcon_history/thumbs/Gerfalcon_Little_Dunkirk_Ship_.jpeg" alt="Miscellaneous Image 6" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/gerfalcon_history/Gerfalcon_Little_Dunkirk_Ship_.jpeg">
-                </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <video class="highlight-media" controls muted playsinline preload="metadata">
+                    <source src="images/highlights/54b44754-f832-4421-97f0-e951488126f0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-
-
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/69F19D61-5416-4174-9CDF-B4C8760B1E35.jpg.webp" alt="Gerfalcon highlight 5" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/69F19D61-5416-4174-9CDF-B4C8760B1E35.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/076fc698-a30e-4af0-acd7-9731b9e5ab56.jpg.webp" alt="Gerfalcon highlight 6" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/076fc698-a30e-4af0-acd7-9731b9e5ab56.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/99f02b3e-b1d9-49b7-a937-a861d5c88ad8.jpg.webp" alt="Gerfalcon highlight 7" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/99f02b3e-b1d9-49b7-a937-a861d5c88ad8.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/2850f2c7-9933-4363-b0ea-b8e49c874152 (1).jpg.webp" alt="Gerfalcon highlight 8" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/2850f2c7-9933-4363-b0ea-b8e49c874152 (1).jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/2850f2c7-9933-4363-b0ea-b8e49c874152.jpg.webp" alt="Gerfalcon highlight 9" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/2850f2c7-9933-4363-b0ea-b8e49c874152.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/4602FA54-9C27-46EF-86C8-19E55287C6B2.jpg.webp" alt="Gerfalcon highlight 10" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/4602FA54-9C27-46EF-86C8-19E55287C6B2.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/6489a8e5-8e4f-4be7-a053-6fa7c24dd434.jpg.webp" alt="Gerfalcon highlight 11" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/6489a8e5-8e4f-4be7-a053-6fa7c24dd434.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/a-flotilla-of-little-ships-sail-out-of-ramsgate-kent.jpg.webp" alt="Gerfalcon highlight 12" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/a-flotilla-of-little-ships-sail-out-of-ramsgate-kent.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/ab5ebd18-61c5-4ac1-8cd8-5fc3c5ba37d3.jpg.webp" alt="Gerfalcon highlight 13" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/ab5ebd18-61c5-4ac1-8cd8-5fc3c5ba37d3.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/ACAF7BE9-3C02-415D-8115-C526C6D3F2A1.png.webp" alt="Gerfalcon highlight 14" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/ACAF7BE9-3C02-415D-8115-C526C6D3F2A1.png.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/ec032dd2-fb29-406e-b962-a95d9a5a57f1.jpg.webp" alt="Gerfalcon highlight 15" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/ec032dd2-fb29-406e-b962-a95d9a5a57f1.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/f531324b-0acc-4938-a14a-6ef9bc14dbd9.jpg.webp" alt="Gerfalcon highlight 16" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/f531324b-0acc-4938-a14a-6ef9bc14dbd9.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/FRPUE-20250521-ZE0179-0022.jpg.webp" alt="Gerfalcon highlight 17" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/FRPUE-20250521-ZE0179-0022.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <video class="highlight-media" controls muted playsinline preload="metadata">
+                    <source src="images/highlights/Gerfalcon_Splash.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/gerfalcon-ona-11-naiad-errant-and-others-gpart-of-the-flotilla-of-52-dunkirk-little-ships-cross-the-shipping-lane-of-the-english-channel-after-lea-3DGCP6R.jpg.webp" alt="Gerfalcon highlight 19" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/gerfalcon-ona-11-naiad-errant-and-others-gpart-of-the-flotilla-of-52-dunkirk-little-ships-cross-the-shipping-lane-of-the-english-channel-after-lea-3DGCP6R.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/gerfalcon-part-of-the-flotilla-of-52-dunkirk-little-ships-cross-the-shipping-lane-of-the-english-channel-after-leaving-ramsgate-for-dunkirk-on-the-8-3DGCP6W.jpg.webp" alt="Gerfalcon highlight 20" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/gerfalcon-part-of-the-flotilla-of-52-dunkirk-little-ships-cross-the-shipping-lane-of-the-english-channel-after-leaving-ramsgate-for-dunkirk-on-the-8-3DGCP6W.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0120.jpeg.webp" alt="Gerfalcon highlight 21" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0120.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0146.jpeg.webp" alt="Gerfalcon highlight 22" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0146.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0189.jpeg.webp" alt="Gerfalcon highlight 23" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0189.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0352.jpeg.webp" alt="Gerfalcon highlight 24" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0352.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0354.jpeg.webp" alt="Gerfalcon highlight 25" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0354.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0386.jpeg.webp" alt="Gerfalcon highlight 26" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0386.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0614.JPG.webp" alt="Gerfalcon highlight 27" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0614.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0616.JPG.webp" alt="Gerfalcon highlight 28" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0616.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0618.JPG.webp" alt="Gerfalcon highlight 29" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0618.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0619.JPG.webp" alt="Gerfalcon highlight 30" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0619.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0621.JPG.webp" alt="Gerfalcon highlight 31" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0621.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0622.JPG.webp" alt="Gerfalcon highlight 32" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0622.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0623.JPG.webp" alt="Gerfalcon highlight 33" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0623.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0634.JPG.webp" alt="Gerfalcon highlight 34" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0634.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0640.JPG.webp" alt="Gerfalcon highlight 35" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0640.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0643.JPG.webp" alt="Gerfalcon highlight 36" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0643.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0756.JPG.webp" alt="Gerfalcon highlight 37" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0756.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0758.JPG.webp" alt="Gerfalcon highlight 38" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0758.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0761.JPG.webp" alt="Gerfalcon highlight 39" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0761.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0762.JPG.webp" alt="Gerfalcon highlight 40" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0762.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0884.JPG.webp" alt="Gerfalcon highlight 41" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0884.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0970.jpeg.webp" alt="Gerfalcon highlight 42" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0970.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_0971.jpeg.webp" alt="Gerfalcon highlight 43" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_0971.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1106.JPG.webp" alt="Gerfalcon highlight 44" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1106.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1219.jpeg.webp" alt="Gerfalcon highlight 45" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1219.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1354.JPG.webp" alt="Gerfalcon highlight 46" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1354.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1355.JPG.webp" alt="Gerfalcon highlight 47" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1355.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1362.JPG.webp" alt="Gerfalcon highlight 48" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1362.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1366.JPG.webp" alt="Gerfalcon highlight 49" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1366.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1371.JPG.webp" alt="Gerfalcon highlight 50" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1371.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1523.jpeg.webp" alt="Gerfalcon highlight 51" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1523.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1526.jpeg.webp" alt="Gerfalcon highlight 52" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1526.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1528.jpeg.webp" alt="Gerfalcon highlight 53" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1528.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1621.JPG.webp" alt="Gerfalcon highlight 54" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1621.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1622.JPG.webp" alt="Gerfalcon highlight 55" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1622.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1626.JPG.webp" alt="Gerfalcon highlight 56" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1626.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1640.jpeg.webp" alt="Gerfalcon highlight 57" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1640.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1755.JPG.webp" alt="Gerfalcon highlight 58" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1755.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_1886.JPG.webp" alt="Gerfalcon highlight 59" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_1886.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_3149.jpeg.webp" alt="Gerfalcon highlight 60" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_3149.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_3163.jpeg.webp" alt="Gerfalcon highlight 61" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_3163.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_6728.jpeg.webp" alt="Gerfalcon highlight 62" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_6728.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_9046.jpeg.webp" alt="Gerfalcon highlight 63" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_9046.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_9267.JPG.webp" alt="Gerfalcon highlight 64" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_9267.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_9274.JPG.webp" alt="Gerfalcon highlight 65" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_9274.JPG.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/IMG_9580.jpeg.webp" alt="Gerfalcon highlight 66" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/IMG_9580.jpeg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/left-to-right-gerfalcon-llanthony-and-thames-barge-pudge-leave-ramsgate-harbour-at-dawn-for-dunkirk-as-part-of-the-85th-anniversary-return-to-dun-3DG7ENK.jpg.webp" alt="Gerfalcon highlight 67" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/left-to-right-gerfalcon-llanthony-and-thames-barge-pudge-leave-ramsgate-harbour-at-dawn-for-dunkirk-as-part-of-the-85th-anniversary-return-to-dun-3DG7ENK.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/the-dunkirk-little-ships-flotilla-leaving-ramsgate-for-dunkirk-on-the-85th-anniversary-of-operation-dynamo-3BCWHGM.jpg.webp" alt="Gerfalcon highlight 68" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/the-dunkirk-little-ships-flotilla-leaving-ramsgate-for-dunkirk-on-the-85th-anniversary-of-operation-dynamo-3BCWHGM.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/three-of-the-little-ships-leaving-ramsgate-on-the-85th-anniversary-of-the-world-war-two-dunkirk-evacuation-operation-dynamo-royal-navy-launch-leading-two-boats-3BCNXXT.jpg.webp" alt="Gerfalcon highlight 69" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/three-of-the-little-ships-leaving-ramsgate-on-the-85th-anniversary-of-the-world-war-two-dunkirk-evacuation-operation-dynamo-royal-navy-launch-leading-two-boats-3BCNXXT.jpg.webp">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img src="images/_optimized/display/highlights/WhatsApp Image 2025-06-01 at 11.33.41.jpeg.webp" alt="Gerfalcon highlight 70" class="img-fluid highlight-media" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/_optimized/full/highlights/WhatsApp Image 2025-06-01 at 11.33.41.jpeg.webp">
+            </div>
+            </div>
         </div>
     </section>
-
-<section>
-    <div class="container container-white-alpha">
-        <h4>Previous restoration works</h4>
-        <p>The previous restoration works carried out by the previous owner for Gwerfalcon were estimated to have been carried out either in 1993 or 2003. This uncertainty stems from incomplete historical records or conflicting information regarding the exact timing of the restoration.</p>  
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-4.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-4.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-1.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-1.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-2.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-2.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-3.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-3.jpg" alt="Gerfalcon Restoration">
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-5.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-5.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-6.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-6.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-7.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-7.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-8.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-8.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-9.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-9.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-10.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-10.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-11.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-11.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-12.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-12.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-13.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-13.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-14.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-14.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-15.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-15.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-16.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-16.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-17.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-17.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-18.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-18.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-19.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-19.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-20.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-20.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-21.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-21.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-22.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-22.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-23.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-23.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-24.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-24.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-25.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-25.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-26.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-26.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-27.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-27.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-28.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-28.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-29.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-29.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-30.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-30.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-31.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-31.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-32.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-32.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-33.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-33.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-34.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-34.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-35.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-35.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-36.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-36.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-37.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-37.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-38.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-38.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-39.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-39.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-40.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-40.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-41.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-41.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-42.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-42.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-43.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-43.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-44.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-44.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-45.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-45.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-46.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-46.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-47.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-47.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-48.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-48.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-49.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-49.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-50.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-50.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-51.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-51.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-52.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-52.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-53.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-53.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-54.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-54.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-55.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-55.jpg" alt="Gerfalcon Restoration">
-            </div>
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-56.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-56.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-57.jpg" class="img-fluid" data-toggle="modal" data-target="#imageModal" data-img-src="images/restoration_photos_2003_album_1/Gerfalcon-Restoration-Album_1-57.jpg" alt="Gerfalcon Restoration">
-            </div>
-        </div>
-    </div>
-
-</section>
-
 
 
     <!-- Modal -->
@@ -1347,9 +1652,24 @@
         </div>
     </div>
     <p>&nbsp;</p>
+    <aside class="floating-social" data-floating-social aria-label="Follow Gerfalcon on social media">
+        <button class="floating-social-close" type="button" data-floating-social-close aria-label="Close social media panel">&times;</button>
+        <h5>Stay connected</h5>
+        <p>Follow Gerfalcon's restoration, voyages and Dunkirk Little Ship updates.</p>
+        <div class="floating-social-links">
+            <a href="https://instagram.com/gerfalcon.dunkirk.little.ship" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="https://x.com/GerfalconShip" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i> X</a>
+            <a href="https://www.facebook.com/gerfalconship" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Facebook</a>
+        </div>
+    </aside>
 
-
-
+    <div class="cookie-notice" data-cookie-notice role="dialog" aria-live="polite" aria-label="Cookie notice">
+        <p>We use strictly necessary cookies to run this website and optional analytics cookies to understand site usage. You can accept or decline optional cookies.</p>
+        <div class="cookie-actions">
+            <button type="button" data-cookie-choice="accepted">Accept</button>
+            <button type="button" data-cookie-choice="declined">Decline</button>
+        </div>
+    </div>
     <footer class="footer bg-dark py-4" id="contact">
         <div class="container container-white-alpha">
             <div class="row">
@@ -1362,130 +1682,179 @@
                                 target="_blank" rel="noopener noreferrer">Association of Dunkirk Little Ships</a> or <a
                                 href="https://www.nationalhistoricships.org.uk/register/2233/gerfalcon" target="_blank"
                                 rel="noopener noreferrer">National Historic Ships</a>.</p>
-                                <p><a href="https://wa.me/447946325160" target="_blank"><img src="images/wa.png" width="250px"></a></p>
+                                <p><a href="https://wa.me/447946325160" target="_blank"><img src="images/_optimized/display/wa.png.webp" width="250px"></a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <script>
+        (function () {
+            if (window.__gerfalconImageModalReady) {
+                return;
+            }
+
+            window.__gerfalconImageModalReady = true;
+            var activeBackdrop = null;
+
+            function closeImageModal() {
+                var imageModal = document.getElementById('imageModal');
+
+                if (!imageModal) {
+                    return;
+                }
+
+                imageModal.classList.remove('show');
+                imageModal.style.display = 'none';
+                imageModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                document.body.style.paddingRight = '';
+
+                if (activeBackdrop) {
+                    activeBackdrop.remove();
+                    activeBackdrop = null;
+                }
+            }
+
+            function openImageModal(imgSrc) {
+                var imageModal = document.getElementById('imageModal');
+                var modalImage = document.getElementById('modalImage');
+
+                if (!imageModal || !modalImage || !imgSrc) {
+                    return;
+                }
+
+                modalImage.setAttribute('src', imgSrc);
+
+                if (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) {
+                    window.jQuery(imageModal).modal('show');
+                    return;
+                }
+
+                imageModal.classList.add('show');
+                imageModal.style.display = 'block';
+                imageModal.removeAttribute('aria-hidden');
+                document.body.classList.add('modal-open');
+
+                activeBackdrop = document.createElement('div');
+                activeBackdrop.className = 'modal-backdrop fade show';
+                activeBackdrop.addEventListener('click', closeImageModal);
+                document.body.appendChild(activeBackdrop);
+            }
+
+            document.addEventListener('click', function (event) {
+                var trigger = event.target.closest('[data-img-src]');
+
+                if (trigger) {
+                    event.preventDefault();
+                    openImageModal(trigger.getAttribute('data-img-src'));
+                    return;
+                }
+
+                if (event.target.closest('[data-dismiss="modal"]')) {
+                    closeImageModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeImageModal();
+                }
+            });
+        })();
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $('#imageModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var imgSrc = button.data('img-src');
-            var modal = $(this);
-            modal.find('#modalImage').attr('src', imgSrc);
-        });
+        function setupImageModal() {
+            if (window.__gerfalconImageModalReady) {
+                return;
+            }
 
-        var operationDynamoVideo = document.getElementById('operation-dynamo-video');
+            window.__gerfalconImageModalReady = true;
+            var imageModal = document.getElementById('imageModal');
+            var modalImage = document.getElementById('modalImage');
+            var activeBackdrop = null;
 
-        if (operationDynamoVideo) {
-            var dynamoObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        var playPromise = operationDynamoVideo.play();
+            function closeImageModal() {
+                if (!imageModal) {
+                    return;
+                }
 
-                        if (playPromise !== undefined) {
-                            playPromise.catch(function() {
-                                // Autoplay might be blocked; ignore errors
-                            });
-                        }
-                    } else {
-                        operationDynamoVideo.pause();
-                    }
-                });
-            }, { threshold: 0.5 });
+                imageModal.classList.remove('show');
+                imageModal.style.display = 'none';
+                imageModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                document.body.style.paddingRight = '';
 
-            dynamoObserver.observe(operationDynamoVideo);
+                if (activeBackdrop) {
+                    activeBackdrop.remove();
+                    activeBackdrop = null;
+                }
+            }
+
+            function openImageModal(imgSrc) {
+                if (!imageModal || !modalImage || !imgSrc) {
+                    return;
+                }
+
+                modalImage.setAttribute('src', imgSrc);
+
+                if (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) {
+                    window.jQuery(imageModal).modal('show');
+                    return;
+                }
+
+                imageModal.classList.add('show');
+                imageModal.style.display = 'block';
+                imageModal.removeAttribute('aria-hidden');
+                document.body.classList.add('modal-open');
+
+                activeBackdrop = document.createElement('div');
+                activeBackdrop.className = 'modal-backdrop fade show';
+                activeBackdrop.addEventListener('click', closeImageModal);
+                document.body.appendChild(activeBackdrop);
+            }
+
+            document.addEventListener('click', function (event) {
+                var trigger = event.target.closest('[data-img-src]');
+
+                if (trigger) {
+                    event.preventDefault();
+                    openImageModal(trigger.getAttribute('data-img-src'));
+                    return;
+                }
+
+                if (event.target.closest('[data-dismiss="modal"]')) {
+                    closeImageModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeImageModal();
+                }
+            });
         }
 
-
-
-    // Canvas elements
-    var canvas1 = document.getElementById("renderCanvasExternal");
-    var canvas2 = document.getElementById("renderCanvasInternal");
-
-    // Function to start render loop
-    var startRenderLoop = function (engine, canvas, sceneToRender) {
-        engine.runRenderLoop(function () {
-            if (sceneToRender && sceneToRender.activeCamera) {
-                sceneToRender.render();
-            }
-        });
-    }
-
-    // Function to create a default engine
-    var createDefaultEngine = function (canvas) { 
-        return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: false }); 
-    };
-
-    // Function to create a scene
-    var createScene = function (engine, canvas, directoryPath, assetName) {
-        var scene = new BABYLON.Scene(engine);
-        var hdrTexture = new BABYLON.CubeTexture("https://playground.babylonjs.com/textures/Studio_Softbox_2Umbrellas_cube_specular.env", scene);
-        hdrTexture.gammaSpace = false;
-        scene.environmentTexture = hdrTexture;
-
-        // Adding an Arc Rotate Camera
-        var camera = new BABYLON.ArcRotateCamera("Camera", 1.9, 1.5, 80, BABYLON.Vector3.Zero(), scene);
-        camera.attachControl(canvas, false);
-        camera.useFramingBehavior = true;
-        camera.useAutoRotationBehavior = true;
-
-        // Importing mesh
-        BABYLON.SceneLoader.ImportMesh("", directoryPath, assetName + ".glb", scene, function (newMeshes) {
-            camera.setTarget(newMeshes[1]);
-        });
-
-        var alpha = 0;
-        scene.registerBeforeRender(function () {
-            if (camera.radius > 40) {
-                camera.radius -= alpha;
-                alpha += 0.01;
-            }
-        });
-
-        return scene;
-    }
-
-    // Initialise function
-    window.initFunction = async function() {
-        var asyncEngineCreation = async function (canvas) {
-            try {
-                return createDefaultEngine(canvas);
-            } catch(e) {
-                console.log("the available createEngine function failed. Creating the default engine instead");
-                return createDefaultEngine(canvas);
-            }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupImageModal);
+        } else {
+            setupImageModal();
         }
-
-        // Engine and scene for the first canvas
-        window.engine1 = await asyncEngineCreation(canvas1);
-        if (!engine1) throw 'engine1 should not be null.';
-        startRenderLoop(engine1, canvas1, window.scene1 = createScene(engine1, canvas1, "https://gerfalcon.navy/images/", "gerfalcon_3d_external"));
-
-        // Engine and scene for the second canvas
-        window.engine2 = await asyncEngineCreation(canvas2);
-        if (!engine2) throw 'engine2 should not be null.';
-        startRenderLoop(engine2, canvas2, window.scene2 = createScene(engine2, canvas2, "https://gerfalcon.navy/images/", "gerfalcon_3d_internal"));
-    };
-
-    initFunction();
-
-    // Resize event
-    window.addEventListener("resize", function () {
-        if (engine1) engine1.resize();
-        if (engine2) engine2.resize();
-    });
 
     </script>
+
     <!-- JavaScript to Fetch the Feed -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const endpoint = "https://kgkwcp46wl.execute-api.eu-west-1.amazonaws.com/default/getGerfalconInsta";
             const feedContainer = document.getElementById("instagram-feed");
+
+            if (!feedContainer) {
+                return;
+            }
 
             fetch(endpoint)
                 .then(response => {
@@ -1501,6 +1870,68 @@
                     console.error("Error fetching Instagram feed:", error);
                     feedContainer.innerHTML = "<p class='text-danger'>Failed to load Instagram feed. Please try again later.</p>";
                 });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            var sections = Array.prototype.slice.call(document.querySelectorAll('.jumbotron, .container-white-alpha'));
+            if (!sections.length) return;
+
+            sections.forEach(function (section, index) {
+                section.classList.add('section-transition');
+                section.style.transitionDelay = Math.min(index * 70, 280) + 'ms';
+            });
+
+            if (!('IntersectionObserver' in window)) {
+                sections.forEach(function (section) {
+                    section.classList.add('is-visible');
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+            sections.forEach(function (section) {
+                observer.observe(section);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cookieNotice = document.querySelector('[data-cookie-notice]');
+            var cookieChoice = localStorage.getItem('gerfalconCookieChoice');
+            if (cookieNotice && cookieChoice) {
+                cookieNotice.style.display = 'none';
+            }
+
+            document.querySelectorAll('[data-cookie-choice]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    localStorage.setItem('gerfalconCookieChoice', button.getAttribute('data-cookie-choice'));
+                    if (cookieNotice) cookieNotice.style.display = 'none';
+                });
+            });
+
+            var socialPanel = document.querySelector('[data-floating-social]');
+            var socialHidden = localStorage.getItem('gerfalconSocialPanelClosed');
+            if (socialPanel && socialHidden === 'true') {
+                socialPanel.style.display = 'none';
+            }
+
+            var socialClose = document.querySelector('[data-floating-social-close]');
+            if (socialClose && socialPanel) {
+                socialClose.addEventListener('click', function () {
+                    localStorage.setItem('gerfalconSocialPanelClosed', 'true');
+                    socialPanel.style.display = 'none';
+                });
+            }
         });
     </script>
 </body>
