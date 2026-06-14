@@ -1050,6 +1050,14 @@
       </div>
     </div>
 
+    <div class="timeline-item">
+      <div class="timeline-date">Friday 06 May 1938</div>
+      <div class="timeline-content">
+        Gerfalcon was launched at William Osborne’s Littlehampton yard, as reported by the <em>Littlehampton Gazette</em>.
+        <img src="images/littlehampton-gazette-gerfalcon-launch-1938.jpeg" alt="Littlehampton Gazette report on Gerfalcon's launch in May 1938" class="timeline-image" loading="lazy" data-toggle="modal" data-target="#imageModal" data-img-src="images/littlehampton-gazette-gerfalcon-launch-1938.jpeg">
+      </div>
+    </div>
+
     <!-- Wartime Service -->
     <div class="timeline-item">
       <div class="timeline-date">20 February 1940</div>
@@ -1280,15 +1288,11 @@
             });
 
             var socialPanel = document.querySelector('[data-floating-social]');
-            var socialHidden = localStorage.getItem('gerfalconSocialPanelClosed');
-            if (socialPanel && socialHidden === 'true') {
-                socialPanel.style.display = 'none';
-            }
+            localStorage.removeItem('gerfalconSocialPanelClosed');
 
             var socialClose = document.querySelector('[data-floating-social-close]');
             if (socialClose && socialPanel) {
                 socialClose.addEventListener('click', function () {
-                    localStorage.setItem('gerfalconSocialPanelClosed', 'true');
                     socialPanel.style.display = 'none';
                 });
             }

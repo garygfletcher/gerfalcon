@@ -1146,15 +1146,11 @@
             });
 
             var socialPanel = document.querySelector('[data-floating-social]');
-            var socialHidden = localStorage.getItem('gerfalconSocialPanelClosed');
-            if (socialPanel && socialHidden === 'true') {
-                socialPanel.style.display = 'none';
-            }
+            localStorage.removeItem('gerfalconSocialPanelClosed');
 
             var socialClose = document.querySelector('[data-floating-social-close]');
             if (socialClose && socialPanel) {
                 socialClose.addEventListener('click', function () {
-                    localStorage.setItem('gerfalconSocialPanelClosed', 'true');
                     socialPanel.style.display = 'none';
                 });
             }
