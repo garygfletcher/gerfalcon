@@ -620,6 +620,50 @@
             background: rgba(255, 255, 255, 0.72);
         }
 
+        .medals-feature {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+            align-items: center;
+            margin-top: 1.5rem;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.62);
+            box-shadow: 0 18px 45px rgba(18, 51, 75, 0.12);
+        }
+
+        .medals-feature-image {
+            margin: 0;
+        }
+
+        .medals-feature-image a {
+            display: block;
+            border-bottom: 0;
+        }
+
+        .medals-feature-image img {
+            display: block;
+            width: 100%;
+            max-height: 760px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.08);
+            box-shadow: 0 18px 45px rgba(18, 51, 75, 0.18);
+        }
+
+        .medals-feature-image figcaption {
+            margin-top: 0.75rem;
+            color: var(--muted);
+            font-family: Georgia, serif;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .medals-feature-copy p:last-child {
+            margin-bottom: 0;
+        }
+
         .modal-dialog.modal-lg {
             max-width: min(96vw, 1400px);
         }
@@ -995,6 +1039,14 @@
                 height: 210px;
             }
 
+            .medals-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .medals-feature-image img {
+                max-height: none;
+            }
+
             .row > .col-auto {
                 width: 100%;
                 margin-bottom: 1rem;
@@ -1208,8 +1260,19 @@
 
     <section>
       <h2>Legacy and Presentation of Medals</h2>
-      <p>On Good Friday, 18th April 2025, following the successful relaunch of <em>Gerfalcon</em> into the water after her restoration earlier that week on the 16th, Steve Hurrell—the previous owner of the vessel—kindly presented Commander Valentine Searles-Wood’s British War Medal to Gary Fletcher. In a remarkable continuation of this historic thread, Gary later discovered the war medals of John Valentine Searles-Wood.</p>
-      <p>These treasured medals will now remain aboard <em>Gerfalcon</em>, preserving a powerful piece of naval heritage and honouring the service and sacrifice of both father and son. The vessel, reborn through restoration, now also serves as a floating tribute to their memory.</p>
+      <div class="medals-feature">
+        <figure class="medals-feature-image">
+          <a href="images/searles-wood/searles-wood-father-and-son-medals.jpeg" data-toggle="modal" data-target="#imageModal" data-img-src="images/searles-wood/searles-wood-father-and-son-medals.jpeg">
+            <img src="images/searles-wood/searles-wood-father-and-son-medals.jpeg" alt="Searles-Wood father and son medals, boxes and Admiralty presentation slips">
+          </a>
+          <figcaption>The Searles-Wood medals together: Commander Valentine Searles-Wood's British War Medal and John Valentine Searles-Wood's Second World War awards with their Admiralty presentation slips and boxes.</figcaption>
+        </figure>
+        <div class="medals-feature-copy">
+          <p>On Good Friday, 18th April 2025, following the successful relaunch of <em>Gerfalcon</em> into the water after her restoration earlier that week on the 16th, Steve Hurrell, the previous owner of the vessel, kindly presented Commander Valentine Searles-Wood's British War Medal to Gary Fletcher. In a remarkable continuation of this historic thread, Gary later discovered the war medals of John Valentine Searles-Wood.</p>
+          <p>Shown together, the medals connect father and son across two wars: Valentine Searles-Wood's First World War naval service and John Valentine Searles-Wood's Second World War service with the Royal Naval Patrol Service. The Admiralty slips underline the cost of that service, recording awards made in respect of men who did not live to receive them.</p>
+          <p>These treasured medals will now remain aboard <em>Gerfalcon</em>, preserving a powerful piece of naval heritage and honouring the service and sacrifice of both father and son. The vessel, reborn through restoration, now also serves as a floating tribute to their memory.</p>
+        </div>
+      </div>
     </section>
 
     </main>

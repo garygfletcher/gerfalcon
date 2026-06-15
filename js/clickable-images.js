@@ -21,6 +21,7 @@
     function setModalImage(index) {
         var modalImage = document.getElementById('modalImage');
         var modalTitle = document.getElementById('imageModalLabel');
+        var baseTitle = 'Image';
         var trigger;
         var image;
         var imgSrc;
@@ -39,10 +40,16 @@
 
         modalImage.setAttribute('src', imgSrc);
         image = trigger.querySelector('img');
-        modalImage.setAttribute('alt', image ? (image.getAttribute('alt') || 'Upper Thames Patrol') : 'Upper Thames Patrol');
 
         if (modalTitle) {
-            modalTitle.textContent = 'Upper Thames Patrol' + (galleryItems.length > 1 ? ' (' + (currentIndex + 1) + ' of ' + galleryItems.length + ')' : '');
+            baseTitle = modalTitle.getAttribute('data-modal-base-title') || modalTitle.textContent || baseTitle;
+            modalTitle.setAttribute('data-modal-base-title', baseTitle);
+        }
+
+        modalImage.setAttribute('alt', image ? (image.getAttribute('alt') || baseTitle) : baseTitle);
+
+        if (modalTitle) {
+            modalTitle.textContent = baseTitle + (galleryItems.length > 1 ? ' (' + (currentIndex + 1) + ' of ' + galleryItems.length + ')' : '');
         }
     }
 
@@ -112,6 +119,15 @@
     }
 
     document.addEventListener('click', function (event) {
+        var explicitTrigger = event.target.closest('[data-img-src]');
+        if (explicitTrigger) {
+            event.preventDefault();
+            event.stopPropagation();
+            openImageModal(explicitTrigger.getAttribute('data-img-src'));
+        }
+    }, true);
+
+    document.addEventListener('click', function (event) {
         if (event.defaultPrevented) {
             return;
         }
@@ -130,13 +146,6 @@
         if (event.target.closest('[data-image-modal-next]')) {
             event.preventDefault();
             showAdjacentImage(1);
-            return;
-        }
-
-        var explicitTrigger = event.target.closest('[data-img-src]');
-        if (explicitTrigger) {
-            event.preventDefault();
-            openImageModal(explicitTrigger.getAttribute('data-img-src'));
             return;
         }
 
