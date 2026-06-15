@@ -5,15 +5,69 @@
 
     window.__gerfalconClickableImagesReady = true;
 
-    function openImageModal(imgSrc) {
-        var imageModal = document.getElementById('imageModal');
-        var modalImage = document.getElementById('modalImage');
+    var galleryItems = [];
+    var currentIndex = -1;
 
-        if (!imageModal || !modalImage || !imgSrc) {
+    function refreshGalleryItems() {
+        galleryItems = Array.prototype.slice.call(document.querySelectorAll('[data-img-src]')).filter(function (trigger) {
+            return trigger.getAttribute('data-img-src');
+        });
+    }
+
+    function modalIsOpen(imageModal) {
+        return imageModal && (imageModal.classList.contains('show') || imageModal.style.display === 'block');
+    }
+
+    function setModalImage(index) {
+        var modalImage = document.getElementById('modalImage');
+        var modalTitle = document.getElementById('imageModalLabel');
+        var trigger;
+        var image;
+        var imgSrc;
+
+        if (!modalImage || !galleryItems.length) {
+            return;
+        }
+
+        currentIndex = (index + galleryItems.length) % galleryItems.length;
+        trigger = galleryItems[currentIndex];
+        imgSrc = trigger.getAttribute('data-img-src');
+
+        if (!imgSrc) {
             return;
         }
 
         modalImage.setAttribute('src', imgSrc);
+        image = trigger.querySelector('img');
+        modalImage.setAttribute('alt', image ? (image.getAttribute('alt') || 'Upper Thames Patrol') : 'Upper Thames Patrol');
+
+        if (modalTitle) {
+            modalTitle.textContent = 'Upper Thames Patrol' + (galleryItems.length > 1 ? ' (' + (currentIndex + 1) + ' of ' + galleryItems.length + ')' : '');
+        }
+    }
+
+    function openImageModal(imgSrc) {
+        var imageModal = document.getElementById('imageModal');
+        var index;
+
+        if (!imageModal || !imgSrc) {
+            return;
+        }
+
+        refreshGalleryItems();
+        index = galleryItems.findIndex(function (trigger) {
+            return trigger.getAttribute('data-img-src') === imgSrc;
+        });
+
+        if (index === -1) {
+            galleryItems.push({
+                getAttribute: function () { return imgSrc; },
+                querySelector: function () { return null; }
+            });
+            index = galleryItems.length - 1;
+        }
+
+        setModalImage(index);
 
         if (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) {
             window.jQuery(imageModal).modal('show');
@@ -32,6 +86,14 @@
         document.body.appendChild(backdrop);
     }
 
+    function showAdjacentImage(step) {
+        if (!galleryItems.length || currentIndex === -1) {
+            return;
+        }
+
+        setModalImage(currentIndex + step);
+    }
+
     function closeImageModal() {
         var imageModal = document.getElementById('imageModal');
 
@@ -39,6 +101,7 @@
             return;
         }
 
+        currentIndex = -1;
         imageModal.classList.remove('show');
         imageModal.style.display = 'none';
         imageModal.setAttribute('aria-hidden', 'true');
@@ -55,6 +118,18 @@
 
         if (event.target.closest('[data-dismiss="modal"]')) {
             closeImageModal();
+            return;
+        }
+
+        if (event.target.closest('[data-image-modal-prev]')) {
+            event.preventDefault();
+            showAdjacentImage(-1);
+            return;
+        }
+
+        if (event.target.closest('[data-image-modal-next]')) {
+            event.preventDefault();
+            showAdjacentImage(1);
             return;
         }
 
@@ -84,8 +159,26 @@
     });
 
     document.addEventListener('keydown', function (event) {
+        var imageModal = document.getElementById('imageModal');
+
         if (event.key === 'Escape') {
             closeImageModal();
+            return;
+        }
+
+        if (!modalIsOpen(imageModal)) {
+            return;
+        }
+
+        if (event.key === 'ArrowLeft' || event.key === 'Left') {
+            event.preventDefault();
+            showAdjacentImage(-1);
+            return;
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'Right') {
+            event.preventDefault();
+            showAdjacentImage(1);
         }
     });
 })();
