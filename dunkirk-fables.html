@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunkirk Fables | Gerfalcon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #071017;
+            --navy: #0b1e2f;
+            --cream: #f7f1e5;
+            --paper: #fffaf0;
+            --gold: #d99a21;
+            --gold-soft: #f3c35a;
+            --muted: #60717f;
+            --line: rgba(217, 154, 33, 0.32);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Baskervville SC", Georgia, serif;
+            font-weight: 400;
+            color: var(--cream);
+            background:
+                linear-gradient(180deg, rgba(7, 16, 23, 0.9), rgba(7, 16, 23, 0.76) 42%, rgba(7, 16, 23, 0.95)),
+                url('images/dunkirk-fables/ealing-studios-vanity-film-still-often-used-as-dunkirk.png') center / cover fixed no-repeat;
+        }
+
+        .navbar {
+            padding: 0.85rem 1.5rem;
+            border-bottom: 1px solid rgba(243, 195, 90, 0.24);
+            background: rgba(7, 16, 23, 0.88) !important;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+        }
+
+        .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--gold-soft) !important;
+            font-size: 1.35rem;
+            letter-spacing: 0.05em;
+        }
+
+        .navbar-brand img {
+            width: auto;
+            height: 42px;
+            border: 0;
+            border-radius: 0;
+            object-fit: contain;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(247, 241, 229, 0.78);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .active > .nav-link,
+        .navbar .dropdown:hover > .dropdown-toggle,
+        .navbar .dropdown:focus-within > .dropdown-toggle {
+            color: var(--ink) !important;
+            background: var(--gold-soft);
+            text-decoration: none;
+        }
+
+        .gallery-dropdown .dropdown-menu {
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.96);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            padding: 0.5rem;
+            min-width: 18rem;
+        }
+
+        .gallery-dropdown .dropdown-item {
+            color: rgba(247, 241, 229, 0.86);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .gallery-dropdown .dropdown-item:hover,
+        .gallery-dropdown .dropdown-item.active {
+            color: var(--ink);
+            background: var(--gold-soft);
+        }
+
+        .navbar .dropdown:hover > .dropdown-menu,
+        .navbar .dropdown:focus-within > .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .jumbotron {
+            position: relative;
+            display: flex;
+            align-items: end;
+            min-height: 54vh;
+            margin-bottom: 0;
+            padding: 8rem 0 5rem;
+            overflow: hidden;
+            background: url('images/dunkirk-fables/ealing-studios-vanity-film-still-often-used-as-dunkirk.png') center / cover no-repeat;
+        }
+
+        .jumbotron::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(7, 16, 23, 0.94), rgba(7, 16, 23, 0.56) 55%, rgba(7, 16, 23, 0.2)),
+                linear-gradient(0deg, rgba(7, 16, 23, 0.96), rgba(7, 16, 23, 0.08) 48%);
+        }
+
+        .jumbotron .container {
+            position: relative;
+            text-align: left;
+        }
+
+        .eyebrow {
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.78rem;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--gold-soft);
+            letter-spacing: 0.02em;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--gold-soft);
+            border-bottom: 1px solid rgba(243, 195, 90, 0.4);
+        }
+
+        a:hover {
+            color: #fff6d4;
+            text-decoration: none;
+        }
+
+        .container-white-alpha {
+            background: rgba(7, 16, 23, 0.82);
+            border: 1px solid rgba(243, 195, 90, 0.18);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+        }
+
+        .content-panel {
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .fable-section {
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .fable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .fable-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid rgba(243, 195, 90, 0.22);
+            border-radius: 8px;
+            background: rgba(255, 250, 240, 0.96);
+            color: var(--ink);
+        }
+
+        .fable-card a {
+            display: block;
+            border-bottom: 0;
+            background: #111;
+        }
+
+        .fable-card img {
+            display: block;
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            background: #111;
+        }
+
+        .fable-card figcaption {
+            padding: 0.85rem 1rem 1rem;
+            font-family: Georgia, serif;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .fable-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--navy);
+            font-family: "Baskervville SC", Georgia, serif;
+            font-size: 1.02rem;
+        }
+
+        .poster-card img {
+            max-height: 520px;
+        }
+
+        .image-modal-body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #071017;
+            min-height: 60vh;
+        }
+
+        .image-modal-body img {
+            max-height: 82vh;
+            object-fit: contain;
+        }
+
+        .image-modal-nav {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            width: 2.75rem;
+            height: 2.75rem;
+            border: 1px solid rgba(243, 195, 90, 0.6);
+            border-radius: 50%;
+            background: rgba(7, 16, 23, 0.72);
+            color: var(--gold-soft);
+            font-size: 2rem;
+            line-height: 1;
+            transform: translateY(-50%);
+        }
+
+        .image-modal-prev {
+            left: 0.75rem;
+        }
+
+        .image-modal-next {
+            right: 0.75rem;
+        }
+
+        .footer {
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 0.65rem 1rem;
+            }
+
+            .jumbotron {
+                min-height: 48vh;
+                padding: 6rem 0 3rem;
+            }
+
+            .content-panel {
+                padding: 1.25rem;
+            }
+
+            .fable-card img,
+            .poster-card img {
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/_optimized/display/ADLS_Letterhead Flag Logo 2_edited.png.webp.webp" width="30" height="30" alt="Gerfalcon flag logo">
+            Gerfalcon
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#">Home</a></li>
+                <li class="nav-item dropdown gallery-dropdown history-dropdown active">
+                    <a class="nav-link dropdown-toggle" href="index.html#history" id="historyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
+                    <div class="dropdown-menu" aria-labelledby="historyDropdown">
+                        <a class="dropdown-item" href="index.html#history">Gerfalcon History</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-colours.html">Royal Navy Patrol Boat Colours</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-service.html">Royal Navy Patrol Service</a>
+                        <a class="dropdown-item" href="upper-thames-patrol.html">Upper Thames Patrol</a>
+                        <a class="dropdown-item active" href="dunkirk-fables.html">Dunkirk Fables</a>
+                        <a class="dropdown-item" href="timeline.html">Gerfalcon Timeline</a>
+                        <a class="dropdown-item" href="william_osborne_boats.html">William Osborne Boats</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="index.html#latest-news">Latest News</a></li>
+                <li class="nav-item dropdown gallery-dropdown">
+                    <a class="nav-link dropdown-toggle" href="gallery.html" id="galleryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                    <div class="dropdown-menu" aria-labelledby="galleryDropdown">
+                        <a class="dropdown-item" href="gallery.html">Gallery overview</a>
+                        <a class="dropdown-item" href="gallery-3d-scan.html">Gerfalcon 3D Scan</a>
+                        <a class="dropdown-item" href="gallery-86th-pre-launch.html">86th Pre-launch</a>
+                        <a class="dropdown-item" href="gallery-broker-images.html">Broker Images</a>
+                        <a class="dropdown-item" href="gallery-registration-records.html">Registration records</a>
+                        <a class="dropdown-item" href="gallery-historical-register.html">Historical ship Register and Dunkirk Little Ships</a>
+                        <a class="dropdown-item" href="gallery-old-media.html">Old Media</a>
+                        <a class="dropdown-item" href="gallery-previous-restoration.html">Previous restoration works</a>
+                        <a class="dropdown-item" href="gallery-miscellaneous-images.html">Miscellaneous Images</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="index.html#restoration">Restoration</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="eyebrow">History Notes</div>
+            <h1 class="display-4">Dunkirk Fables</h1>
+            <p class="lead mt-3">A closer look at familiar Dunkirk images that are often repeated with the wrong story attached.</p>
+        </div>
+    </div>
+
+    <main class="container container-white-alpha content-panel my-5">
+        <h4>Misidentified Images</h4>
+        <p>Some wartime images travel further than their original captions. This page gathers a couple of recurring examples where a striking picture has been used as a Dunkirk image, even though the context points somewhere else.</p>
+
+        <section class="fable-section" id="utp-stamp">
+            <h4>Fable: the Dunkirk stamp image</h4>
+            <p>Royal Mail made a commemorative stamp set for Operation Dynamo, but the 60p stamp is not a Dunkirk evacuation scene. It is a cropped version of an Upper Thames Patrol review in early August 1940.</p>
+            <div class="fable-grid">
+                <figure class="fable-card">
+                    <a href="images/dunkirk-fables/royal-mail-dunkirk-stamp-utp-crop.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/dunkirk-fables/royal-mail-dunkirk-stamp-utp-crop.jpg">
+                        <img src="images/dunkirk-fables/royal-mail-dunkirk-stamp-utp-crop.jpg" alt="Royal Mail Dunkirk stamp using a cropped Upper Thames Patrol review image">
+                    </a>
+                    <figcaption><strong>Royal Mail Dunkirk stamp.</strong> The stamp presents the scene under the Dunkirk heading.</figcaption>
+                </figure>
+                <figure class="fable-card">
+                    <a href="images/dunkirk-fables/utp-review-early-august-1940-source.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/dunkirk-fables/utp-review-early-august-1940-source.png">
+                        <img src="images/dunkirk-fables/utp-review-early-august-1940-source.png" alt="Upper Thames Patrol review in early August 1940 used as the source for the stamp crop">
+                    </a>
+                    <figcaption><strong>UTP review, early August 1940.</strong> The stamp is cropped from this Upper Thames Patrol review image.</figcaption>
+                </figure>
+            </div>
+            <p><a href="upper-thames-patrol.html#utp-stamp-fable">Read more about this fable in the Upper Thames Patrol page.</a></p>
+        </section>
+
+        <section class="fable-section" id="ealing-studios-film">
+            <h4>Fable: the Ealing Studios film image</h4>
+            <p>The first image is often used as if it depicts Dunkirk. A second angle shows the same scene inside the film studio at Ealing, and the third picture shows the image used on an official poster for the film <em>Dunkirk</em>. It is a powerful staged image, but it should not be treated as documentary evidence of the real evacuation.</p>
+            <div class="fable-grid">
+                <figure class="fable-card">
+                    <a href="images/dunkirk-fables/ealing-studios-vanity-film-still-often-used-as-dunkirk.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/dunkirk-fables/ealing-studios-vanity-film-still-often-used-as-dunkirk.png">
+                        <img src="images/dunkirk-fables/ealing-studios-vanity-film-still-often-used-as-dunkirk.png" alt="Ealing Studios film still with Vanity often used as a Dunkirk image">
+                    </a>
+                    <figcaption><strong>Often used as Dunkirk.</strong> This dramatic image with <em>Vanity</em> is often reused as though it shows the evacuation itself.</figcaption>
+                </figure>
+                <figure class="fable-card">
+                    <a href="images/dunkirk-fables/ealing-studios-film-set-vanity-behind-the-scenes.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/dunkirk-fables/ealing-studios-film-set-vanity-behind-the-scenes.png">
+                        <img src="images/dunkirk-fables/ealing-studios-film-set-vanity-behind-the-scenes.png" alt="Another angle showing the Vanity Dunkirk scene inside Ealing Studios">
+                    </a>
+                    <figcaption><strong>Ealing Studios set.</strong> Another angle reveals the studio setting behind the same staged scene.</figcaption>
+                </figure>
+                <figure class="fable-card poster-card">
+                    <a href="images/dunkirk-fables/dunkirk-film-official-poster-vanity.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/dunkirk-fables/dunkirk-film-official-poster-vanity.png">
+                        <img src="images/dunkirk-fables/dunkirk-film-official-poster-vanity.png" alt="Official Dunkirk film poster using the Vanity image">
+                    </a>
+                    <figcaption><strong>Official poster.</strong> The same image appears as part of the official poster artwork.</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Dunkirk Fables</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body image-modal-body">
+                    <button type="button" class="image-modal-nav image-modal-prev" data-image-modal-prev aria-label="Previous image">&lsaquo;</button>
+                    <img src="" id="modalImage" class="img-fluid" alt="Dunkirk fable image">
+                    <button type="button" class="image-modal-nav image-modal-next" data-image-modal-next aria-label="Next image">&rsaquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark py-4" id="contact">
+        <div class="container container-white-alpha content-panel">
+            <div class="text-center">
+                <h4>Contact and More Information</h4>
+                <p>Contact <a href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a> for more information.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/clickable-images.js"></script>
+</body>
+</html>
