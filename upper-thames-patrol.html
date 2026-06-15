@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upper Thames Patrol</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #071017;
+            --navy: #0b1e2f;
+            --navy-mid: #12334b;
+            --navy-soft: #214b63;
+            --cream: #f7f1e5;
+            --paper: #fffaf0;
+            --gold: #d99a21;
+            --gold-soft: #f3c35a;
+            --red: #a72e2a;
+            --muted: #60717f;
+            --line: rgba(217, 154, 33, 0.32);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Baskervville SC", Georgia, serif;
+            font-weight: 400;
+            font-style: normal;
+            color: var(--cream);
+            background:
+                linear-gradient(180deg, rgba(7, 16, 23, 0.88), rgba(7, 16, 23, 0.72) 42%, rgba(7, 16, 23, 0.95)),
+                url('images/_optimized/full/gerfalcon_at_sea.jpg.webp') center / cover fixed no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 42px 42px;
+            opacity: 0.35;
+            z-index: -1;
+        }
+
+        .navbar {
+            padding: 0.85rem 1.5rem;
+            border-bottom: 1px solid rgba(243, 195, 90, 0.24);
+            background: rgba(7, 16, 23, 0.88) !important;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+        }
+
+        .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--gold-soft) !important;
+            font-size: 1.35rem;
+            letter-spacing: 0.05em;
+            border: 0;
+            border-bottom: 0;
+            outline: 0;
+            box-shadow: none;
+        }
+
+        .navbar-brand img {
+            width: auto;
+            height: 42px;
+            border-radius: 0;
+            object-fit: contain;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+            outline: 0;
+        }
+
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            outline: 0;
+            border: 0;
+            border-bottom: 0;
+            box-shadow: none;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(247, 241, 229, 0.78);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            border-bottom: 0;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .active > .nav-link {
+            color: var(--ink);
+            background: var(--gold-soft);
+            text-decoration: none;
+        }
+
+        .gallery-dropdown .dropdown-menu {
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.96);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            padding: 0.5rem;
+            min-width: 18rem;
+        }
+
+        .gallery-dropdown .dropdown-item {
+            color: rgba(247, 241, 229, 0.86);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            border-bottom: 0;
+        }
+
+        .gallery-dropdown .dropdown-item:hover,
+        .gallery-dropdown .dropdown-item.active {
+            color: var(--ink);
+            background: var(--gold-soft);
+        }
+
+        .navbar .dropdown:hover > .dropdown-menu,
+        .navbar .dropdown:focus-within > .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .navbar .dropdown:hover > .dropdown-toggle,
+        .navbar .dropdown:focus-within > .dropdown-toggle {
+            color: var(--ink) !important;
+            background: var(--gold-soft);
+            text-decoration: none;
+        }
+
+        .jumbotron {
+            position: relative;
+            display: flex;
+            align-items: end;
+            min-height: 54vh;
+            height: auto !important;
+            margin-bottom: 0;
+            padding: 8rem 0 5rem;
+            overflow: hidden;
+            background-position: center !important;
+            background-size: cover !important;
+        }
+
+        .jumbotron::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(7, 16, 23, 0.92), rgba(7, 16, 23, 0.54) 52%, rgba(7, 16, 23, 0.2)),
+                linear-gradient(0deg, rgba(7, 16, 23, 0.96), rgba(7, 16, 23, 0.05) 45%);
+        }
+
+        .jumbotron .container {
+            position: relative;
+            text-align: left !important;
+        }
+
+        .eyebrow {
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.78rem;
+        }
+
+        .display-4,
+        .jumbotron h1 {
+            max-width: 920px;
+            margin: 0;
+            color: #fff;
+            font-size: clamp(2.1rem, 5vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            text-shadow: 0 12px 30px rgba(0, 0, 0, 0.56);
+        }
+
+        .lead,
+        .jumbotron p {
+            max-width: 760px;
+            color: rgba(247, 241, 229, 0.86);
+            font-size: 1.15rem;
+        }
+
+        .container-white-alpha {
+            position: relative;
+            margin-top: 2.4rem;
+            padding: clamp(1.5rem, 4vw, 3.8rem);
+            border: 1px solid rgba(243, 195, 90, 0.22);
+            border-radius: 8px;
+            background:
+                linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(239, 232, 215, 0.9));
+            color: #17212a;
+            box-shadow: var(--shadow);
+        }
+
+        .container-white-alpha::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            border-top: 4px solid var(--gold);
+        }
+
+        section {
+            scroll-margin-top: 96px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: var(--navy);
+            letter-spacing: 0;
+        }
+
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+        }
+
+        h4,
+        .section-title {
+            display: inline-block;
+            color: var(--navy);
+            font-size: clamp(1.28rem, 2vw, 1.75rem);
+            line-height: 1.1;
+            text-transform: none;
+        }
+
+        h4::after,
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 72px;
+            height: 3px;
+            margin-top: 0.55rem;
+            background: var(--gold);
+        }
+
+        h5 {
+            color: var(--navy-mid);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.72;
+        }
+
+        .source {
+            font-size: 0.85em;
+        }
+
+        ol,
+        ul {
+            padding-left: 1.25rem;
+        }
+
+        li {
+            font-size: 1.02rem;
+            line-height: 1.62;
+            margin-bottom: 0.45rem;
+        }
+
+        a {
+            color: #0b5d83;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(11, 93, 131, 0.28);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--red);
+            border-color: rgba(167, 46, 42, 0.45);
+            text-decoration: none;
+        }
+
+        .btn,
+        .button {
+            border: 0;
+            border-radius: 999px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: none;
+        }
+
+        .btn {
+            margin-bottom: 0.7rem;
+            padding: 0.74rem 1.1rem;
+            box-shadow: 0 12px 26px rgba(7, 24, 39, 0.14);
+        }
+
+        .btn-info,
+        .btn-primary {
+            background: var(--navy-mid);
+        }
+
+        .btn-danger {
+            background: var(--red);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .card,
+        .model-card,
+        .timeline-content {
+            border: 1px solid rgba(18, 51, 75, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 18px 45px rgba(18, 51, 75, 0.12) !important;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header p {
+            color: var(--navy-mid);
+            font-size: 1.2rem;
+        }
+
+        .content section + section {
+            margin-top: 2.25rem;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .img-fluid,
+        .img-thumbnail,
+        .gallery img,
+        .gallery video,
+        .william-osborne-gallery img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .img-thumbnail {
+            padding: 0;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            background: transparent;
+            box-shadow: 0 15px 32px rgba(18, 51, 75, 0.16);
+        }
+
+        [data-toggle="modal"] {
+            cursor: zoom-in;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        [data-toggle="modal"]:hover {
+            transform: translateY(-3px);
+            filter: saturate(1.07) contrast(1.03);
+            box-shadow: 0 20px 42px rgba(7, 24, 39, 0.24);
+        }
+
+        .gallery img,
+        .gallery video {
+            width: 100%;
+            height: 260px;
+            max-width: none;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            background: #071017;
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.16);
+        }
+
+        .gallery video {
+            cursor: default;
+        }
+
+        .gallery .col-12,
+        .gallery .col-md-3,
+        .gallery .col-md-6,
+        section .row > [class*="col-md-3"] {
+            margin-bottom: 1.25rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            overflow: hidden;
+            color: var(--cream);
+            background: linear-gradient(145deg, rgba(18, 51, 75, 0.92), rgba(7, 16, 23, 0.96));
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+            text-decoration: none;
+            border-bottom: 0;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(243, 195, 90, 0.24);
+            background: #061018;
+        }
+
+        .gallery-card:hover {
+            color: var(--ink);
+            background: var(--gold-soft);
+            text-decoration: none;
+        }
+
+        .gallery-card:hover img {
+            filter: saturate(1.08) contrast(1.05);
+        }
+
+        .gallery-card span {
+            display: flex;
+            align-items: center;
+            min-height: 76px;
+            padding: 1rem;
+            font-size: 1.18rem;
+            line-height: 1.1;
+        }
+
+        .model-wrap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .model-card {
+            padding: 1rem;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 520px;
+            border-radius: 8px;
+            background: #0b1e2f;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 4px solid var(--paper);
+            box-shadow: 0 12px 28px rgba(18, 51, 75, 0.22);
+        }
+
+        .utp-hero-image {
+            width: 100%;
+            max-height: 460px;
+            object-fit: cover;
+        }
+
+        .utp-source-list {
+            padding-left: 1.1rem;
+        }
+
+        .utp-source-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .utp-timeline {
+            display: grid;
+            gap: 0.85rem;
+            margin: 1.25rem 0 2rem;
+        }
+
+        .utp-timeline-item {
+            padding: 1rem 1.15rem;
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            background: rgba(255, 250, 240, 0.78);
+        }
+
+        .utp-timeline-item strong {
+            display: block;
+            color: var(--navy);
+            font-size: 1.05rem;
+        }
+
+        .utp-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.25rem 0 2rem;
+        }
+
+        .utp-photo-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 100%;
+            border: 1px solid rgba(18, 51, 75, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 250, 240, 0.82);
+            box-shadow: 0 14px 32px rgba(18, 51, 75, 0.14);
+        }
+
+        .utp-photo-card,
+        .utp-photo-card a,
+        .utp-photo-card img {
+            transition: none;
+            transform: none;
+        }
+
+        .utp-photo-card a {
+            border-bottom: 0;
+        }
+
+        .utp-photo-card [data-toggle="modal"]:hover {
+            transform: none;
+            filter: none;
+            box-shadow: none;
+        }
+
+        [data-img-src] img {
+            cursor: zoom-in;
+        }
+
+        .utp-photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #ded8c9;
+        }
+
+        .utp-photo-card figcaption {
+            padding: 0.9rem 1rem 1rem;
+            color: var(--ink);
+            font-size: 0.98rem;
+            line-height: 1.45;
+        }
+
+        .utp-photo-card figcaption strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: var(--navy);
+        }
+
+        .utp-photo-card.utp-card-compact img {
+            height: 145px;
+            object-fit: contain;
+            padding: 0.45rem;
+        }
+
+        .utp-photo-card.utp-card-compact figcaption {
+            padding: 0.7rem 0.85rem 0.85rem;
+            font-size: 0.92rem;
+            line-height: 1.35;
+        }
+
+        .utp-note {
+            padding: 1.2rem 1.35rem;
+            border-radius: 8px;
+            background: rgba(11, 30, 47, 0.08);
+            border: 1px solid rgba(18, 51, 75, 0.12);
+        }
+
+        .utp-highlight {
+            background: #fff8df;
+            border: 2px solid #c9a23a;
+            box-shadow: 0 12px 30px rgba(43, 31, 12, 0.12);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .utp-highlight img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .utp-stamp-feature {
+            max-width: 520px;
+            margin: 1.5rem auto;
+            text-align: center;
+        }
+
+        .utp-stamp-feature img {
+            width: 100%;
+            height: auto;
+            background: #111;
+            padding: 0.55rem;
+        }
+
+        .utp-stamp-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            align-items: start;
+            margin: 1.5rem 0;
+        }
+
+        .utp-stamp-comparison figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        .utp-stamp-comparison img {
+            width: 100%;
+            height: 260px;
+            object-fit: contain;
+            background: #111;
+            padding: 0.55rem;
+        }
+
+        .utp-stamp-comparison figcaption {
+            margin-top: 0.8rem;
+            color: var(--ink);
+            line-height: 1.45;
+        }
+
+        .video-container,
+        .embed-responsive {
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 20px 46px rgba(7, 24, 39, 0.24);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            max-width: 100%;
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .youtube-poster-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .youtube-poster-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.86;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .youtube-poster-link:hover,
+        .youtube-poster-link:focus {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .youtube-poster-link:hover img,
+        .youtube-poster-link:focus img {
+            opacity: 1;
+            transform: scale(1.015);
+        }
+
+        .youtube-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34));
+            text-align: center;
+        }
+
+        .youtube-play-button {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.92);
+            background: rgba(0, 0, 0, 0.52);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+            position: relative;
+        }
+
+        .youtube-play-button::before {
+            content: "";
+            position: absolute;
+            left: 32px;
+            top: 24px;
+            border-left: 25px solid #fff;
+            border-top: 16px solid transparent;
+            border-bottom: 16px solid transparent;
+        }
+
+        .youtube-play-text {
+            display: inline-block;
+            padding: 0.38rem 0.72rem;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.62);
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            font-size: 0.84rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding: 2rem 0;
+            border-left: 3px solid var(--gold);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -0.6rem;
+            top: 0.25rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--paper);
+            box-shadow: 0 0 0 3px rgba(217, 154, 33, 0.24);
+        }
+
+        .timeline-date {
+            color: var(--navy-mid);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content {
+            padding: 1rem 1.25rem;
+        }
+
+        .modal-dialog.modal-lg {
+            max-width: min(96vw, 1400px);
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .modal-body img {
+            max-height: 82vh;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .modal-content {
+            border: 1px solid rgba(243, 195, 90, 0.32);
+            border-radius: 8px;
+            background: var(--ink);
+            color: var(--cream);
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            border-bottom-color: rgba(243, 195, 90, 0.22);
+        }
+
+        .modal-title {
+            color: var(--gold-soft);
+        }
+
+        .modal .close,
+        .close {
+            color: var(--cream);
+            text-shadow: none;
+            opacity: 0.9;
+        }
+
+        .modal-body img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(243, 195, 90, 0.24);
+            background: rgba(7, 16, 23, 0.96) !important;
+        }
+
+        .footer .container-white-alpha {
+            margin-top: 0;
+            color: var(--cream);
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+        }
+
+        .footer .container-white-alpha::before {
+            display: none;
+        }
+
+        .footer h4,
+        .footer p {
+            color: var(--cream);
+        }
+
+        .footer h4::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer a {
+            color: var(--gold-soft);
+            border-color: rgba(243, 195, 90, 0.35);
+        }
+
+        .section-transition {
+            opacity: 0;
+            transform: translateY(34px);
+            filter: blur(2px);
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease,
+                filter 0.75s ease;
+            will-change: opacity, transform, filter;
+        }
+
+        .section-transition.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .container-white-alpha.section-transition {
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease,
+                filter 0.75s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .container-white-alpha.section-transition.is-visible:hover {
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+        }
+
+        .jumbotron.section-transition {
+            transform: translateY(24px);
+            transition:
+                opacity 0.95s ease,
+                transform 1.1s ease,
+                filter 0.95s ease;
+        }
+
+        .jumbotron.section-transition.is-visible {
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .section-transition,
+            .section-transition.is-visible,
+            .jumbotron.section-transition,
+            .jumbotron.section-transition.is-visible {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .section-transition,
+            .section-transition.is-visible,
+            .jumbotron.section-transition,
+            .jumbotron.section-transition.is-visible {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none;
+            }
+        }
+
+
+        .floating-social {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1060;
+            width: min(320px, calc(100vw - 2rem));
+            padding: 1rem;
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.94);
+            color: var(--cream);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            backdrop-filter: blur(14px);
+        }
+
+        .floating-social h5 {
+            margin: 0 2rem 0.35rem 0;
+            color: var(--gold-soft);
+            font-size: 1.05rem;
+        }
+
+        .floating-social p {
+            margin-bottom: 0.75rem;
+            color: rgba(247, 241, 229, 0.86);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .floating-social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .floating-social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.48rem 0.65rem;
+            border: 1px solid rgba(243, 195, 90, 0.26);
+            border-radius: 999px;
+            color: var(--gold-soft);
+            background: rgba(255, 255, 255, 0.04);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .floating-social a:hover {
+            color: var(--ink);
+            background: var(--gold-soft);
+            border-color: var(--gold-soft);
+        }
+
+        .floating-social-close {
+            position: absolute;
+            top: 0.45rem;
+            right: 0.55rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            border: 0;
+            border-radius: 50%;
+            color: var(--cream);
+            background: transparent;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .floating-social-close:hover {
+            color: var(--gold-soft);
+        }
+
+        .cookie-notice {
+            position: fixed;
+            left: 1rem;
+            bottom: 1rem;
+            z-index: 1060;
+            width: min(390px, calc(100vw - 2rem));
+            padding: 1rem;
+            border: 1px solid rgba(243, 195, 90, 0.28);
+            border-radius: 8px;
+            background: rgba(7, 16, 23, 0.94);
+            color: var(--cream);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+            backdrop-filter: blur(14px);
+        }
+
+        .cookie-notice p {
+            margin: 0 0 0.8rem;
+            color: rgba(247, 241, 229, 0.9);
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .cookie-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cookie-actions button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.48rem 0.85rem;
+            color: var(--ink);
+            background: var(--gold-soft);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cookie-actions button[data-cookie-choice="declined"] {
+            color: var(--cream);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .cookie-actions button:hover {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 767.98px) {
+            .floating-social,
+            .cookie-notice {
+                right: 0.75rem;
+                left: 0.75rem;
+                width: auto;
+            }
+
+            .floating-social {
+                bottom: 0.75rem;
+            }
+
+            .floating-social {
+                display: none;
+            }
+
+            .cookie-notice {
+                bottom: 0.75rem;
+                max-height: 34vh;
+                overflow: auto;
+                padding: 0.85rem;
+            }
+
+            .cookie-notice p {
+                font-size: 0.82rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+
+            .navbar-collapse {
+                padding-top: 1rem;
+            }
+
+            .navbar .dropdown-menu {
+                position: static;
+                float: none;
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                margin-top: 0.35rem;
+                white-space: normal;
+            }
+
+            .navbar .dropdown-item {
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .jumbotron {
+                min-height: 48vh;
+                padding: 7rem 0 4rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .container-white-alpha {
+                width: calc(100% - 1.5rem);
+                padding: 1.35rem;
+            }
+
+            .jumbotron h1,
+            .display-4 {
+                font-size: 2.6rem;
+            }
+
+            p,
+            li {
+                font-size: 1rem;
+            }
+
+            .gallery img,
+            .gallery video {
+                height: 210px;
+            }
+
+            .row > .col-auto {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .profile-img {
+                margin-right: 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/_optimized/display/ADLS_Letterhead Flag Logo 2_edited.png.webp.webp" width="30" height="30" alt="Gerfalcon flag logo" style="width: auto; height: 42px; border-radius: 0; object-fit: contain; border: 0; background: transparent; box-shadow: none; outline: 0;">
+            Gerfalcon
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#">Home</a></li>
+                <li class="nav-item dropdown gallery-dropdown history-dropdown active">
+                    <a class="nav-link dropdown-toggle" href="index.html#history" id="historyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
+                    <div class="dropdown-menu" aria-labelledby="historyDropdown">
+                        <a class="dropdown-item" href="index.html#history">Gerfalcon History</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-colours.html">Royal Navy Patrol Boat Colours</a>
+                        <a class="dropdown-item" href="royal-navy-patrol-service.html">Royal Navy Patrol Service</a>
+                        <a class="dropdown-item active" href="upper-thames-patrol.html">Upper Thames Patrol</a>
+                        <a class="dropdown-item" href="timeline.html">Gerfalcon Timeline</a>
+                        <a class="dropdown-item" href="william_osborne_boats.html">William Osborne Boats</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="index.html#latest-news">Latest News</a></li>
+                <li class="nav-item dropdown gallery-dropdown">
+                    <a class="nav-link dropdown-toggle" href="gallery.html" id="galleryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                    <div class="dropdown-menu" aria-labelledby="galleryDropdown">
+                        <a class="dropdown-item" href="gallery.html">Gallery overview</a>
+                        <a class="dropdown-item" href="gallery-3d-scan.html">Gerfalcon 3D Scan</a>
+                        <a class="dropdown-item" href="gallery-86th-pre-launch.html">86th Pre-launch</a>
+                        <a class="dropdown-item" href="gallery-broker-images.html">Broker Images</a>
+                        <a class="dropdown-item" href="gallery-registration-records.html">Registration records</a>
+                        <a class="dropdown-item" href="gallery-historical-register.html">Historical ship Register and Dunkirk Little Ships</a>
+                        <a class="dropdown-item" href="gallery-old-media.html">Old Media</a>
+                        <a class="dropdown-item" href="gallery-previous-restoration.html">Previous restoration works</a>
+                        <a class="dropdown-item" href="gallery-miscellaneous-images.html">Miscellaneous images</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="searles-wood_gerfalcon_history.html">Gerfalcon and the Searles-Wood's</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid" style="background-image:url('images/upper-thames-patrol/thames250-utp-vessels.jpg')"><div class="container"><div class="eyebrow">History</div><h1 class="display-4">Upper Thames Patrol</h1><p class="lead mt-3">The Home Guard navy that watched the River Thames from Teddington to Lechlade during the Second World War.</p></div></div>
+
+    <section class="container container-white-alpha mt-5" id="upper-thames-patrol">
+        <h4>The Home Guard Navy of the Upper Thames</h4>
+        <div class="row align-items-start mt-4">
+            <div class="col-lg-6 mb-4"><a href="images/upper-thames-patrol/doing-their-bit-utp-9.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/doing-their-bit-utp-9.jpg"><img src="images/upper-thames-patrol/doing-their-bit-utp-9.jpg" alt="Upper Thames Patrol launch and crew on the river" class="img-fluid img-thumbnail utp-hero-image"></a></div>
+            <div class="col-lg-6"><p>The Upper Thames Patrol was started in September 1939 at Abingdon by Sir Ralph Glyn, MP for Abingdon, before the Local Defence Volunteers and Home Guard had been formed. It began as a water-borne local defence force with support from the Thames Conservancy and the War Office.</p><p>Its job was to patrol and protect the Thames as a strategic barrier against invasion, watching locks, bridges, weirs, rail crossings, landing places and riverside infrastructure. It quickly expanded to cover the river from Lechlade to Teddington.</p><p>The UTP was the Home Guard Navy. Jokingly known as “Up The Pub”, probably because many local headquarters were based in pubs, it grew into a force of about 6,000 men and women at its height. By 1942 it had 116 boats under command, made up of slipper launches and cruisers. Out of the 260 boats believed to have served, only eight are currently known to survive: seven in the UK and one in the US.</p></div>
+        </div>
+
+        <h4 class="mt-4">Timeline and Historical Context</h4>
+        <div class="utp-timeline">
+            <div class="utp-timeline-item"><strong>September 1939</strong> Sir Ralph Glyn starts the Upper Thames Patrol at Abingdon, before the Local Defence Volunteers and Home Guard are formed.</div>
+            <div class="utp-timeline-item"><strong>8 April 1940</strong> Rear Admiral Sir Basil Brooke inspects UTP boats near Wargrave, one of several early demonstrations of the patrol's readiness.</div>
+            <div class="utp-timeline-item"><strong>June 1940</strong> The UTP is reorganised into two companies: one water-borne and one for shore duties.</div>
+            <div class="utp-timeline-item"><strong>29 August 1940</strong> More than 40 women join at Wallingford, reflecting the UTP's unusual use of women as helms and crew.</div>
+            <div class="utp-timeline-item"><strong>1942</strong> The UTP has 116 boats under command, including slipper launches and cruisers.</div>
+            <div class="utp-timeline-item"><strong>1940-1944</strong> Patrol members train in boat handling, water-borne operations, signalling, guard duties and standard Home Guard skills.</div>
+            <div class="utp-timeline-item"><strong>September 1944</strong> The Upper Thames Patrol is dissolved as the invasion threat recedes and wartime priorities change.</div>
+        </div>
+        <p>Oxford gives the patrol a vivid local setting. While C.S. Lewis patrolled the city streets with a Home Guard rifle, his brother Warren “Warnie” Lewis served on the Cherwell and Thames aboard a cabin cruiser as part of the Upper Thames Patrol. The article describes the UTP as a riverine “Dad’s Army”, a phrase that catches both its volunteer character and its serious purpose.</p>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/up-the-pub-oxford-article-context.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/up-the-pub-oxford-article-context.jpg"><img src="images/upper-thames-patrol/up-the-pub-oxford-article-context.jpg" alt="Oxford wartime article extract mentioning the Upper Thames Patrol as Up The Pub"></a><figcaption><strong>“Up The Pub” context</strong> Article extract describing Warren Lewis serving with the Upper Thames Patrol, a riverine Dad's Army irreverently known as “Up The Pub”.</figcaption></figure>
+        </div>
+        <p>The Thames 250 wartime exhibition adds wider context: the Thames was not just a scenic river during the war. It was a route, a boundary, a defensive obstacle, a workplace and a target. Its bridges, weirs and locks had to be understood as possible points of vulnerability, while riverside yards and engineering firms contributed directly to wartime production.</p>
+        <p>The wider threat was real. German bombers crossed Oxfordshire on routes towards the Midlands, and Oxford’s factories, aircraft repair work, colleges, museums and civic buildings all sat within a wartime landscape of ARP watchtowers, firewatching, evacuation and invasion planning. The UTP belongs in that Home Front world: local people using local knowledge to protect a river that mattered strategically.</p>
+
+        <h4 class="mt-4">Royal Mail Dunkirk Stamps and a UTP Misidentification</h4>
+        <p>Royal Mail produced a commemorative stamp sheet for Operation Dynamo, the evacuation from Dunkirk between 26 May and 4 June 1940. The sheet uses four wartime images under the Dunkirk heading, but the image in the top right is not associated with Dunkirk.</p>
+        <div class="utp-stamp-comparison">
+            <figure>
+                <a href="images/upper-thames-patrol/royal-mail-dunkirk-incorrect-utp-stamp.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-mail-dunkirk-incorrect-utp-stamp.jpg"><img src="images/upper-thames-patrol/royal-mail-dunkirk-incorrect-utp-stamp.jpg" alt="Royal Mail Dunkirk stamp incorrectly using an Upper Thames Patrol image"></a>
+                <figcaption><strong>The incorrect stamp.</strong> This Dunkirk stamp appears to use an Upper Thames Patrol review image rather than a Dunkirk evacuation scene.</figcaption>
+            </figure>
+            <figure>
+                <a href="images/upper-thames-patrol/utp-review-early-august-1940-stamp-source.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-review-early-august-1940-stamp-source.png"><img src="images/upper-thames-patrol/utp-review-early-august-1940-stamp-source.png" alt="Upper Thames Patrol review in early August 1940 used as the source for the stamp crop"></a>
+                <figcaption><strong>UTP review, early August 1940.</strong> The stamp is a cropped version of this Upper Thames Patrol review, not a Dunkirk evacuation photograph.</figcaption>
+            </figure>
+        </div>
+        <p>That photograph shows the Local Defence Volunteers, later the British Home Guard, on the river with the Upper Thames Patrol. The craft are too small for the Dunkirk evacuation context, and the personnel are wearing LDV badges. The River Patrol took place in August 1940, with the UTP guarding bridges, locks and the Thames, cruising downriver to a review by their Commander-in-Chief, Rear Admiral Sir Basil Brooke.</p>
+        <div class="utp-highlight">
+            <a href="images/upper-thames-patrol/illustrated-sporting-dramatic-news-river-patrol-wargrave-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/illustrated-sporting-dramatic-news-river-patrol-wargrave-1940.jpg"><img src="images/upper-thames-patrol/illustrated-sporting-dramatic-news-river-patrol-wargrave-1940.jpg" alt="Illustrated Sporting and Dramatic News River Patrol article showing the Upper Thames Patrol at Wargrave near Henley"></a>
+            <p class="mt-3 mb-0"><strong>Upper Thames Patrol at Wargrave Sailing Club, near Henley, August 1940.</strong> This parade is often reused as though it shows boats of Dunkirk, and a similar image even appeared on a Dunkirk stamp, but the scene is the Upper Thames Patrol on the river. The article identifies the Home Guard's river patrol and shows Rear Admiral Sir Basil Brooke taking the salute as Thames motor boats pass the Henley Sailing Club headquarters at Wargrave.</p>
+        </div>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card utp-card-compact"><a href="images/upper-thames-patrol/royal-mail-dunkirk-stamp-sheet-utp-error.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-mail-dunkirk-stamp-sheet-utp-error.png"><img src="images/upper-thames-patrol/royal-mail-dunkirk-stamp-sheet-utp-error.png" alt="Royal Mail Dunkirk stamp sheet with Upper Thames Patrol image at top right"></a><figcaption><strong>Royal Mail Dunkirk stamp sheet</strong> The top-right stamp image appears to show the Upper Thames Patrol rather than a Dunkirk scene.</figcaption></figure>
+            <figure class="utp-photo-card utp-card-compact"><a href="images/upper-thames-patrol/upper-thames-patrol-review-sir-basil-brooke.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/upper-thames-patrol-review-sir-basil-brooke.png"><img src="images/upper-thames-patrol/upper-thames-patrol-review-sir-basil-brooke.png" alt="Upper Thames Patrol review by Rear Admiral Sir Basil Brooke"></a><figcaption><strong>Fuller UTP review image</strong> A wider view of the review by Rear Admiral Sir Basil Brooke, matching the stamp image context.</figcaption></figure>
+        </div>
+        <p>The same review can be seen in the British Pathé film <em>Home Guard Navy</em> (1940), which shows the Upper Thames Patrol on the river rather than at Dunkirk.</p>
+        <div class="video-container mb-4">
+            <a class="youtube-poster-link" href="https://www.youtube.com/watch?v=Oe_FF2xYPQ8" target="_blank" rel="noopener noreferrer" aria-label="Play Home Guard Navy (1940) with YouTube">
+                <img src="images/upper-thames-patrol/home-guard-navy-youtube-poster.png" alt="Home Guard Navy 1940 British Pathe film still showing Upper Thames Patrol review">
+                <span class="youtube-play-overlay" aria-hidden="true">
+                    <span class="youtube-play-button"></span>
+                    <span class="youtube-play-text">Play with YouTube</span>
+                </span>
+            </a>
+        </div>
+        <p>Reference: <a href="https://www.alamy.com/the-local-defence-volunteers-later-to-become-the-british-home-guard-aka-dads-army-were-not-restricetd-to-land-the-upper-thames-patrol-that-guarded-bridges-and-locks-etc-cruising-down-the-thanes-to-a-review-by-their-commander-in-chief-rear-admerial-sir-basil-brooke-image570982063.html?imageid=35EC76DD-2728-454B-A11F-5C75F2A5AA27&amp;pn=1&amp;searchId=668fcd66d57804807689d6bea2425c61&amp;searchtype=9" target="_blank" rel="noopener noreferrer">Alamy description of the Upper Thames Patrol review</a>.</p>
+
+        <h4 class="mt-4">Royal Visit to the Upper Thames Patrol</h4>
+        <p>In July 1940, Upper Thames Patrol Zone Commander Rear Admiral Sir Basil Vernon Brooke, Commander of the Home Guard Navy, was photographed on the River Thames during a royal visit with the two Princesses at Boulters Lock. The photographs show the party aboard and alongside <em>Windrush</em>, with Brooke still wearing an LDV armband, a useful reminder that the UTP sat in the early Local Defence Volunteers moment before the Home Guard name became familiar.</p>
+        <p>Other photographs show boats of the Upper Thames Patrol, the Home Guard Navy, on their way to a royal review or inspection by Home Park, Windsor. One view was probably taken from King George V Bridge, looking towards the patrol boats as they moved upriver for the inspection.</p>
+        <p>The visit places the UTP in a wider Home Front story. The patrol was not only a practical river defence force guarding bridges, locks and approaches; it was also visible enough in 1940 to receive high-profile attention while Britain prepared for invasion.</p>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/royal-visit-boulters-lock-princesses-1.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-visit-boulters-lock-princesses-1.jpg"><img src="images/upper-thames-patrol/royal-visit-boulters-lock-princesses-1.jpg" alt="Princesses and party at Boulters Lock during an Upper Thames Patrol visit"></a><figcaption><strong>Boulters Lock, July 1940</strong> The two Princesses with the royal party during the Upper Thames Patrol visit, accompanied by their governess and naval personnel.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/royal-visit-princesses-arriving.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-visit-princesses-arriving.jpg"><img src="images/upper-thames-patrol/royal-visit-princesses-arriving.jpg" alt="The two Princesses arriving for the Upper Thames Patrol royal visit"></a><figcaption><strong>Arrival for the visit</strong> The two Princesses arriving with their governess before joining the river party.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/royal-visit-windrush-boulters-lock.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-visit-windrush-boulters-lock.jpg"><img src="images/upper-thames-patrol/royal-visit-windrush-boulters-lock.jpg" alt="Royal party aboard Windrush during the Upper Thames Patrol visit"></a><figcaption><strong>Aboard Windrush</strong> The royal party aboard <em>Windrush</em> on the Thames during the UTP visit.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/royal-visit-windrush-sir-basil-brooke.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-visit-windrush-sir-basil-brooke.jpg"><img src="images/upper-thames-patrol/royal-visit-windrush-sir-basil-brooke.jpg" alt="Rear Admiral Sir Basil Vernon Brooke with the royal party aboard Windrush"></a><figcaption><strong>Rear Admiral Sir Basil Vernon Brooke</strong> Brooke, Commander of the Home Guard Navy, aboard <em>Windrush</em> with the royal party; note the LDV armband.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/royal-visit-little-princesses-book-cover.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/royal-visit-little-princesses-book-cover.jpg"><img src="images/upper-thames-patrol/royal-visit-little-princesses-book-cover.jpg" alt="The Little Princesses book cover showing the two Princesses with their governess"></a><figcaption><strong>The Little Princesses</strong> A later book cover showing the two Princesses with their governess, included here as context for the royal visit photographs.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">Thames 250 Exhibition Context</h4>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/thames250-utp-badge.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/thames250-utp-badge.jpg"><img src="images/upper-thames-patrol/thames250-utp-badge.jpg" alt="Upper Thames Patrol cap badge"></a><figcaption><strong>UTP cap badge</strong> The Upper Thames Patrol badge used by the Home Guard Navy, preserved in the Thames 250 wartime exhibition material.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/thames250-utp-duties-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/thames250-utp-duties-1940.jpg"><img src="images/upper-thames-patrol/thames250-utp-duties-1940.jpg" alt="Upper Thames Patrol duties document"></a><figcaption><strong>Duties of the UTP</strong> A 1940 duties sheet showing the practical, disciplined nature of the patrol's work.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/thames250-german-expressions.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/thames250-german-expressions.jpg"><img src="images/upper-thames-patrol/thames250-german-expressions.jpg" alt="German expressions sheet used for wartime training"></a><figcaption><strong>Invasion training</strong> Training material such as German phrases shows how seriously local defence preparations were taken.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/thames250-elliotts-landing-craft.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/thames250-elliotts-landing-craft.jpg"><img src="images/upper-thames-patrol/thames250-elliotts-landing-craft.jpg" alt="Elliotts landing craft wartime production on the Thames"></a><figcaption><strong>Thames industry at war</strong> The river's wartime story included local engineering and boatbuilding as well as patrol work.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">Gordon Thackrah and UTP Archive Items</h4>
+        <p>These personal and administrative Upper Thames Patrol items include Gordon Thackrah's records, letters about Mrs Thackrah's shore patrol support, and security guidance circulated to the 12th Berks (U.T.P.) Battalion Home Guard.</p>
+        <h5 class="mt-4">Gordon and Mrs Thackrah Papers</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/gordon-thackrah-utp-group.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/gordon-thackrah-utp-group.jpg"><img src="images/upper-thames-patrol/gordon-thackrah-utp-group.jpg" alt="Gordon Thackrah with Upper Thames Patrol members"></a><figcaption><strong>Gordon Thackrah</strong> Gordon Thackrah identified among Upper Thames Patrol members.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/gordon-thackrah-caversham-12th-berks-utp.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/gordon-thackrah-caversham-12th-berks-utp.jpg"><img src="images/upper-thames-patrol/gordon-thackrah-caversham-12th-berks-utp.jpg" alt="12th Berkshire Home Guard Upper Thames Patrol at Caversham with Gordon Thackrah identified"></a><figcaption><strong>12th Berkshire UTP at Caversham</strong> Gordon Thackrah identified in a 12th Berkshire Home Guard Upper Thames Patrol group at Caversham.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/gordon-thackrah-utp-ldv-identity-card.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/gordon-thackrah-utp-ldv-identity-card.jpg"><img src="images/upper-thames-patrol/gordon-thackrah-utp-ldv-identity-card.jpg" alt="Upper Thames Patrol LDV identity card for Gordon Herbert Thackrah"></a><figcaption><strong>UTP identity card</strong> Upper Thames Patrol (L.D.V.) identity card for Gordon Herbert Thackrah, Stretch B4, Tylehurst Road, Reading.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/mrs-thackrah-12th-berks-utp-thank-you-letter.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/mrs-thackrah-12th-berks-utp-thank-you-letter.jpg"><img src="images/upper-thames-patrol/mrs-thackrah-12th-berks-utp-thank-you-letter.jpg" alt="12th Berks UTP Battalion Home Guard thank you letter to Mrs Thackrah"></a><figcaption><strong>Mrs Thackrah letter</strong> A 12th Berks (U.T.P.) Battalion Home Guard letter thanking Mrs Thackrah for assistance rendered during the battalion's years of duty and training.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/phric-davis-letter-to-thackrah.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/phric-davis-letter-to-thackrah.jpg"><img src="images/upper-thames-patrol/phric-davis-letter-to-thackrah.jpg" alt="Handwritten letter to Mrs Thackrah from Phric Davis"></a><figcaption><strong>Letter from Phric Davis</strong> A handwritten note to Mrs Thackrah thanking her for work done on Stretch 1.0 and for her keenness and ability.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">Membership Card and Cap Badge</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-membership-card-cap-badge-franklin.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-membership-card-cap-badge-franklin.jpg"><img src="images/upper-thames-patrol/utp-membership-card-cap-badge-franklin.jpg" alt="Upper Thames Patrol membership card and cap badge"></a><figcaption><strong>Membership card and cap badge</strong> Upper Thames Patrol (Home Guard) membership card for T. H. J. Franklin of Stretch B2, Reading, shown with a UTP cap badge and personal photograph.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">The Sugar Story</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-sugar-story-letter-2-may-1944.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-sugar-story-letter-2-may-1944.jpg"><img src="images/upper-thames-patrol/utp-sugar-story-letter-2-may-1944.jpg" alt="12th Berks UTP Home Guard letter about sugar used by a night guard"></a><figcaption><strong>The sugar story</strong> A 2 May 1944 letter from 12th Berks (U.T.P.) Battalion Home Guard records a guard using 83 lumps of sugar in one night, leaving only 31 for the rest of the week.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-sugar-story-a1-company-group.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-sugar-story-a1-company-group.jpg"><img src="images/upper-thames-patrol/utp-sugar-story-a1-company-group.jpg" alt="12th Berks UTP A1 Company Home Guard group"></a><figcaption><strong>A1 Company group</strong> Members of the 12th Berks (U.T.P.) Battalion Home Guard, A1 Company, included here with the sugar-ration letter context.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">Enemy Agents Guidance</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-enemy-agents-letter-19-march-1941.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-enemy-agents-letter-19-march-1941.jpg"><img src="images/upper-thames-patrol/utp-enemy-agents-letter-19-march-1941.jpg" alt="Upper Thames Patrol letter circulating notes on enemy agents in March 1941"></a><figcaption><strong>Enemy agents circular, 19 March 1941</strong> A letter sent to Upper Thames Patrol stretch lieutenants circulating notes on the detection of and search for enemy agents.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-enemy-agents-notes-page-1.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-enemy-agents-notes-page-1.jpg"><img src="images/upper-thames-patrol/utp-enemy-agents-notes-page-1.jpg" alt="Notes on the detection of and search for enemy agents page 1"></a><figcaption><strong>How a spy may come</strong> The first page of 1941 guidance describes possible landings by parachute, small boats, aeroplanes or fishing craft, and the kinds of targets a spy might seek.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-enemy-agents-notes-page-2.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-enemy-agents-notes-page-2.jpg"><img src="images/upper-thames-patrol/utp-enemy-agents-notes-page-2.jpg" alt="Notes on what a spy may look like and identity cards"></a><figcaption><strong>What a spy may look like</strong> The guidance lists suspicious behaviour, disguises, wireless equipment, money, maps and identity-card checks as points for guards to consider.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-enemy-agents-notes-page-3.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-enemy-agents-notes-page-3.jpg"><img src="images/upper-thames-patrol/utp-enemy-agents-notes-page-3.jpg" alt="Notes on forged identity cards for enemy agents"></a><figcaption><strong>Identity-card checks</strong> A later page warns how forged National Registration identity cards might be spotted, including suspicious initials, dates, addresses and handwriting.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">Doing Their Bit Educational Display</h4>
+        <div class="row align-items-start mt-4"><div class="col-lg-6 mb-4"><a href="images/upper-thames-patrol/doing-their-bit-main-display-1.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/doing-their-bit-main-display-1.jpg"><img src="images/upper-thames-patrol/doing-their-bit-main-display-1.jpg" alt="Doing Their Bit educational display" class="img-fluid img-thumbnail"></a></div><div class="col-lg-6"><div class="utp-note"><p><strong>Doing Their Bit has an educational display that includes the Upper Thames Patrol.</strong></p><p>Their main display covers Home Front subjects including rationing, WVS, Brownies, Girl Guides and Scouts, make do and mend, washing and ironing, and the UTP. It can be presented as an outdoor gazebo display or adapted for indoor events with tables, memorabilia and mannequins in original uniforms where conditions allow.</p><p><a href="https://doingtheirbit.co.uk/main-display" target="_blank" rel="noopener noreferrer">Visit the Doing Their Bit educational display page</a>.</p></div></div></div>
+
+        <h4 class="mt-4">UTP Photos in Abingdon</h4>
+        <p>These images keep the Abingdon grouping from Thames at War, including the A2 stretch, Abingdon Bridge, Abingdon Football Club and the review by Sir Ralph Glyn.</p>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-bridge-induna-returning-from-patrol-august-1940.png" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-bridge-induna-returning-from-patrol-august-1940.png"><img src="images/upper-thames-patrol/abingdon-bridge-induna-returning-from-patrol-august-1940.png" alt="Upper Thames Patrol returning to Abingdon Bridge on Induna in August 1940"></a><figcaption><strong>Upper Thames Patrol returns to Abingdon Bridge, August 1940</strong> Scene above Abingdon Bridge, Berkshire. The UTP returns from patrol on <em>Induna</em>; note the two airmen standing on the right from RAF Abingdon.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-induna-august-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-induna-august-1940.jpg"><img src="images/upper-thames-patrol/abingdon-induna-august-1940.jpg" alt="Abingdon UTP on motor launch Induna"></a><figcaption><strong>Abingdon, August bank holiday 1940</strong> Early Abingdon UTP photograph downstream of Abingdon Bridge on the motor launch <em>Induna</em>, A2 stretch boat number 4.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-sid-thomas-angela-percy-smith.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-sid-thomas-angela-percy-smith.jpg"><img src="images/upper-thames-patrol/abingdon-sid-thomas-angela-percy-smith.jpg" alt="Sid Thomas, Angela and Percy Smith near Abingdon"></a><figcaption><strong>Downstream of Abingdon Bridge</strong> Sid Thomas with his daughter Angela, the patrol mascot, alongside skipper Percy Smith.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-review-sir-ralph-glyn-15-september-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-review-sir-ralph-glyn-15-september-1940.jpg"><img src="images/upper-thames-patrol/abingdon-review-sir-ralph-glyn-15-september-1940.jpg" alt="A2 stretch launches passing for review by Sir Ralph Glyn"></a><figcaption><strong>Review by Sir Ralph Glyn</strong> A2 stretch launches pass downstream after assembling upstream towards Abingdon Lock, 15 September 1940.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-flotilla-after-review.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-flotilla-after-review.jpg"><img src="images/upper-thames-patrol/abingdon-flotilla-after-review.jpg" alt="Abingdon UTP flotilla alongside after review"></a><figcaption><strong>After the review</strong> The flotilla comes alongside to embark Sir Ralph Glyn and senior officers before manoeuvres towards Culham Lock.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/second-lt-percy-smith.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/second-lt-percy-smith.jpg"><img src="images/upper-thames-patrol/second-lt-percy-smith.jpg" alt="Second Lieutenant Percy Smith"></a><figcaption><strong>Second Lt. Percy Smith</strong> Percy Smith of Shilford Manor Farm, Witney, was in charge of the Abingdon stretch.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-utp-football-club-group.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-utp-football-club-group.jpg"><img src="images/upper-thames-patrol/abingdon-utp-football-club-group.jpg" alt="Abingdon UTP group at Abingdon Football Club"></a><figcaption><strong>Abingdon Football Club HQ</strong> Early group photograph at the Abingdon UTP headquarters, with named members recorded in the original caption.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-utp-football-club-group-2.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-utp-football-club-group-2.jpg"><img src="images/upper-thames-patrol/abingdon-utp-football-club-group-2.jpg" alt="Second Abingdon UTP group photograph"></a><figcaption><strong>Abingdon group</strong> Another group photograph of Abingdon UTP members at Abingdon Football Club.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/abingdon-instructional-course.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/abingdon-instructional-course.jpg"><img src="images/upper-thames-patrol/abingdon-instructional-course.jpg" alt="Abingdon UTP instructional course"></a><figcaption><strong>Instructional course</strong> Abingdon members after training, with a regular soldier instructor seated near Lt. Percy Smith.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">UTP Photos, Marlow and Windsor</h4>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/old-windsor-lock-helmsman.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/old-windsor-lock-helmsman.jpg"><img src="images/upper-thames-patrol/old-windsor-lock-helmsman.jpg" alt="UTP helmsman on a cruiser near Old Windsor Lock"></a><figcaption><strong>Old Windsor Lock</strong> UTP helmsman aboard a cruiser, possibly entering Old Windsor Lock.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/upper-thames-patrol-entering-old-windsor-lock.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/upper-thames-patrol-entering-old-windsor-lock.jpg"><img src="images/upper-thames-patrol/upper-thames-patrol-entering-old-windsor-lock.jpg" alt="Upper Thames Patrol boats entering Old Windsor Lock"></a><figcaption><strong>Entering Old Windsor Lock</strong> The Upper Thames Patrol, the Home Guard Navy, entering Old Windsor Lock.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/marlow-weir-inspection.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/marlow-weir-inspection.jpg"><img src="images/upper-thames-patrol/marlow-weir-inspection.jpg" alt="Middlesex UTP members inspecting Marlow weir in 1942"></a><figcaption><strong>Marlow weir, 1942</strong> Members of the UTP Middlesex 31st Battalion inspect Marlow weir; one carries a Browning automatic rifle.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/cliveden-reach-patrol.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/cliveden-reach-patrol.jpg"><img src="images/upper-thames-patrol/cliveden-reach-patrol.jpg" alt="UTP patrol at Cliveden Reach"></a><figcaption><strong>Cliveden Reach</strong> UTP patrol near Maidenhead.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/windsor-home-park-mooring-line.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/windsor-home-park-mooring-line.jpg"><img src="images/upper-thames-patrol/windsor-home-park-mooring-line.jpg" alt="UTP crew holding a mooring line at Windsor Home Park"></a><figcaption><strong>Windsor Home Park</strong> UTP crew holding a mooring line.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/windsor-home-park-arrival.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/windsor-home-park-arrival.jpg"><img src="images/upper-thames-patrol/windsor-home-park-arrival.jpg" alt="Boat arriving at Windsor Home Park for inspection"></a><figcaption><strong>Inspection parade</strong> A boat arrives at Windsor Home Park for an inspection parade.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/windsor-home-park-boats-moored.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/windsor-home-park-boats-moored.jpg"><img src="images/upper-thames-patrol/windsor-home-park-boats-moored.jpg" alt="UTP boats moored at Windsor Home Park"></a><figcaption><strong>Ready for inspection</strong> Boats moored at Windsor Home Park before inspection.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/yeomanry-house-reading-hq-staff.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/yeomanry-house-reading-hq-staff.jpg"><img src="images/upper-thames-patrol/yeomanry-house-reading-hq-staff.jpg" alt="UTP headquarters staff at Yeomanry House Reading"></a><figcaption><strong>HQ staff</strong> UTP headquarters staff photographed at Yeomanry House, Reading.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/staines-lady-isobel-phoenix-pub.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/staines-lady-isobel-phoenix-pub.jpg"><img src="images/upper-thames-patrol/staines-lady-isobel-phoenix-pub.jpg" alt="Staines UTP group with launch Lady Isobel"></a><figcaption><strong>Staines and Lady Isobel</strong> Members of numbers 4 and 6 platoon near Staines with the launch <em>Lady Isobel</em>, also a Dunkirk Little Ship; their meeting room was the Phoenix pub.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">UTP Photos, Women</h4><p>Women worked with the UTP from 1940, despite wider War Office restrictions on women enrolling in the Local Defence Volunteers and later Home Guard. The UTP's use of women as helms and crew is one of the most distinctive parts of its story.</p>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/women-bermuda-maidenhead.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/women-bermuda-maidenhead.jpg"><img src="images/upper-thames-patrol/women-bermuda-maidenhead.jpg" alt="Mrs P Bartlett and Mrs W C Thiele in launch Bermuda near Maidenhead"></a><figcaption><strong>Launch Bermuda, Maidenhead, January 1941</strong> Mrs W C Thiele (right) and Mrs P Bartlett were helmsmen of patrol launches of the Upper Thames Patrol. Photographed at Maidenhead, where they had been on active service since the inception of the UTP. Photo by Watford/Mirrorpix/Mirrorpix via Getty Images.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/lieutenant-thiele-night-patrol-briefing-maidenhead-1941.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/lieutenant-thiele-night-patrol-briefing-maidenhead-1941.jpg"><img src="images/upper-thames-patrol/lieutenant-thiele-night-patrol-briefing-maidenhead-1941.jpg" alt="Lieutenant Thiele briefing Mrs W C Thiele and Mrs P Bartlett for night patrol duty at Maidenhead in January 1941"></a><figcaption><strong>Night patrol briefing, Maidenhead, January 1941</strong> Mrs W C Thiele (right) and Mrs P Bartlett, helmsmen of Upper Thames Patrol launches, receive instructions from Lieutenant Thiele for their night patrol duty. They had been on active service at Maidenhead since the inception of the UTP.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-ladies-maidenhead-bermuda.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-ladies-maidenhead-bermuda.jpg"><img src="images/upper-thames-patrol/utp-ladies-maidenhead-bermuda.jpg" alt="Upper Thames Patrol ladies aboard Bermuda at Maidenhead"></a><figcaption><strong>UTP ladies at Maidenhead</strong> Women of the Upper Thames Patrol aboard <em>Bermuda</em> near Maidenhead.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/women-utp-128.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/women-utp-128.jpg"><img src="images/upper-thames-patrol/women-utp-128.jpg" alt="Women associated with the Upper Thames Patrol"></a><figcaption><strong>Women in the UTP</strong> Women worked as unofficial auxiliaries before official Home Guard arrangements for women were introduced.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/women-utp-213a.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/women-utp-213a.jpg"><img src="images/upper-thames-patrol/women-utp-213a.jpg" alt="Upper Thames Patrol women archive photograph"></a><figcaption><strong>Unofficial auxiliaries</strong> Archive photograph from the Thames at War women category.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/women-utp-214.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/women-utp-214.jpg"><img src="images/upper-thames-patrol/women-utp-214.jpg" alt="Upper Thames Patrol women archive photograph"></a><figcaption><strong>UTP women's contribution</strong> Archive photograph from the Thames at War women category.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">A1 Stretch, Swinford to Osney</h4>
+        <p>This group of photographs was shared to help identify the story behind a UTP member from A1 Stretch, the section between Swinford and Osney, Oxford. The main group photograph is believed to show the stand-down parade at Swinford Waterworks in late November or early December 1944. He lived at Farmoor Bungalows, housing for GWR workers within easy walking distance of Swinford. He had previously served in the Merchant Navy during the First World War, was a prisoner of war from 1916 to 1918, and had served on SS <em>Mount Temple</em>, a ship associated with the rescue efforts after the Titanic disaster.</p>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/swinford-waterworks-stand-down-parade-a1-stretch-1944.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/swinford-waterworks-stand-down-parade-a1-stretch-1944.jpg"><img src="images/upper-thames-patrol/swinford-waterworks-stand-down-parade-a1-stretch-1944.jpg" alt="A1 Stretch Upper Thames Patrol stand-down parade at Swinford Waterworks in late 1944"></a><figcaption><strong>Swinford Waterworks stand-down parade, late 1944</strong> Believed to show the A1 Stretch stand-down parade at Swinford Waterworks in late November or early December 1944.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/a1-stretch-swinford-utp-member-farmoor.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/a1-stretch-swinford-utp-member-farmoor.jpg"><img src="images/upper-thames-patrol/a1-stretch-swinford-utp-member-farmoor.jpg" alt="Upper Thames Patrol A1 Stretch member connected with Farmoor Bungalows and Swinford"></a><figcaption><strong>A1 Stretch member</strong> The UTP member lived at Farmoor Bungalows, built for GWR workers, close enough to walk to Swinford and the A1 Stretch patrol area.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-home-guard-badges-a1-stretch.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-home-guard-badges-a1-stretch.jpg"><img src="images/upper-thames-patrol/utp-home-guard-badges-a1-stretch.jpg" alt="Upper Thames Patrol and Home Guard badges and armbands"></a><figcaption><strong>UTP and Home Guard insignia</strong> Home Guard badges, armbands and UTP shoulder titles associated with this A1 Stretch group.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/merchant-navy-ww1-medals-utp-member.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/merchant-navy-ww1-medals-utp-member.jpg"><img src="images/upper-thames-patrol/merchant-navy-ww1-medals-utp-member.jpg" alt="First World War and Merchant Navy medals connected with an Upper Thames Patrol member"></a><figcaption><strong>First World War service</strong> Medals connected with the same man, reflecting earlier Merchant Navy service and imprisonment as a POW from 1916 to 1918.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/ss-mount-temple-merchant-navy-context.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/ss-mount-temple-merchant-navy-context.jpg"><img src="images/upper-thames-patrol/ss-mount-temple-merchant-navy-context.jpg" alt="SS Mount Temple, Merchant Navy ship connected with Titanic rescue efforts"></a><figcaption><strong>SS Mount Temple</strong> His First World War Merchant Navy service included SS <em>Mount Temple</em>, a ship remembered for helping with the rescue efforts after the Titanic disaster.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">UTP Photos, General</h4>
+        <h5 class="mt-4">General Patrol Views</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/sir-price-davies-shore-patrol.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/sir-price-davies-shore-patrol.jpg"><img src="images/upper-thames-patrol/sir-price-davies-shore-patrol.jpg" alt="Sir Price-Davies VC with Upper Thames Patrol officers"></a><figcaption><strong>Shore patrol command</strong> Sir Price-Davies VC, UTP shore patrol commander, with staff officer and a major general.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/henley-shiplake-lock-review-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/henley-shiplake-lock-review-1940.jpg"><img src="images/upper-thames-patrol/henley-shiplake-lock-review-1940.jpg" alt="Thomas Ashley Church and Richard Hobbs preparing for UTP review"></a><figcaption><strong>Shiplake Lock, 28 July 1940</strong> Thomas Ashley Church and Richard Hobbs prepare to join the UTP review at Henley Sailing Club, Wargrave.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/cookham-lock-cruisers.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/cookham-lock-cruisers.jpg"><img src="images/upper-thames-patrol/cookham-lock-cruisers.jpg" alt="UTP cruisers entering Cookham Lock"></a><figcaption><strong>Cookham Lock</strong> UTP cruisers entering the lock with BAR and P17 rifles visible.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/cookham-lock-crew.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/cookham-lock-crew.jpg"><img src="images/upper-thames-patrol/cookham-lock-crew.jpg" alt="UTP crew manning Cookham Lock"></a><figcaption><strong>Manning Cookham Lock</strong> UTP crew working at the lock.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/wargrave-inspection-8-april-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/wargrave-inspection-8-april-1940.jpg"><img src="images/upper-thames-patrol/wargrave-inspection-8-april-1940.jpg" alt="Rear Admiral Sir Basil Brooke inspecting UTP boats near Wargrave"></a><figcaption><strong>Wargrave, 8 April 1940</strong> Rear Admiral Sir Basil Brooke takes the salute during an inspection of UTP boats near Henley.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/utp-semaphore-flags.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/utp-semaphore-flags.jpg"><img src="images/upper-thames-patrol/utp-semaphore-flags.jpg" alt="Upper Thames Patrol member using semaphore flags"></a><figcaption><strong>Semaphore</strong> A UTP member using semaphore flags.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/old-windsor-lock-dalhousie.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/old-windsor-lock-dalhousie.jpg"><img src="images/upper-thames-patrol/old-windsor-lock-dalhousie.jpg" alt="UTP boats in Old Windsor Lock including Dalhousie"></a><figcaption><strong>Old Windsor Lock</strong> UTP boats in the lock, including one named <em>Dalhousie</em>.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">George Allison at Teddington</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/george-allison-teddington-utp-18-august-1940.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/george-allison-teddington-utp-18-august-1940.jpg"><img src="images/upper-thames-patrol/george-allison-teddington-utp-18-august-1940.jpg" alt="George Allison joins an Upper Thames Patrol flotilla at Teddington on 18 August 1940"></a><figcaption><strong>Teddington, 18 August 1940</strong> George Allison (1883-1957), manager of Arsenal Football Club, stands on the riverbank as he joins a flotilla of river cruisers and motorboats of the Upper Thames Patrol on the River Thames at Teddington, Berkshire. Photo by M. McNeill/Fox Photos/Hulton Archive/Getty Images.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/george-allison-at-wheel-ldv-utp.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/george-allison-at-wheel-ldv-utp.jpg"><img src="images/upper-thames-patrol/george-allison-at-wheel-ldv-utp.jpg" alt="George Allison at the wheel of an Upper Thames Patrol launch"></a><figcaption><strong>George Allison at the wheel</strong> The man at the wheel is George Allison, manager at the time of Arsenal Football Club, wearing an LDV armband while aboard an Upper Thames Patrol launch.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/george-allison-boarding-utp-launch.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/george-allison-boarding-utp-launch.jpg"><img src="images/upper-thames-patrol/george-allison-boarding-utp-launch.jpg" alt="George Allison boarding an Upper Thames Patrol launch with LDV members"></a><figcaption><strong>George Allison and LDV crew</strong> George Allison boards an Upper Thames Patrol launch among Local Defence Volunteers, connecting the patrol's river work with the early Home Guard period.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">Sea Dawn and George Raymond Garlick</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/seadawn-osney-lock-oxford-utp.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/seadawn-osney-lock-oxford-utp.jpg"><img src="images/upper-thames-patrol/seadawn-osney-lock-oxford-utp.jpg" alt="Seadawn, an Oxford Upper Thames Patrol boat based at Osney Lock"></a><figcaption><strong>Sea Dawn, A1 Stretch</strong> <em>Sea Dawn</em> served with the Upper Thames Patrol, the Home Guard Navy, on A1 Stretch from Lechlade to Oxford. The original owner was from the Radley area: George Raymond Garlick, born 1914, a mechanic in a reserved occupation. <em>Sea Dawn</em> was based at Osney Lock, Oxford, crewed by officers and boys from the Oxford Sea Cadet Corps, and after the war was used by the Sea Cadet Corps for training until the 1960s.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/sea-dawn-osney-lock-garlick-batch.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/sea-dawn-osney-lock-garlick-batch.jpg"><img src="images/upper-thames-patrol/sea-dawn-osney-lock-garlick-batch.jpg" alt="Sea Dawn from the Upper Thames Patrol A1 Stretch"></a><figcaption><strong>Sea Dawn photograph</strong> The later supplied photograph of <em>Sea Dawn</em>, connected with George Raymond Garlick and A1 Stretch from Lechlade to Oxford.</figcaption></figure>
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/george-raymond-garlick-home-guard-certificate.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/george-raymond-garlick-home-guard-certificate.jpg"><img src="images/upper-thames-patrol/george-raymond-garlick-home-guard-certificate.jpg" alt="Home Guard service certificate for George Raymond Garlick, connected with Sea Dawn"></a><figcaption><strong>George Raymond Garlick certificate</strong> Home Guard service certificate associated with <em>Sea Dawn</em>'s original owner, George Raymond Garlick of the Radley area.</figcaption></figure>
+        </div>
+        <h5 class="mt-4">Baby Greyhound, UTP HQ Launch</h5>
+        <div class="utp-photo-grid">
+            <figure class="utp-photo-card"><a href="images/upper-thames-patrol/baby-greyhound-utp-hq-launch-spring-1944.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/baby-greyhound-utp-hq-launch-spring-1944.jpg"><img src="images/upper-thames-patrol/baby-greyhound-utp-hq-launch-spring-1944.jpg" alt="Baby Greyhound, Upper Thames Patrol HQ launch, near Windsor in spring 1944"></a><figcaption><strong>Baby Greyhound, UTP HQ launch, spring 1944</strong> <em>Baby Greyhound</em>, a 50 ft slipper launch and reputedly the largest slipper launch ever built, was requisitioned by the UTP in 1942. The bow shows a UTP HQ sign and Windsor Castle can just be seen in the background. US officers are on board, including General Eisenhower, General J. Lawton Collins, known as Lightning Joe, and Chief of Staff Walter Bedell Smith; Winston Churchill may also be present, as he was in the area at the time. Note the Red Ensign and the Lewis gun mountings on the foredeck. The launch is currently offered for sale at £180,000.</figcaption></figure>
+        </div>
+
+        <h4 class="mt-4">Upper Thames Patrol Boat Plaques</h4>
+        <h5 class="mt-4">Imara: a surviving UTP boat</h5>
+        <p><em>Imara</em> was rescued from destruction by Paul Hadley, who later discovered that the boat had an Upper Thames Patrol connection. A follow-up visit and original photographs of the boat in use by the UTP at Windsor have since helped confirm the identification, possibly during the King's inspection at Windsor Home Park in 1943 or 1944.</p>
+        <p><em>Imara</em> was bought new around the late 1930s and was berthed near the Leathern Bottle above Cleeve Lock, near Goring on the River Thames. She was requisitioned by the UTP in 1942 and returned after the war, remaining with the same family for just over 80 years.</p>
+        <p>Her survival is especially significant because she still has a service plaque, a rare survival in its own right. Current research suggests that <em>Imara</em> may be the eighth known surviving UTP boat out of 260, with seven survivors in the UK and one in California, USA.</p>
+        <div class="row align-items-start mt-4">
+            <div class="col-lg-6 mb-4">
+                <a href="images/upper-thames-patrol/upper-thames-patrol-vinia-plaque-1939-1945.jpg" data-toggle="modal" data-target="#imageModal" data-img-src="images/upper-thames-patrol/upper-thames-patrol-vinia-plaque-1939-1945.jpg"><img src="images/upper-thames-patrol/upper-thames-patrol-vinia-plaque-1939-1945.jpg" alt="Upper Thames Patrol 1939 to 1945 plaque engraved VINIA" class="img-fluid img-thumbnail"></a>
+            </div>
+            <div class="col-lg-6">
+                <p>At the end of the Second World War, plaques were issued to launches that had taken part in the Upper Thames Patrol. Each plaque was engraved with the boat's name, making it unique to that particular vessel.</p>
+                <p>This example is engraved <em>VINIA</em>. The type of launch <em>VINIA</em> was has not yet been identified, and it would be especially valuable to trace surviving examples belonging to slipper launches.</p>
+                <p>Slipper launches known to have served in the UTP include:</p>
+                <ul>
+                    <li><em>Baby Greyhound</em> - Andrews</li>
+                    <li><em>Lake Lucerne</em> - Andrews</li>
+                    <li><em>Toorak</em> - Andrews</li>
+                    <li><em>Lusimus</em> - Meakes</li>
+                    <li><em>Golden Wedding</em> - Hobbs</li>
+                </ul>
+                <p>There were many more, particularly Meakes launches. John Hobbs, proprietor of Meakes of Marlow, served as a lieutenant in the Upper Thames Patrol.</p>
+            </div>
+        </div>
+
+        <h4 class="mt-4">Sources</h4><ul class="utp-source-list"><li><a href="http://www.thamesatwar.co.uk/3.html" target="_blank" rel="noopener noreferrer">The Thames at War: Upper Thames Patrol</a></li><li><a href="http://www.thamesatwar.co.uk/4.html" target="_blank" rel="noopener noreferrer">The Thames at War: UTP Photos in Abingdon</a></li><li><a href="http://www.thamesatwar.co.uk/6.html" target="_blank" rel="noopener noreferrer">The Thames at War: UTP Photos, Marlow / Windsor</a></li><li><a href="http://www.thamesatwar.co.uk/14.html" target="_blank" rel="noopener noreferrer">The Thames at War: UTP Photos, Women</a></li><li><a href="http://www.thamesatwar.co.uk/13.html" target="_blank" rel="noopener noreferrer">The Thames at War: UTP Photos, General</a></li><li><a href="https://doingtheirbit.co.uk/upper-thames-patrol" target="_blank" rel="noopener noreferrer">Doing Their Bit: Upper Thames Patrol</a></li><li><a href="https://doingtheirbit.co.uk/main-display" target="_blank" rel="noopener noreferrer">Doing Their Bit: Educational Display</a></li><li><a href="https://thames250exhibition.com/the-thames-in-wartime/" target="_blank" rel="noopener noreferrer">Thames 250 Exhibition: The Thames in Wartime</a></li></ul>
+    </section>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="imageModalLabel">Upper Thames Patrol</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><img src="" id="modalImage" class="img-fluid" alt="Upper Thames Patrol"></div></div></div></div>
+    <aside class="floating-social" data-floating-social aria-label="Follow Gerfalcon on social media">
+        <button class="floating-social-close" type="button" data-floating-social-close aria-label="Close social media panel">&times;</button>
+        <h5>Stay connected</h5>
+        <p>Follow Gerfalcon's restoration, voyages and Dunkirk Little Ship updates.</p>
+        <div class="floating-social-links">
+            <a href="https://instagram.com/gerfalcon.dunkirk.little.ship" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="https://x.com/GerfalconShip" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i> X</a>
+            <a href="https://www.facebook.com/gerfalconship" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Facebook</a>
+        </div>
+    </aside>
+
+    <div class="cookie-notice" data-cookie-notice role="dialog" aria-live="polite" aria-label="Cookie notice">
+        <p>We use strictly necessary cookies to run this website and optional analytics cookies to understand site usage. You can accept or decline optional cookies.</p>
+        <div class="cookie-actions">
+            <button type="button" data-cookie-choice="accepted">Accept</button>
+            <button type="button" data-cookie-choice="declined">Decline</button>
+        </div>
+    </div>
+    <footer class="footer bg-dark py-4" id="contact"><div class="container container-white-alpha"><div class="text-center"><h4>Contact and More Information</h4><p>Contact <a href="mailto:skipper@gerfalcon.navy">skipper@gerfalcon.navy</a> for more information.</p></div></div></footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('click', function (event) {
+            var trigger = event.target.closest('[data-img-src]');
+            if (!trigger) return;
+            var modalImage = document.getElementById('modalImage');
+            if (modalImage) modalImage.setAttribute('src', trigger.getAttribute('data-img-src'));
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cookieNotice = document.querySelector('[data-cookie-notice]');
+            var cookieChoice = localStorage.getItem('gerfalconCookieChoice');
+            if (cookieNotice && cookieChoice) {
+                cookieNotice.style.display = 'none';
+            }
+
+            document.querySelectorAll('[data-cookie-choice]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    localStorage.setItem('gerfalconCookieChoice', button.getAttribute('data-cookie-choice'));
+                    if (cookieNotice) cookieNotice.style.display = 'none';
+                });
+            });
+
+            var socialPanel = document.querySelector('[data-floating-social]');
+            localStorage.removeItem('gerfalconSocialPanelClosed');
+
+            var socialClose = document.querySelector('[data-floating-social-close]');
+            if (socialClose && socialPanel) {
+                socialClose.addEventListener('click', function () {
+                    socialPanel.style.display = 'none';
+                });
+            }
+        });
+    </script>
+    <script src="js/mobile-nav.js"></script>
+
+
+    <script src="js/clickable-images.js"></script>
+</body>
+</html>
